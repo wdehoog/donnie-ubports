@@ -1,0 +1,9 @@
+[submodule "libs/ergo"]
+	path = libs/ergo
+	url = https://gitlab.com/dobey/ergo.git
+[submodule "libs/libupnpp"]
+	path = libs/libupnpp
+	url = https://opensourceprojects.eu/git/p/libupnpp/code
+[submodule "libs/npupnp"]
+	path = libs/npupnp
+	url = https://opensourceprojects.eu/git/p/npupnp/code
