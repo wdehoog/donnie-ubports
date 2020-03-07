@@ -1,0 +1,46 @@
+{
+  "template": "cmake",
+  "kill": "donnie",
+  "dependencies_target": [
+      "libmicrohttpd10", "libmicrohttpd-dev"
+  ],
+  "libraries": {
+     "ergo": {
+       "template": "cmake",
+       "build_args": [
+          "-DCLICK_MODE=on"
+       ]
+     },
+     "npupnp": {
+            "template": "custom",
+            "dependencies_host": [
+                  "automake","libtool"
+            ],
+            "dependencies_target": [
+                  "libcurl4-openssl-dev","libexpat1-dev","libmicrohttpd-dev"
+            ],
+            "build": "cd $SRC_DIR && ./bootstrap && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make install"
+     },
+     "libupnpp": {
+            "template": "custom",
+            "dependencies_host": [
+                  "automake","libtool"
+            ],
+            "dependencies_target": [
+                  "libcurl4-openssl-dev","libexpat1-dev"
+            ],
+            "env_vars": {
+              "PKG_CONFIG_PATH": "$BUILD_DIR/../npupnp/install/lib/pkgconfig"
+            },
+            "build": "cd $SRC_DIR && ./autogen.sh && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make install"
+     }
+  },
+  "install_lib": [
+     "$ergo_LIB_INSTALL_DIR/lib/$ARCH_TRIPLET/*",
+     "$npupnp_LIB_INSTALL_DIR/lib/*",
+     "$libupnpp_LIB_INSTALL_DIR/lib/*"
+  ],
+  "install_data": {
+     "$ergo_LIB_INSTALL_DIR/share": "${INSTALL_DIR}"
+  }
+}
