@@ -40,6 +40,7 @@ else()
     )
 endif()
 
+include_directories(src/)
 #link_directories(/usr/lib/${ARCH_TRIPLET})
 
 # libupnpp
