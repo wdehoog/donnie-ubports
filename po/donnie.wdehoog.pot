@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-08 09:22+0000\n"
+"POT-Creation-Date: 2020-03-09 19:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,12 +25,20 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../qml/Main.qml:59 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:65 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:164
+#: ../qml/Main.qml:141
 msgid "Error"
+msgstr ""
+
+#: ../qml/pages/Discovery.qml:29
+msgid "Reload"
+msgstr ""
+
+#: ../qml/pages/Browse.qml:38
+msgid "UPnP Browser"
 msgstr ""
 
 #: ../qml/pages/Menu.qml:39

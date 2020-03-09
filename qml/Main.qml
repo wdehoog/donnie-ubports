@@ -5,22 +5,21 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtMultimedia 5.9
 import QtQuick.Window 2.0
+import Qt.labs.settings 1.0 as QLS
 
 import "components"
 
 Window {
     id: app
     objectName: 'mainView'
-    //applicationName: 'donnie.wdehoog'
-    //automaticOrientation: true
+
+    property alias settings: settings
 
     // for desktop testing
     width: units.dp(480)
     height: units.dp(640)
 
     // Use these colors for the UI.
-    //readonly property color bgColor: "#232323"
-    //readonly property color fgColor: "#efefef"
     readonly property color fgColor: "#232323"
     readonly property color bgColor: "#efefef"
 
@@ -28,9 +27,16 @@ Window {
     property color text2color: "#333333" // some dark grey 
     property color text3color: "#aea79f" // some light grey 
 
+    property color primaryColor: text1color
+    property color secondaryColor: text2color
+
     property int fontPixelSizeLarge: units.dp(14)
     property int fontPixelSizeMedium: units.dp(12)
     property int fontPixelSizeSmall: units.dp(10)
+
+    property int fontSizeLarge: fontPixelSizeLarge
+    property int fontSizeMedium: fontPixelSizeMedium 
+    property int fontSizeSmall:  fontPixelSizeSmall
 
     //
     // UI stuff
@@ -111,8 +117,15 @@ Window {
           audio.play()
     }
     
-    function reload() {
-        //channelsModel.reload()
+    function doSelectedMenuItem(id) {
+        switch(id) {
+            case "upnp-discovery": 
+                pageStack.push(Qt.resolvedUrl("pages/Discovery.qml"))
+                break
+            case "upnp-browser": 
+                pageStack.push(Qt.resolvedUrl("pages/Browser.qml"))
+                break
+        }
     }
 
     function showMessageDialog(title, text) {
@@ -248,5 +261,19 @@ Window {
             app.error(msg);
             //showBusy = false; // VISIT only one could fail
         }
+    }
+
+    //
+    //
+    //
+    QLS.Settings {
+        id: settings
+
+        property int search_window: 5
+        property string server_udn : ""
+        property string server_friendlyname : ""
+        property string server_use_nexturi : ""
+        property string renderer_udn : ""
+        property string renderer_friendlyname : ""
     }
 }

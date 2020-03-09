@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Willem-Jan de Hoog
+ * Copyright (C) 2020 Willem-Jan de Hoog
  *
  * License: MIT
  */
@@ -18,7 +18,7 @@ Page {
     objectName: "MenuPage"
 
     property bool popOnExit: true
-    property int selectedMenuItem: -1
+    property string selectedMenuItem: ""
     property int _currentIndex: -1
     property bool _started: false
 
@@ -52,8 +52,8 @@ Page {
     }
 
     Component.onCompleted: {
-        menuModel.append({hutspotMenuItem: "UPnP Browser",
-                          name: ("Browser"),
+        menuModel.append({menuItem: "upnp-discovery",
+                          name: ("UPnP Discovery"),
                           icon: "image://theme/view-list-symbolic"
                          })
         /*menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowLibraryPage,
