@@ -30,15 +30,17 @@
                   "libcurl4-openssl-dev","libexpat1-dev"
             ],
             "env_vars": {
+              "CFLAGS": "-DHAVE_GETIFADDRS",
               "PKG_CONFIG_PATH": "$BUILD_DIR/../npupnp/install/lib/pkgconfig"
             },
-            "build": "cd $SRC_DIR && ./autogen.sh && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make install"
+            "build": "cd $SRC_DIR && ./autogen.sh && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make clean && make install"
      }
   },
   "install_lib": [
      "$ergo_LIB_INSTALL_DIR/lib/$ARCH_TRIPLET/*",
      "$npupnp_LIB_INSTALL_DIR/lib/*",
-     "$libupnpp_LIB_INSTALL_DIR/lib/*"
+     "$libupnpp_LIB_INSTALL_DIR/lib/*",
+     "/usr/lib/${ARCH_TRIPLET}/libmicrohttpd.so*"
   ],
   "install_data": {
      "$ergo_LIB_INSTALL_DIR/share": "${INSTALL_DIR}"
