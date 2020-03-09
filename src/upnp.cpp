@@ -68,6 +68,7 @@ void UPNP::init(int search_window) {
     if(!libUPnP || !libUPnP->ok()) {
         libUPnP = UPnPP::LibUPnP::getLibUPnP(false, 0, "wlan0");
         if (!libUPnP || !libUPnP->ok()) {
+            std::cerr << "init failed to create libUPnP 1st try" << std::endl;
             if (libUPnP)
                 std::cerr << libUPnP->errAsString("init", libUPnP->getInitError()) << std::endl;
             // try second time without specifying iface
@@ -86,10 +87,9 @@ void UPNP::init(int search_window) {
             }
         }
         if (libUPnP && libUPnP->ok()) {
-            libUPnP->setLogFileName("/home/nemo/.donnie.log", UPnPP::LibUPnP::LogLevelDebug);
-    //        Logger::getTheLog("/home/nemo/.donnie.log")->setLogLevel(Logger::LLDEB1);
-    //        if (Logger::getTheLog("stderr") == 0)
-    //            std::cerr << "Can't initialize log" << std::endl;
+            //libUPnP->setLogFileName("/home/phablet/.donnie.log", UPnPP::LibUPnP::LogLevelDebug);
+            Logger::getTheLog("stderr")->setLogLevel(Logger::LLDEB1);
+            std::cerr << "libUPnP ok: " << libUPnP->host() << std::endl;
         }
     }
 
