@@ -218,6 +218,24 @@ Window {
         return res;
     }
 
+    function searchForRendererAndServer() {
+        var started = false
+        // check if configured renderer and server can be reached
+        if(settings.renderer_friendlyname && settings.renderer_udn !== "donnie-player-udn") {
+            upnp.getRendererJson(settings.renderer_friendlyname, settings.search_window)
+            started = true
+        }
+        else if(settings.renderer_friendlyname && settings.renderer_udn === "donnie-player-udn")
+            app.useBuiltInPlayer = true
+        if(settings.server_friendlyname) {
+            upnp.getServerJson(settings.server_friendlyname, settings.search_window)
+            started = true
+        }
+        //showBusy = started
+    }
+    
+    Component.onCompleted: searchForRendererAndServer()
+
     Connections {
         target: upnp
 
