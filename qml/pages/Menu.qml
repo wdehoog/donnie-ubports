@@ -28,6 +28,8 @@ Page {
         title: i18n.tr("Donnie") 
         //flickable: listView
 
+        leadingActions: [] // disable Back button
+
         trailingActions: [
             //Action {
             //    iconName: "help"
@@ -54,6 +56,10 @@ Page {
     Component.onCompleted: {
         menuModel.append({menuItem: "upnp-discovery",
                           name: ("UPnP Discovery"),
+                          icon: "image://theme/network-server-symbolic"
+                         })
+        menuModel.append({menuItem: "upnp-browse",
+                          name: ("Browse"),
                           icon: "image://theme/view-list-symbolic"
                          })
         /*menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowLibraryPage,

@@ -135,7 +135,7 @@ protected:
     UPnPClient::CDSH currentServer;
     UPnPClient::AVTH cavt;
 
-    //MprisPlayer *mprisPlayer;
+    MprisPlayer *mprisPlayer;
 
 };
 

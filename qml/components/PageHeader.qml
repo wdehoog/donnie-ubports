@@ -17,6 +17,13 @@ Rectangle  {
         width: parent.width
         height: parent.height - 1
         anchors.top: parent.top
+        leadingActions: [
+            Action {
+                iconName: "back"
+                text: i18n.tr("Back")
+                onTriggered: pageStack.pop()
+            }
+        ]
 
         Label { 
             text: title

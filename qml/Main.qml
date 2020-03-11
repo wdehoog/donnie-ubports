@@ -8,6 +8,9 @@ import QtQuick.Window 2.0
 import Qt.labs.settings 1.0 as QLS
 
 import "components"
+import "pages"
+
+import "UPnP.js" as UPnP
 
 Window {
     id: app
@@ -33,10 +36,12 @@ Window {
     property int fontPixelSizeLarge: units.dp(14)
     property int fontPixelSizeMedium: units.dp(12)
     property int fontPixelSizeSmall: units.dp(10)
+    property int fontPixelSizeExtraSmall: units.dp(8)
 
     property int fontSizeLarge: fontPixelSizeLarge
     property int fontSizeMedium: fontPixelSizeMedium 
-    property int fontSizeSmall:  fontPixelSizeSmall
+    property int fontSizeSmall: fontPixelSizeSmall
+    property int fontSizeExtraSmall: fontPixelSizeExtraSmall
 
     //
     // UI stuff
@@ -122,8 +127,8 @@ Window {
             case "upnp-discovery": 
                 pageStack.push(Qt.resolvedUrl("pages/Discovery.qml"))
                 break
-            case "upnp-browser": 
-                pageStack.push(Qt.resolvedUrl("pages/Browser.qml"))
+            case "upnp-browse": 
+                pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
                 break
         }
     }
@@ -147,18 +152,20 @@ Window {
     }
 
     function error(msg) {
-        console.log("error: " + msg);
+        console.log("error: " + msg)
         //errorLog.push(msg);
     }
 
-    property var discoveredRenderers : [];
-    property var discoveredServers : [];
+    property var discoveredRenderers : []
+    property var discoveredServers : []
+    property var currentBrowseStack : new UPnP.dataStructures.Stack()
     property var currentServer
     property var currentRenderer
     property var currentServerSearchCapabilities
-    property bool useBuiltInPlayer: true;
+    property bool useBuiltInPlayer: true
+
     function hasCurrentServer() {
-        return app.currentServer ? true : false;
+        return app.currentServer ? true : false
     }
 
     function setCurrentServer(server) {
@@ -270,6 +277,7 @@ Window {
         id: settings
 
         property int search_window: 5
+        property int max_number_of_results: 200
         property string server_udn : ""
         property string server_friendlyname : ""
         property string server_use_nexturi : ""
