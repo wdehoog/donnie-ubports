@@ -272,11 +272,11 @@ Window {
             //showBusy = false; // VISIT both should be done
 
             if(app.hasCurrentServer()) {
-                if(resume_saved_info.value === 1) // 0: never, 1: ask, 2:always
+                if(settings.resume_saved_info === 1) // 0: never, 1: ask, 2:always
                     app.showConfirmDialog(qsTr("Load previously saved queue?"), qsTr("Load"), function() {
                         loadResumeMetaData()
                     })
-                else if(resume_saved_info.value === 2)
+                else if(settings.resume_saved_info === 2)
                     loadResumeMetaData()
             }
         }
@@ -286,6 +286,35 @@ Window {
             app.error(msg);
             //showBusy = false; // VISIT only one could fail
         }
+    }
+
+    function saveLastBrowsingJSON() {
+        var i
+        var browseStackIds = []
+        for(i=1;i<currentBrowseStack.length();i++)
+            browseStackIds.push(currentBrowseStack.elements()[i].id)
+        settings.last_browsing_info = JSON.stringify(browseStackIds)
+    }
+
+    function saveLastPlayingJSON(currentTrack, trackListModel) {
+        /*
+          info.currentTrackId
+          info.queueTrackIds[]
+         */
+        var i
+        var lastPlayingInfo = {}
+        lastPlayingInfo.currentTrackId = currentTrack.id
+        lastPlayingInfo.queueTrackIds = []
+        for(i=0;i<trackListModel.count;i++) {
+            var item = trackListModel.get(i)
+            var info
+            if(item.dtype === UPnP.DonnieItemType.ContentServer)
+                info = { dtype: "cs", data: item.id}
+            else
+                info = { dtype: "ud", data: { title: item.title, uri: item.uri, streamType: item.upnpclass}}
+            lastPlayingInfo.queueTrackIds.push(info)
+        }
+        settings.last_playing_info = JSON.stringify(lastPlayingInfo)
     }
 
     //
@@ -301,5 +330,8 @@ Window {
         property string server_use_nexturi : ""
         property string renderer_udn : ""
         property string renderer_friendlyname : ""
+        property string last_browsing_info: ""
+        property string last_playing_info: ""
+        property int resume_saved_info: 0
     }
 }

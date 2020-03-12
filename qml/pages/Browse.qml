@@ -17,7 +17,7 @@ import "../components"
 import "../UPnP.js" as UPnP
 
 Page {
-    id: page
+    id: browsePage
 
     property bool showBusy: false
     property string cid : "" // current id
@@ -122,6 +122,23 @@ Page {
         id: pathListModel
     }
 
+    /*Text {
+        id: path
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.topMargin: Theme.paddingMedium
+        anchors.bottomMargin: Theme.paddingMedium
+        horizontalAlignment: Text.AlignRight
+        font.pixelSize: Theme.fontSizeLarge
+        color: Theme.highlightColor
+        elide: Text.ElideLeft
+        text: pathText
+        MouseArea {
+            anchors.fill: parent
+            onClicked: pageStack.push(menuDialogComponent)
+        }
+    }*/
+
     ListView {
         id: listView
         model: browseModel
@@ -203,31 +220,6 @@ Page {
 
             }
 
-            /*menu: contextMenu
-
-            Component {
-                id: contextMenu
-                ContextMenu {
-                    enabled: (listView.model.get(index).type === "Item")
-                    MenuItem {
-                        text: qsTr("Add To Player")
-                        onClicked: addToPlayer(listView.model.get(index));
-                    }
-                    MenuItem {
-                        text: qsTr("Replace In Player")
-                        onClicked: replaceInPlayer(listView.model.get(index));
-                    }
-                    MenuItem {
-                        text: qsTr("Add All To Player")
-                        onClicked: addAllToPlayer();
-                    }
-                    MenuItem {
-                        text: qsTr("Replace All In Player")
-                        onClicked: replaceAllInPlayer();
-                    }
-                }
-            }*/
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -245,11 +237,39 @@ Page {
                 }
             }
 
+            function openActionMenu() {
+                listItemMenu.show(index)
+            }
         }
 
         ScrollBar.vertical: ScrollBar {}
     }
 
+
+    ListItemMenu {
+        id: listItemMenu
+
+        property ListView listView: listView
+
+        actions: [
+            Action {
+                text: i18n.tr("Add To Player")
+                onTriggered: addToPlayer(listView.model.get(listItemMenu.index))
+            },
+            Action {
+                text: i18n.tr("Replace in To Player")
+                onTriggered: replaceInPlayer(listView.model.get(listItemMenu.index))
+            },
+            Action {
+                text: i18n.tr("Add All To Player")
+                onTriggered: addAllToPlayer(listView.model.get(listItemMenu.index))
+            },
+            Action {
+                text: i18n.tr("Replace All in Player")
+                onTriggered: replaceAllInPlayer(listView.model.get(listItemMenu.index))
+            }
+        ]
+    }
 
     // from ComboBox.qml
     /*Component {
