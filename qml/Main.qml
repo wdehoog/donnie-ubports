@@ -17,6 +17,7 @@ Window {
     objectName: 'mainView'
 
     property alias settings: settings
+    property alias audio: audio
 
     // for desktop testing
     width: units.dp(480)
@@ -102,7 +103,7 @@ Window {
         id: audio
 
         autoLoad: true
-        autoPlay: true
+        autoPlay: false
         //source: channelStreamUrl
 
         onPlaybackStateChanged: playerArea.audioPlaybackState = playbackState
@@ -154,6 +155,16 @@ Window {
     function error(msg) {
         console.log("error: " + msg)
         //errorLog.push(msg);
+    }
+
+    PlayerPage {
+        id: playerpage
+        visible: false
+        audio: audio
+    }
+
+    function getPlayerPage() {
+        return playerpage
     }
 
     property var discoveredRenderers : []
