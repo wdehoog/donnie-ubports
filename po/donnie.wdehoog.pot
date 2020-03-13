@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 17:59+0000\n"
+"POT-Creation-Date: 2020-03-13 20:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,12 +33,16 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:148
+#: ../qml/Main.qml:152
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:45
+#: ../qml/pages/PlayerPage.qml:46
 msgid "Built-In Player"
+msgstr ""
+
+#: ../qml/pages/PlayerPage.qml:465
+msgid "Remove"
 msgstr ""
 
 #: ../qml/pages/Discovery.qml:29

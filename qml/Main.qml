@@ -92,6 +92,7 @@ Window {
         id: playerArea
         height: visible ? childrenRect.height : 0
         audioPlaybackState: audio.playbackState
+        visible: pageStack.currentItem.objectName != "PlayerPage"
     }
 
     signal previous()
@@ -131,6 +132,9 @@ Window {
                 break
             case "upnp-browse": 
                 pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
+                break
+            case "builtin-player": 
+                pageStack.push(playerpage)
                 break
         }
     }

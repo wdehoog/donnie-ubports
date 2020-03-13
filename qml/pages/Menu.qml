@@ -62,32 +62,15 @@ Page {
                           name: ("Browse"),
                           icon: "image://theme/view-list-symbolic"
                          })
-        /*menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowLibraryPage,
-                          name: ("Library"),
-                          icon: "image://theme/view-list-symbolic"
+        menuModel.append({menuItem: "builtin-player",
+                          name: ("Player"),
+                          icon: "image://theme/stock_music"
                          })
-        menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowTopStuffPage,
-                          name: i18n.tr("Top"),
-                          icon: "image://theme/unlike"
-                         })
-        menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowGenreMoodPage,
-                          name: i18n.tr("Genre & Mood"),
-                          icon: "image://theme/weather-app-symbolic",
-                         })
-        menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowSearchPage,
+        /*menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowSearchPage,
                           name: i18n.tr("Search"),
                           icon: "image://theme/toolkit_input-search"
                          })
-        menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowHistoryPage,
-                          name: i18n.tr("History"),
-                          icon: "image://theme/history"
-                         })
-        menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowDevicesPage,
-                          name: i18n.tr("Devices"),
-                          icon: "image://theme/audio-speakers-symbolic",
-                          name: "devices"
-                                //"image://theme/audio-volume-muted-blocking-panel"
-                         })*/
+        */
     }
 
     ListView {

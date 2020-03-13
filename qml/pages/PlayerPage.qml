@@ -19,6 +19,7 @@ import "../UPnP.js" as UPnP
 
 Page {
     id: playerPage
+    objectName: "PlayerPage"
 
     property var audio
     property string defaultImageSource : "image://theme/stock_music"
@@ -249,6 +250,8 @@ Page {
                       anchors.horizontalCenter: parent.horizontalCenter
                       name: "media-skip-backward"
                       enabled: canPrevious
+                      width: app.iconSizeMedium
+                      height: width
                       MouseArea {
                           anchors.fill: parent
                           onClicked: prev()
@@ -259,6 +262,8 @@ Page {
                       anchors.horizontalCenter: parent.horizontalCenter
                       id: playIcon
                       name: playIconName
+                      width: app.iconSizeLarge
+                      height: width
                       MouseArea {
                           anchors.fill: parent
                           onClicked: pause()
@@ -269,6 +274,8 @@ Page {
                       anchors.horizontalCenter: parent.horizontalCenter
                       name: "media-skip-forward"
                       enabled: canNext
+                      width: app.iconSizeMedium
+                      height: width
                       MouseArea {
                           anchors.fill: parent
                           onClicked: next()
@@ -377,9 +384,8 @@ Page {
                 anchors.right: parent.right
                 color: "white"
             }*/
-        }
 
-        //VerticalScrollDecorator {}
+        }
 
         ListModel {
             id: trackListModel
@@ -390,8 +396,10 @@ Page {
             id: delegate
             width: parent.width - 2*app.paddingMedium
             x: app.paddingMedium
+            height: stuff.height
 
             Column {
+                id: stuff
                 width: parent.width
 
                 Item {
@@ -419,7 +427,7 @@ Page {
                 }
 
                 Label {
-                    color: app.primaryColor
+                    color: app.secondaryColor
                     font.weight: currentItem === index ? Font.Bold: Font.Normal
                     font.pixelSize: app.fontSizeExtraSmall
                     textFormat: Text.StyledText
@@ -431,33 +439,41 @@ Page {
 
             }
 
-            /*menu: contextMenu
+            function openActionMenu() {
+                listItemMenu.show(index)
+            }
 
-            Component {
-                id: contextMenu
-                ContextMenu {
-                    MenuItem {
-                        text: qsTr("Remove")
-                        onClicked: {
-                            var saveIndex = index;
-                            trackListModel.remove(index);
-                            if(currentItem === saveIndex) {
-                                currentItem--;
-                                next();
-                            } else if(currentItem > saveIndex)
-                                currentItem--;
-                        }
-                    }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    currentItem = index
+                    loadTrack(trackListModel.get(index))
                 }
-            }*/
-
-            /*onClicked: {
-                currentItem = index;
-                var track = trackListModel.get(index);
-                loadTrack(track);
-            }*/
+            }
         }
 
+        ScrollBar.vertical: ScrollBar {}
+    }
+
+    ListItemMenu {
+        id: listItemMenu
+
+        property ListView listView: listView
+
+        actions: [
+            Action {
+                text: i18n.tr("Remove")
+                onTriggered: {
+                    var saveIndex = index
+                    trackListModel.remove(index)
+                    if(currentItem === saveIndex) {
+                        currentItem--
+                        next();
+                    } else if(currentItem > saveIndex)
+                        currentItem--
+                }
+            }
+        ]
     }
 
     // for internet radio the QT Audio object seems to support some metadata
