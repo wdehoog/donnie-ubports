@@ -4,7 +4,9 @@ import QtMultimedia 5.6
 import QtQuick.Controls 2.2
 
 Column {
-    property alias audioPlaybackState: playerUI.audioPlaybackState
+    id: playerArea
+
+    property var audioPlaybackState
 
     signal pause()
     signal previous()
@@ -29,16 +31,13 @@ Column {
     Row {
         id: playerUI
      
-        property int audioPlaybackState
-
-
         width: parent.width - app.gu(2)
         x: app.gu(1)
         height: imageItem.height
 
         Icon {
             id: imageItem
-            source: channelImageUrl.length > 0 ? channelImageUrl : Qt.resolvedUrl("../resources/somafm-logo.svg")
+            source: app.getPlayerPage().imageItemSource
             width: app.gu(10)
             height: width
             anchors.verticalCenter: parent.verticalCenter
@@ -57,7 +56,7 @@ Column {
                 font.pixelSize: app.fontPixelSizeLarge
                 color: app.text1color
                 wrapMode: Text.Wrap
-                text: streamMetaText1
+                text: app.getPlayerPage().trackMetaText1
             }
             Text {
                 id: m2
@@ -68,7 +67,7 @@ Column {
                 font.pixelSize: app.fontPixelSizeLarge
                 font.bold: true
                 color: app.text2color
-                text: streamMetaText2
+                text: app.getPlayerPage().trackMetaText2
             }
 
         }
@@ -76,15 +75,15 @@ Column {
 
         Icon {
             id: playerButton
-            width: app.gu(4)
+            width: app.iconSizeLarge
             height: width
             anchors.verticalCenter: parent.verticalCenter
-            source: audioPlaybackState == Audio.PlayingState
-                        ? Qt.resolvedUrl("../resources/pause.svg")
-                        : Qt.resolvedUrl("../resources/play.svg")
+            name: audioPlaybackState == Audio.PlayingState
+                        ? "media-preview-pause"
+                        : "media-preview-start"
             MouseArea {
                 anchors.fill: parent
-                onClicked: playPause()
+                onClicked: app.playPause()
             }
         }
     }

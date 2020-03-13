@@ -91,6 +91,7 @@ Window {
     PlayerArea {
         id: playerArea
         height: visible ? childrenRect.height : 0
+        audioPlaybackState: audio.playbackState
     }
 
     signal previous()

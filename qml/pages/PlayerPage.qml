@@ -331,8 +331,8 @@ Page {
 
                         timeSlider.to = audio.duration
                         timeSlider.value = audio.position
-                        timeSlider.label = formatTrackDuration(audio.duration)
-                        timeSlider.valueText = formatTrackDuration(timeSlider.value);
+                        //timeSlider.label = formatTrackDuration(audio.duration)
+                        //timeSlider.valueText = formatTrackDuration(timeSlider.value);
 
                         if(trackClass !== UPnP.AudioItemType.AudioBroadcast) {
                             var pLabel = ""
@@ -340,10 +340,9 @@ Page {
                                pLabel = (currentItem+1) + " of " + trackListModel.count + " - " + timeSlider.valueText
                             else
                                pLabel = timeSlider.valueText
-                            cover.updateProgressBar(audio.position, audio.duration, pLabel)
                         }
 
-                        app.lastPlayingPosition = audio.position
+                        //app.lastPlayingPosition = audio.position
                     }
                 }
 
@@ -356,7 +355,8 @@ Page {
                 Text {
                     width: parent.width
                     font.pixelSize: app.fontSizeMedium
-                    color:  app.highlightColor
+                    color:  app.primaryColor
+                    font.weight: Font.Bold
                     textFormat: Text.StyledText
                     wrapMode: Text.Wrap
                     text: trackMetaText1
@@ -364,7 +364,8 @@ Page {
                 Text {
                     width: parent.width
                     font.pixelSize: app.fontSizeMedium
-                    color: app.secondaryHighlightColor
+                    color: app.secondaryColor
+                    font.weight: Font.Bold
                     textFormat: Text.StyledText
                     wrapMode: Text.Wrap
                     text: trackMetaText2
