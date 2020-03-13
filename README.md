@@ -1,6 +1,8 @@
 # Donnie
 
-A UPnP Control Point and Audio Player for UBports.
+A UPnP Audio Player for UBports.
+
+Plays audio from a UPnP server.
 
 ## License
 

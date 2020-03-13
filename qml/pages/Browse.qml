@@ -167,7 +167,7 @@ Page {
                   anchors.verticalCenter: parent.verticalCenter
                   source: {
                       if(pid === "-2") // the ".." item
-                          return "image://theme/back";
+                          return "" // "image://theme/back";
                       if(type === "Container") { //
                           if(albumArtURI && albumArtURI.length > 0)
                               return albumArtURI
@@ -195,13 +195,14 @@ Page {
                             textFormat: Text.StyledText
                             //truncationMode: TruncationMode.Fade
                             width: parent.width - dt.width
+                            font.pixelSize: app.fontPixelSizeMedium
                             text: titleText ? titleText : ""
                         }
                         Label {
                             id: dt
                             anchors.right: parent.right
                             color: app.secondaryColor
-                            font.pixelSize: app.fontSizeExtraSmall
+                            font.pixelSize: app.fontSizeSmall
                             text: durationText ? durationText : ""
 
                         }
@@ -209,7 +210,7 @@ Page {
 
                     Label {
                         color: app.secondaryColor
-                        font.pixelSize: app.fontSizeExtraSmall
+                        font.pixelSize: app.fontSizeSmall
                         textFormat: Text.StyledText
                         //truncationMode: TruncationMode.Fade
                         width: parent.width

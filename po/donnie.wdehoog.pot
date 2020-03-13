@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 20:35+0000\n"
+"POT-Creation-Date: 2020-03-13 21:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Built-In Player"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:465
+#: ../qml/pages/PlayerPage.qml:474
 msgid "Remove"
 msgstr ""
 
@@ -53,19 +53,19 @@ msgstr ""
 msgid "UPnP Browser"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:256
+#: ../qml/pages/Browse.qml:257
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:260
+#: ../qml/pages/Browse.qml:261
 msgid "Replace in To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:264
+#: ../qml/pages/Browse.qml:265
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:268
+#: ../qml/pages/Browse.qml:269
 msgid "Replace All in Player"
 msgstr ""
 

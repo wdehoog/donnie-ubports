@@ -45,6 +45,7 @@ Popup {
                 height: childrenRect.height
 
                 Label {
+                    font.pixelSize: app.fontSizeLarge
                     text: modelData.text
                     color: "#efefef"
                 }

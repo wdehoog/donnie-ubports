@@ -316,7 +316,7 @@ Page {
                 }
                 Text {
                     id: durationLabel
-                    //font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: app.fontSizeSmall
                     anchors.verticalCenter: parent.verticalCenter
                     text: UPnP.getDurationString(audio.duration)
                 }
@@ -379,11 +379,19 @@ Page {
                 }
             }
 
-            /*Separator {
+            Rectangle { 
                 anchors.left: parent.left
                 anchors.right: parent.right
-                color: "white"
-            }*/
+                height: 1
+                color: "black"
+            }
+
+            Rectangle { 
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 4
+                opacity: 1.0
+            }
 
         }
 
@@ -409,6 +417,7 @@ Page {
                     Label {
                         id: tt
                         color: app.primaryColor
+                        font.pixelSize: app.fontPixelSizeMedium
                         font.weight: currentItem === index ? Font.Bold: Font.Normal
                         textFormat: Text.StyledText
                         //truncationMode: TruncationMode.Fade
@@ -421,7 +430,7 @@ Page {
                         anchors.right: parent.right
                         color: app.primaryColor
                         font.weight: currentItem === index ? Font.Bold: Font.Normal
-                        font.pixelSize: app.fontSizeExtraSmall
+                        font.pixelSize: app.fontSizeSmall
                         text: durationText ? durationText : ""
                     }
                 }
@@ -429,7 +438,7 @@ Page {
                 Label {
                     color: app.secondaryColor
                     font.weight: currentItem === index ? Font.Bold: Font.Normal
-                    font.pixelSize: app.fontSizeExtraSmall
+                    font.pixelSize: app.fontSizeSmall
                     textFormat: Text.StyledText
                     //truncationMode: TruncationMode.Fade
                     width: parent.width

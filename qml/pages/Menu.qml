@@ -111,6 +111,7 @@ Page {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 //color: _currentIndex === index ? Theme.highlightColor : Theme.primaryColor
+                font.pixelSize: app.fontPixelSizeLarge
                 text: model.name
             }
 
