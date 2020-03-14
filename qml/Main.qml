@@ -56,6 +56,7 @@ Window {
     property double iconSizeLarge: units.dp(80)
 
     property double itemSizeMedium: units.dp(32)
+    //property int itemSize: units.dp(56) page header
     property double itemSizeLarge: units.dp(80)
 
     property color normalBackgroundColor: "white" // theme.palette.normal.base
@@ -67,6 +68,7 @@ Window {
     property color popupBackgroundColor: "#111111"
     property double popupBackgroundOpacity: 0.1
     property double popupRadius: units.dp(8)
+
 
     // 0 inactive, 1 load queue data, 2 load browse stack data
     property int resumeState: 0

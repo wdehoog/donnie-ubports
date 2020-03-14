@@ -122,23 +122,6 @@ Page {
         id: pathListModel
     }
 
-    /*Text {
-        id: path
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.topMargin: Theme.paddingMedium
-        anchors.bottomMargin: Theme.paddingMedium
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: Theme.fontSizeLarge
-        color: Theme.highlightColor
-        elide: Text.ElideLeft
-        text: pathText
-        MouseArea {
-            anchors.fill: parent
-            onClicked: pageStack.push(menuDialogComponent)
-        }
-    }*/
-
     ListView {
         id: listView
         model: browseModel
@@ -147,10 +130,29 @@ Page {
         interactive: contentHeight > height
         spacing: units.dp(8)
 
+        header: Text {
+            id: path
+
+            x: app.paddingMedium
+            width: parent.width - 2*x
+            anchors.topMargin: app.paddingMedium
+            anchors.bottomMargin: app.paddingMedium
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: app.fontSizeLarge
+            color: app.primaryColor
+            elide: Text.ElideLeft
+            text: pathText
+            MouseArea {
+                anchors.fill: parent
+                onClicked: pageStack.push(menuDialogComponent)
+            }
+        }
+
         delegate: AdaptiveListItem {
             id: delegate
-            width: parent.width - 2*app.paddingMedium
+
             x: app.paddingMedium
+            width: parent.width - 2*x
             height: stuff.height
 
             Row {
@@ -273,11 +275,10 @@ Page {
     }
 
     // from ComboBox.qml
-    /*Component {
+    Component {
         id: menuDialogComponent
 
         Page {
-            allowedOrientations: Orientation.All
 
             Component.onCompleted: {
                 var menuItems = app.currentBrowseStack.elements();
@@ -292,7 +293,7 @@ Page {
                 id: items
             }
 
-            SilicaListView {
+            ListView {
                 id: view
 
                 anchors.fill: parent
@@ -302,33 +303,40 @@ Page {
                     title: qsTr("Choose Path")
                 }
 
-                delegate: BackgroundItem {
+                delegate: AdaptiveListItem {
                     id: delegateItem
-
-                    onClicked: {
-                        popFromBrowseStackUntil(model.item.id)
-                        cid = item.id
-                        cScrollIndex = item.currentIndex
-                        pageStack.pop()
-                    }
+                    x: app.paddingMedium
+                    width: parent.width - 2*x
+                    height: app.itemSizeMedium
 
                     Label {
-                        x: Theme.horizontalPageMargin
+                        id: path
                         anchors.verticalCenter: parent.verticalCenter
-                        width: parent.width - x*2
-                        font.pixelSize: Theme.fontSizeSmall
+                        width: parent.width
+                        font.pixelSize: app.fontSizeLarge
                         elide: Text.ElideLeft
                         //text: model.item.title
                         text: UPnP.getPathString(app.currentBrowseStack, model.item.id)
                         color: (delegateItem.highlighted || model.item === cid)
-                               ? Theme.highlightColor
-                               : Theme.primaryColor
+                               ? app.primaryColor
+                               : app.secondaryColor
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            popFromBrowseStackUntil(model.item.id)
+                            cid = item.id
+                            cScrollIndex = item.currentIndex
+                            pageStack.pop()
+                        }
                     }
                 }
-                VerticalScrollDecorator {}
+
+                ScrollBar.vertical: ScrollBar {}
             }
         }
-    }*/
+    }
 
     onCidChanged: {
         if(cid === "")
