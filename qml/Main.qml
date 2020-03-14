@@ -84,7 +84,6 @@ Window {
 
         Component.onCompleted: {
             pageStack.push(Qt.resolvedUrl("pages/Menu.qml"))
-            showConfirmDialog("test confirm title", "test confirm text", function() {console.log("confirmed!")})
         }
     }
 
@@ -137,6 +136,12 @@ Window {
                 break
             case "builtin-player": 
                 pageStack.push(playerpage)
+                break
+            case "about": 
+                pageStack.push(Qt.resolvedUrl("pages/About.qml"))
+                break
+            case "settings": 
+                pageStack.push(Qt.resolvedUrl("pages/Settings.qml"))
                 break
         }
     }

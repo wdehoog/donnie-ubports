@@ -39,13 +39,13 @@ Page {
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
-                //onTriggered: app.doSelectedMenuItem(Util.HutspotMenuItem.ShowAboutPage)
-            } //,
-            //Action {
-            //    iconName: "settings"
-            //    text: i18n.tr("Settings")
-            //   onTriggered: app.doSelectedMenuItem(Util.HutspotMenuItem.ShowSettingsPage)
-            //}
+                onTriggered: app.doSelectedMenuItem("about")
+            },
+            Action {
+                iconName: "settings"
+                text: i18n.tr("Settings")
+                onTriggered: app.doSelectedMenuItem("settings")
+            }
         ]
     }
 

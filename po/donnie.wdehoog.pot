@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-14 15:05+0000\n"
+"POT-Creation-Date: 2020-03-14 15:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,19 +33,19 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:118
+#: ../qml/Main.qml:117
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:281
+#: ../qml/Main.qml:286
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:281
+#: ../qml/Main.qml:286
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:378
+#: ../qml/Main.qml:383
 msgid "Error"
 msgstr ""
 
@@ -59,6 +59,42 @@ msgstr ""
 
 #: ../qml/pages/Discovery.qml:29
 msgid "Reload"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:21 ../qml/pages/Menu.qml:46
+msgid "Settings"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:44
+msgid "Load saved queue at startup and resume playing"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:71
+msgid "Never"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:72
+msgid "Ask"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:73
+msgid "Always"
+msgstr ""
+
+#: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:41
+msgid "About"
+msgstr ""
+
+#: ../qml/pages/About.qml:61
+msgid "UPnP player for UBPorts"
+msgstr ""
+
+#: ../qml/pages/About.qml:84
+msgid "License: MIT"
+msgstr ""
+
+#: ../qml/pages/About.qml:116
+msgid "Thanks to"
 msgstr ""
 
 #: ../qml/pages/Browse.qml:38
@@ -79,8 +115,4 @@ msgstr ""
 
 #: ../qml/pages/Browse.qml:269
 msgid "Replace All in Player"
-msgstr ""
-
-#: ../qml/pages/Menu.qml:41
-msgid "About"
 msgstr ""
