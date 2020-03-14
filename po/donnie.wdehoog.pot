@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-14 20:55+0000\n"
+"POT-Creation-Date: 2020-03-14 21:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,15 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:300
+#: ../qml/Main.qml:299
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:300
+#: ../qml/Main.qml:299
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:553
+#: ../qml/Main.qml:552
 msgid "Error"
 msgstr ""
 

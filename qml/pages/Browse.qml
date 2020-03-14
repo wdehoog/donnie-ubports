@@ -4,7 +4,6 @@
  * License: MIT
  */
 
-
 import Ergo 0.0
 
 import QtQuick 2.7
@@ -31,8 +30,6 @@ Page {
     //property string pathTreeText : "";
     property string pathText: "";
     //property bool showPathTree: false;
-
-    //allowedOrientations: Orientation.All
 
     header: PageHeader {
         title: i18n.tr("UPnP Browser")
@@ -285,7 +282,6 @@ Page {
                 for (var i = 1; i <= menuItems.length; i++) {
                     var child = menuItems[menuItems.length-i];
                     items.append( {"item": child } );
-                    console.log("added:" +child.title)
                 }
             }
 
@@ -300,7 +296,7 @@ Page {
                 model: items
 
                 header: PageHeader {
-                    title: qsTr("Choose Path")
+                    title: i18n.tr("Choose A Path")
                 }
 
                 delegate: AdaptiveListItem {

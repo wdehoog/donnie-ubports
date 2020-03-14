@@ -138,10 +138,9 @@ Window {
                 break
             case "upnp-browse": 
                 //pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
-                if(browsePage.cid !== "")
-                    pageStack.push(browsePage)
-                else
-                    pageStack.push(browsePage, {cid: "0"})
+                if(browsePage.cid == "")
+                    browsePage.cid = "0"
+                pageStack.push(browsePage)
                 break
             case "builtin-player": 
                 pageStack.push(playerpage)
