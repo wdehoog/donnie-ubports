@@ -68,6 +68,9 @@ Window {
     property double popupBackgroundOpacity: 0.1
     property double popupRadius: units.dp(8)
 
+    // 0 inactive, 1 load queue data, 2 load browse stack data
+    property int resumeState: 0
+
     title: i18n.tr("Donnie")
     visible: true
 
@@ -132,7 +135,11 @@ Window {
                 pageStack.push(Qt.resolvedUrl("pages/Discovery.qml"))
                 break
             case "upnp-browse": 
-                pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
+                //pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
+                if(browsePage.cid !== "")
+                    pageStack.push(browsePage)
+                else
+                    pageStack.push(browsePage, {cid: "0"})
                 break
             case "builtin-player": 
                 pageStack.push(playerpage)
@@ -156,6 +163,11 @@ Window {
         //errorLog.push(msg);
     }
 
+    Browse {
+        id: browsePage
+        visible: false
+    }
+    
     PlayerPage {
         id: playerpage
         visible: false
@@ -296,6 +308,162 @@ Window {
             app.error(msg);
             //showBusy = false; // VISIT only one could fail
         }
+
+        // called when metadata has been collected from stored resume info
+        onMetaData: {
+            //console.log("onMetaData: " + metaDataJson);
+            if(error !== 0) {
+                app.showErrorDialog(qsTr("Failed to retrieve metadata for previously saved Ids.\nCan not Resume."))
+                //showBusy = false
+                if(resumeState == 1)
+                    loadBrowseStackMetaData()
+                else
+                    resumeState = 0
+                return
+            }
+
+            try {
+                var metaData = JSON.parse(metaDataJson);
+
+                switch(resumeState) {
+                case 1:
+                    // restore queue and current track
+                    var currentTrackIndex = -1
+                    var tracks = []
+                    var i
+                    var track
+                    // todo: getPlayerPage().reset() but does not exist
+
+                    // create items for stored id's
+                    for(i=0;i<metaData.length;i++) {
+                        if(metaData[i].items && metaData[i].items.length>0) {
+                            track = UPnP.createListItem(metaData[i].items[0])
+                            tracks.push(track)
+                            if(track.id === metaDataCurrentTrackId)
+                                currentTrackIndex = tracks.length - 1
+                        }
+                    }
+
+                    // create items for user added uris
+                    for(i=0;i<userDefinedItems.length;i++) {
+                        track = UPnP.createUserAddedTrack(userDefinedItems[i].data.uri,
+                                                          userDefinedItems[i].data.title,
+                                                          userDefinedItems[i].data.streamType)
+                        tracks.splice(userDefinedItems[i].index, 0, track)
+                        if(track.id === metaDataCurrentTrackId)
+                            currentTrackIndex = tracks.length - 1
+                    }
+
+                    metaDataCurrentTrackId = ""
+
+                    getPlayerPage().addTracks(tracks,
+                                              currentTrackIndex,
+                                              UPnP.isBroadcast(track) ? -1 : settings.last_playing_position)
+                    loadBrowseStackMetaData()
+                    break;
+
+                case 2:
+                    // restore browse stack
+                    var index = 0
+                    browsePage.reset()
+                    browsePage.pushOnBrowseStack("0", "-1", qsTr("[Top Level]"), -1);
+                    for(var i=0;i<metaData.length;i++) {
+                        if(metaData[i].containers && metaData[i].containers.length>0) {
+                            var item = metaData[i].containers[0]
+                            browsePage.pushOnBrowseStack(item.id, item.pid, item.title, index);
+                            index++
+                        }
+                    }
+                    browsePage.cid = app.currentBrowseStack.peek().id
+                    resumeState = 0
+                    break;
+                }
+                //showBusy = false
+            } catch(err) {
+                app.error("Exception in onMetaData: "+err);
+                app.error("json: " + metaDataJson);
+                app.showErrorDialog(qsTr("Failed to parse previously saved Ids.\nCan not Resume."))
+                //showBusy = false
+            }
+        }
+    }
+
+    function loadLastBrowsingJSON() {
+        try {
+            var lastBrowsingInfo = JSON.parse(settings.last_browsing_info)
+            return lastBrowsingInfo
+        } catch( err ) {
+            app.error("Exception in loadLastBrowsingJSON: " + err)
+            app.error("json: " + settings.last_browsing_info)
+        }
+        return null
+    }
+
+    function loadLastPlayingJSON() {
+        try {
+            var lastPlayingInfo = JSON.parse(settings.last_playing_info)
+            return lastPlayingInfo
+        } catch( err ) {
+            app.error("Exception in loadLastPlayingJSON: " + err)
+            app.error("json: " + settings.last_playing_info)
+        }
+        return null
+    }
+
+    function loadBrowseStackMetaData() {
+        var i
+        //showBusy = true
+        try {
+            var linfo = loadLastBrowsingJSON()
+            if(linfo !== null && linfo.length > 0) {
+                var pos = 0
+                var ids = []
+                for(i=0;i<linfo.length;i++)
+                    ids[pos++] = linfo[i]
+                if(ids.length > 0) {
+                    resumeState = 2
+                    upnp.getMetaData(ids)
+                }
+            }
+        } catch(err) {
+            app.error("Exception in loadBrowseStackMetaData: "+err);
+            app.showErrorDialog(qsTr("Failed to load previously saved Browse Stack Ids."))
+            //showBusy = false
+        }
+    }
+
+    property string metaDataCurrentTrackId
+    property var userDefinedItems : []
+
+    function loadResumeMetaData() {
+        var i
+        try {
+            var linfo = loadLastPlayingJSON()
+            if(linfo !== null && linfo.currentTrackId && linfo.queueTrackIds) {
+                var pos = 0
+                var ids = []
+
+                metaDataCurrentTrackId = linfo.currentTrackId
+
+                userDefinedItems = []
+                for(i=0;i<linfo.queueTrackIds.length;i++) {
+                    if(linfo.queueTrackIds[i].dtype === "cs")
+                        ids[pos++] = linfo.queueTrackIds[i].data
+                    else if(linfo.queueTrackIds[i].dtype === "ud")
+                        userDefinedItems.push({index: i, data: linfo.queueTrackIds[i].data})
+                }
+
+                if(ids.length > 0) {
+                    resumeState = 1
+                    upnp.getMetaData(ids)
+                }
+            }
+        } catch(err) {
+            app.error("Exception in loadResumeMetaData: "+err);
+            app.showErrorDialog(qsTr("Failed to load previously saved Queue Ids.\nCan not Resume."))
+        }
+        if(resumeState == 0) // not loading the queue
+            loadBrowseStackMetaData()
     }
 
     function saveLastBrowsingJSON() {
@@ -360,7 +528,7 @@ Window {
         }
     }
 
-    function showConfirmDialog(title, text, callback) {
+    function showConfirmDialog(text, title, callback) {
         var dialog = dialogFactory.createObject(app, { 
             messageTitle: title, 
             messageText: text, 

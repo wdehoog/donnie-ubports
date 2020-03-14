@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-14 15:46+0000\n"
+"POT-Creation-Date: 2020-03-14 20:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,23 +29,23 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:71 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:74 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:117
+#: ../qml/Main.qml:120
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:286
+#: ../qml/Main.qml:298
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:286
+#: ../qml/Main.qml:298
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:383
+#: ../qml/Main.qml:551
 msgid "Error"
 msgstr ""
 
