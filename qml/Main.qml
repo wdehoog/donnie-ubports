@@ -91,8 +91,12 @@ Window {
     PlayerArea {
         id: playerArea
         height: visible ? childrenRect.height : 0
-        audioPlaybackState: audio.playbackState
+        audio: audio
         visible: pageStack.currentItem.objectName != "PlayerPage"
+        trackMetaText1: getPlayerPage().trackMetaText1
+        trackMetaText2: getPlayerPage().trackMetaText2
+        imageSource: app.getPlayerPage().imageItemSource
+        onPlayPause: app.playPause()
     }
 
     signal previous()
@@ -107,8 +111,6 @@ Window {
         autoLoad: true
         autoPlay: false
         //source: channelStreamUrl
-
-        onPlaybackStateChanged: playerArea.audioPlaybackState = playbackState
 
         onError: {
             console.log("Audio Player error:" + errorString)

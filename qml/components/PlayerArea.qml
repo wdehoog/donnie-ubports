@@ -6,9 +6,12 @@ import QtQuick.Controls 2.2
 Column {
     id: playerArea
 
-    property var audioPlaybackState
+    property var audio
+    property string trackMetaText1
+    property string trackMetaText2
+    property string imageSource
 
-    signal pause()
+    signal playPause()
     signal previous()
     signal next()
 
@@ -23,9 +26,12 @@ Column {
         height: 1
         color: "grey"
     }
+
     Rectangle {
-        width: parent.width
-        height: app.gu(1) - 1
+        color: "darkgrey"
+        width: audio.playbackState == Audio.PlayingState
+               ? (parent.width * (audio.position / audio.duration)) : 0
+        height: app.paddingSmall
     }
 
     Row {
@@ -37,7 +43,7 @@ Column {
 
         Icon {
             id: imageItem
-            source: app.getPlayerPage().imageItemSource
+            source: imageSource
             width: app.gu(10)
             height: width
             anchors.verticalCenter: parent.verticalCenter
@@ -56,7 +62,7 @@ Column {
                 font.pixelSize: app.fontPixelSizeLarge
                 color: app.text1color
                 wrapMode: Text.Wrap
-                text: app.getPlayerPage().trackMetaText1
+                text: trackMetaText1
             }
             Text {
                 id: m2
@@ -67,7 +73,7 @@ Column {
                 font.pixelSize: app.fontPixelSizeLarge
                 font.bold: true
                 color: app.text2color
-                text: app.getPlayerPage().trackMetaText2
+                text: trackMetaText2
             }
 
         }
@@ -78,13 +84,24 @@ Column {
             width: app.iconSizeLarge
             height: width
             anchors.verticalCenter: parent.verticalCenter
-            name: audioPlaybackState == Audio.PlayingState
+            name: audio.playbackState == Audio.PlayingState
                         ? "media-preview-pause"
                         : "media-preview-start"
             MouseArea {
                 anchors.fill: parent
-                onClicked: app.playPause()
+                onClicked: playPause()
             }
         }
     }
+
+    /*Timer {
+        running: audioPlaybackState == Audio.PlayingState
+        interval: 1000
+        repeat: true
+
+        onTriggered: {
+            timeSlider.to = audio.duration
+            timeSlider.value = audio.position
+        }
+    }*/
 }
