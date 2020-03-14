@@ -103,7 +103,7 @@ Page {
         if(audio.playbackState == Audio.PlayingState) {
             audio.pause()
             updatePlayIcons()
-            app.last_playing_position.value = audio.position
+            app.settings.last_playing_position = audio.position
         } else {
             play()
         }
@@ -117,7 +117,7 @@ Page {
     function stop() {
         audio.stop()
         updatePlayIcons()
-        app.last_playing_position.value = audio.position
+        app.settings.last_playing_position = audio.position
     }
 
     function loadTrack(track) {
@@ -300,7 +300,6 @@ Page {
                 }*/
                 Slider { // for tracks
                     id: timeSlider
-                    to: 1
                     enabled: !UPnP.isBroadcast(getCurrentTrack())
 
                     anchors.verticalCenter: parent.verticalCenter
@@ -311,48 +310,20 @@ Page {
                     onPressedChanged: {
                         if(pressed) // only act on release
                             return
-                        audio.seek(sliderValue);
+                        audio.seek(value);
                     }
+                    to: audio.playbackState == Audio.PlayingState
+                           ? audio.duration : 0
+                    value: audio.playbackState == Audio.PlayingState
+                           ? audio.position : 0
                 }
+
                 Text {
                     id: durationLabel
                     font.pixelSize: app.fontSizeSmall
                     anchors.verticalCenter: parent.verticalCenter
                     text: UPnP.getDurationString(audio.duration)
                 }
-            }
-
-            Timer {
-                id: updateTimer
-
-                running: audio.playbackState == Audio.PlayingState
-                interval: 1000
-                repeat: true
-
-                onTriggered: {
-                     if(timeSlider !== null) {
-
-                         // User is using the slider, don't update the value
-                         if(timeSlider.down)
-                             return
-
-                        timeSlider.to = audio.duration
-                        timeSlider.value = audio.position
-                        //timeSlider.label = formatTrackDuration(audio.duration)
-                        //timeSlider.valueText = formatTrackDuration(timeSlider.value);
-
-                        if(trackClass !== UPnP.AudioItemType.AudioBroadcast) {
-                            var pLabel = ""
-                            if(currentItem > -1)
-                               pLabel = (currentItem+1) + " of " + trackListModel.count + " - " + timeSlider.valueText
-                            else
-                               pLabel = timeSlider.valueText
-                        }
-
-                        //app.lastPlayingPosition = audio.position
-                    }
-                }
-
             }
 
             Column {
