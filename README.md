@@ -2,7 +2,10 @@
 
 A UPnP Audio Player for UBports.
 
-Plays audio from a UPnP server.
+Browse your audio files on your UPnP server and play them on your UBports phone.
+
+Tested with [MinimServer](https://minimserver.com/) on a Oneplus One.
+
 
 ## License
 
