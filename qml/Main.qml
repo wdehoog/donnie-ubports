@@ -84,7 +84,7 @@ Window {
 
         Component.onCompleted: {
             pageStack.push(Qt.resolvedUrl("pages/Menu.qml"))
-            //showMessageDialog("Test", "Hello")
+            showConfirmDialog("test confirm title", "test confirm text", function() {console.log("confirmed!")})
         }
     }
 
@@ -115,7 +115,7 @@ Window {
         onError: {
             console.log("Audio Player error:" + errorString)
             console.log("source: " + source)
-            showErrorDialog(qsTr("Audio Player:") + "\n\n" + errorString)
+            showErrorDialog(i18n.tr("Audio Player:") + "\n\n" + errorString)
         }
     }
 
@@ -139,19 +139,6 @@ Window {
                 pageStack.push(playerpage)
                 break
         }
-    }
-
-    function showMessageDialog(title, text) {
-        var component = Qt.createComponent("components/MessageDialog.qml")
-        var msgDialog = component.createObject(app, {})
-        msgDialog.msgTitle = title
-        msgDialog.msgText = text
-        msgDialog.accepted.connect(function() { msgDialog.destroy() })
-        msgDialog.open()
-    }
-
-    function showErrorDialog(text) {
-        showMessageDialog(i18n.tr("Error"), text)
     }
 
     // trial and error and interweb
@@ -291,7 +278,7 @@ Window {
 
             if(app.hasCurrentServer()) {
                 if(settings.resume_saved_info === 1) // 0: never, 1: ask, 2:always
-                    app.showConfirmDialog(qsTr("Load previously saved queue?"), qsTr("Load"), function() {
+                    app.showConfirmDialog(i18n.tr("Load previously saved queue?"), i18n.tr("Load"), function() {
                         loadResumeMetaData()
                     })
                 else if(settings.resume_saved_info === 2)
@@ -336,7 +323,63 @@ Window {
     }
 
     //
+    // Dialogs
     //
+
+    Component {
+        id: dialogFactory
+
+        Dialog {
+            id: dialog
+
+            property string messageTitle: ""
+            property string messageText: ""
+            property bool confirmation: false
+            property var acceptedCallback: null
+
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+
+            title: messageTitle
+            standardButtons: confirmation ? Dialog.Yes | Dialog.No : Dialog.Ok
+            modal: true
+           
+            Label {
+                text: dialog.messageText
+            }
+
+            onAccepted: {
+                if(acceptedCallback != null)
+                    acceptedCallback()
+            }
+        }
+    }
+
+    function showConfirmDialog(title, text, callback) {
+        var dialog = dialogFactory.createObject(app, { 
+            messageTitle: title, 
+            messageText: text, 
+            confirmation: true, 
+            acceptedCallback: callback
+        })
+        dialog.open()
+    }
+
+    function showMessageDialog(title, text) {
+        var dialog = dialogFactory.createObject(app, { 
+            messageTitle: title, 
+            messageText: text, 
+            confirmation: false, 
+        })
+        dialog.open()
+    }
+
+    function showErrorDialog(text) {
+        showMessageDialog(i18n.tr("Error"), text)
+    }
+
+    //
+    // Settings
     //
     QLS.Settings {
         id: settings
@@ -350,6 +393,7 @@ Window {
         property string renderer_friendlyname : ""
         property string last_browsing_info: ""
         property string last_playing_info: ""
+        property int last_playing_position: 0
         property int resume_saved_info: 0
     }
 }

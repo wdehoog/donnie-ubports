@@ -44,6 +44,13 @@ Page {
 
     header: PageHeader {
         title: i18n.tr("Built-In Player")
+        trailingActions: [
+            Action {
+                iconName: "toolkit_input-clear"
+                text: qsTr("Empty List")
+                onTriggered: clearList()
+            }
+        ]
     }
 
     function refreshTransportState() {
@@ -181,28 +188,6 @@ Page {
         width: parent.width
         anchors.fill: parent
 
-        /*PullDownMenu {
-            MenuItem {
-                text: qsTr("Add Stream")
-                //visible: false
-                onClicked: {
-                    app.showEditURIDialog(qsTr("Add Stream"), "", "", UPnP.AudioItemType.AudioBroadcast, function(title, uri, streamType) {
-                        if(uri === "")
-                            return
-                        var track = UPnP.createUserAddedTrack(uri, title, streamType)
-                        if(track !== null) {
-                            trackListModel.append(track)
-                            currentItem = trackListModel.count-1
-                            loadTrack(track)
-                        }
-                    })
-                }
-            }
-            MenuItem {
-                text: qsTr("Empty List")
-                onClicked: clearList()
-            }
-        }*/
 
         header: Column {
             width: parent.width - 2*app.paddingMedium

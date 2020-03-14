@@ -2,7 +2,7 @@
   "template": "cmake",
   "kill": "donnie",
   "dependencies_target": [
-      "libmicrohttpd10", "libmicrohttpd-dev"
+      "libmicrohttpd10", "libmicrohttpd-dev", "qml-module-qtquick-dialogs"
   ],
   "libraries": {
      "ergo": {
