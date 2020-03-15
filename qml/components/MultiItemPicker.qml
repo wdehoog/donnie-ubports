@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2015-2017 kimmoli <kimmo.lindholm@eke.fi>
  * Copyright (C) 2020 Willem-Jan de Hoog
  *
  *
@@ -26,7 +25,10 @@ Page {
             Action {
                 iconName: "toolkit_tick"
                 text: i18n.tr("Ok")
-                onTriggered: accepted()
+                onTriggered: {
+                    pageStack.pop()
+                    accepted()
+                }
             }
         ]
     }
@@ -41,21 +43,35 @@ Page {
             id: delegateItem
             x: app.paddingMedium
             width: parent.width - 2*x
-            height: label.height
+            height: stuff.height + 2*app.paddingSmall 
 
             property bool selected: indexes.indexOf(index) != -1
 
-            Label {
-                id: label
+            Row {
+                id: stuff
+                width: parent.width
+                height: Math.max(cb.height, label.height)
                 anchors.verticalCenter: parent.verticalCenter
-                width: parent.width 
-                wrapMode: Text.Wrap
-                text: name
-                background: Rectangle {
-                    anchors.fill: parent
-                    color: (delegateItem.highlighted || delegateItem.selected)
-                           ? app.highlightBackgroundColor
-                           : app.normalBackgroundColor
+
+                CheckBox {
+                    id: cb
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: selected
+                }
+
+                Label {
+                    id: label
+                    anchors.verticalCenter: parent.verticalCenter
+                    //width: parent.width 
+                    wrapMode: Text.Wrap
+                    font.pixelSize: app.fontSizeLarge
+                    text: name
+                    /*background: Rectangle {
+                        anchors.fill: parent
+                        color: (delegateItem.highlighted || delegateItem.selected)
+                               ? app.highlightBackgroundColor
+                               : app.normalBackgroundColor
+                    }*/
                 }
             }
 

@@ -156,7 +156,7 @@ Page {
 
                 width: parent.width
 
-                text: i18n.tr("Search In")
+                text: i18n.tr("Search In") + ": " + value
 
                 ListModel {
                     id: items
@@ -184,7 +184,7 @@ Page {
                     value = ""
                     for(var i=0;i<scMap.length;i++) {
                         if(selectedSearchCapabilitiesMask & (0x01 << scMap[i])) {
-                            var first = value.length == 0;
+                            var first = value.length == 0
                             value = value + (first ? "" : ", ") + items.get(i).name
                             indexes.push(i)
                         }
@@ -192,7 +192,7 @@ Page {
                 }
 
                 onClicked: {
-                    var ms = app.pushPage("components/MultiItemPicker.qml", { items: items, title: text, indexes: indexes })
+                    var ms = app.pushPage("components/MultiItemPicker.qml", { items: items, title: text, indexes: JSON.parse(JSON.stringify(indexes)) })
                     ms.accepted.connect(function() {
                         indexes = ms.indexes.sort(function (a, b) { return a - b })
                         selectedSearchCapabilitiesMask = 0

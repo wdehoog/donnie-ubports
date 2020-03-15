@@ -84,6 +84,20 @@ Page {
                     ]
                 }
             }
+                
+            Row {
+                width: parent.width
+                height: childrenRect.height
+                Label {
+                    text: i18n.tr("Show containers in search results")
+                }
+                Switch {
+                    id: allowContainers
+                    anchors.right: parent.right
+                    checked: settings.search_allow_containers
+                    onCheckedChanged: settings.search_allow_containers = checked
+                }
+            }
 
         }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-15 20:24+0000\n"
+"POT-Creation-Date: 2020-03-15 21:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:28 ../qml/Main.qml:574
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:574
 msgid "Ok"
 msgstr ""
 
@@ -107,6 +107,10 @@ msgstr ""
 
 #: ../qml/pages/Settings.qml:83
 msgid "Always"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:92
+msgid "Show containers in search results"
 msgstr ""
 
 #: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:41
