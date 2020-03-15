@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-15 09:26+0000\n"
+"POT-Creation-Date: 2020-03-15 14:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,24 +29,36 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:76 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:79 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:122
+#: ../qml/Main.qml:132
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:299
+#: ../qml/Main.qml:146 ../qml/Main.qml:575
+msgid "Error"
+msgstr ""
+
+#: ../qml/Main.qml:146 ../qml/Main.qml:325
+msgid "No UPnP Server found"
+msgstr ""
+
+#: ../qml/Main.qml:319
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:299
+#: ../qml/Main.qml:319
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:552
-msgid "Error"
+#: ../qml/Main.qml:325
+msgid "Warning"
+msgstr ""
+
+#: ../qml/Main.qml:330
+msgid "UPnP Error"
 msgstr ""
 
 #: ../qml/pages/PlayerPage.qml:46
@@ -69,19 +81,19 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:44
+#: ../qml/pages/Settings.qml:45
 msgid "Load saved queue at startup and resume playing"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:71
+#: ../qml/pages/Settings.qml:81
 msgid "Never"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:72
+#: ../qml/pages/Settings.qml:82
 msgid "Ask"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:73
+#: ../qml/pages/Settings.qml:83
 msgid "Always"
 msgstr ""
 

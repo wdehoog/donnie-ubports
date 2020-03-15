@@ -69,9 +69,12 @@ Window {
     property double popupBackgroundOpacity: 0.1
     property double popupRadius: units.dp(8)
 
+    property double comboBoxHeight: itemSizeMedium
 
     // 0 inactive, 1 load queue data, 2 load browse stack data
     property int resumeState: 0
+
+    property bool showBusy: false
 
     title: i18n.tr("Donnie")
     visible: true
@@ -90,6 +93,13 @@ Window {
         Component.onCompleted: {
             pageStack.push(Qt.resolvedUrl("pages/Menu.qml"))
         }
+    }
+
+    BusyIndicator {
+        anchors.centerIn: parent
+        width: itemSizeLarge
+        height: width
+        running: showBusy
     }
 
     PlayerArea {
@@ -131,19 +141,29 @@ Window {
           audio.play()
     }
     
+    function checkHasCurrentServer() {
+        if(!hasCurrentServer()) {
+            showMessageDialog(i18n.tr("Error"), i18n.tr("No UPnP Server found")) 
+            return false
+        }
+        return true
+    }
+
     function doSelectedMenuItem(id) {
         switch(id) {
             case "upnp-discovery": 
                 pageStack.push(Qt.resolvedUrl("pages/Discovery.qml"))
                 break
             case "upnp-browse": 
-                //pageStack.push(Qt.resolvedUrl("pages/Browse.qml"), {cid: "0"})
-                if(browsePage.cid == "")
-                    browsePage.cid = "0"
-                pageStack.push(browsePage)
+                if(checkHasCurrentServer()) {
+                    if(browsePage.cid == "")
+                        browsePage.cid = "0"
+                    pageStack.push(browsePage)
+                }
                 break
             case "builtin-player": 
-                pageStack.push(playerpage)
+                if(checkHasCurrentServer()) 
+                    pageStack.push(playerpage)
                 break
             case "about": 
                 pageStack.push(Qt.resolvedUrl("pages/About.qml"))
@@ -182,8 +202,8 @@ Window {
     property var discoveredRenderers : []
     property var discoveredServers : []
     property var currentBrowseStack : new UPnP.dataStructures.Stack()
-    property var currentServer
-    property var currentRenderer
+    property var currentServer: null
+    property var currentRenderer: null
     property var currentServerSearchCapabilities
     property bool useBuiltInPlayer: true
 
@@ -192,53 +212,53 @@ Window {
     }
 
     function setCurrentServer(server) {
-        app.currentServer = server;
-        console.log("setCurrentServer to: "+ currentServer["friendlyName"]);
-        var res = upnp.setCurrentServer(currentServer["friendlyName"], true);
-        currentServerSearchCapabilities = [];
+        app.currentServer = server
+        console.log("setCurrentServer to: "+ currentServer["friendlyName"])
+        var res = upnp.setCurrentServer(currentServer["friendlyName"], true)
+        currentServerSearchCapabilities = []
         if(res) {
             try {
                 var i
-                var scapJson = upnp.getSearchCapabilitiesJson();
-                console.log(scapJson);
-                var allSearchCaps = JSON.parse(scapJson);
+                var scapJson = upnp.getSearchCapabilitiesJson()
+                console.log(scapJson)
+                var allSearchCaps = JSON.parse(scapJson)
                 // minidlna worked well but minimserver returned some search capabilities that
                 // when used the query made it return an error
                 // things like: @refID, upnp:class, upnp:artist[@role="AlbumArtist"]
                 for(i=0;i<allSearchCaps.length;i++) {
                     if(allSearchCaps[i] !== "upnp:class"
                        && allSearchCaps[i].indexOf('@') < 0)
-                        currentServerSearchCapabilities.push(allSearchCaps[i]);
+                        currentServerSearchCapabilities.push(allSearchCaps[i])
                 }
             } catch( err ) {
-                app.error("Exception while getting Search Capabilities: " + err);
-                app.error("json: " + scapJson);
+                app.error("Exception while getting Search Capabilities: " + err)
+                app.error("json: " + scapJson)
             }
         } else {
-            error("Failed to set Current Server to: "+ currentServer["friendlyName"]);
+            error("Failed to set Current Server to: "+ currentServer["friendlyName"])
         }
-        return res;
+        return res
     }
 
     function hasCurrentRenderer() {
-        return app.currentRenderer ? true : false;
+        return app.currentRenderer ? true : false
     }
 
     function setCurrentRenderer(renderer) {
-        app.currentRenderer = renderer;
+        app.currentRenderer = renderer
 
         if(renderer === undefined) {
-            rendererPage.reset();
-            return;
+            rendererPage.reset()
+            return
         }
 
-        console.log("setCurrentRenderer to: "+ currentRenderer["friendlyName"]);
-        var res = upnp.setCurrentRenderer(currentRenderer["friendlyName"], true);
+        console.log("setCurrentRenderer to: "+ currentRenderer["friendlyName"])
+        var res = upnp.setCurrentRenderer(currentRenderer["friendlyName"], true)
         if(!res) {
-            rendererPage.reset();
-            error("Failed to set Current Renderer to: "+ currentRenderer["friendlyName"]);
+            rendererPage.reset()
+            error("Failed to set Current Renderer to: "+ currentRenderer["friendlyName"])
         }
-        return res;
+        return res
     }
 
     function searchForRendererAndServer() {
@@ -254,7 +274,7 @@ Window {
             upnp.getServerJson(settings.server_friendlyname, settings.search_window)
             started = true
         }
-        //showBusy = started
+        showBusy = started
     }
     
     Component.onCompleted: searchForRendererAndServer()
@@ -292,7 +312,7 @@ Window {
                 app.error("json: " + serverJson);
             }
 
-            //showBusy = false; // VISIT both should be done
+            showBusy = false; // VISIT both should be done
 
             if(app.hasCurrentServer()) {
                 if(settings.resume_saved_info === 1) // 0: never, 1: ask, 2:always
@@ -301,13 +321,15 @@ Window {
                     })
                 else if(settings.resume_saved_info === 2)
                     loadResumeMetaData()
-            }
+            } else
+              showMessageDialog(i18n.tr("Warning"), i18n.tr("No UPnP Server found")) 
         }
 
         onError: {
+            showBusy = false; // VISIT only one could fail
+            showErrorDialog(i18n.tr("UPnP Error") + ": " + msg) 
             console.log("Main::onError: " + msg);
             app.error(msg);
-            //showBusy = false; // VISIT only one could fail
         }
 
         // called when metadata has been collected from stored resume info
@@ -520,6 +542,7 @@ Window {
            
             Label {
                 text: dialog.messageText
+                font.pixelSize: app.fontPixelSizeMedium
             }
 
             onAccepted: {
