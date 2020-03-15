@@ -40,6 +40,7 @@ Page {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     width: parent.width * 2 / 3
+                    font.pixelSize: app.fontPixelSizeMedium
                     wrapMode: Label.WordWrap
                     text: i18n.tr("Load saved queue at startup and resume playing")
                 }
@@ -48,8 +49,9 @@ Page {
                     id: resumeModeSelector
                     anchors.right: parent.right
                     width: parent.width - resumeModeLabel.width - app.paddingMedium
-                    height: settingsPage.header.height
+                    height: app.comboBoxHeight
 
+                    font.pixelSize: app.fontPixelSizeMedium
                     indicator.width: height
                     background: Rectangle {
                         color: app.normalBackgroundColor
@@ -57,16 +59,24 @@ Page {
                         border.color: "grey"
                         radius: 7
                     }
-                    delegate: ItemDelegate {
+
+                    delegate: ItemDelegate { // override only to set font.pixelSize
                         width: resumeModeSelector.width
-                        height: resumeModeSelector.height
-                        text: modelData
+                        //height: resumeModeSelector.height
+                        contentItem: Text {
+                            text: modelData
+                            font.pixelSize: app.fontPixelSizeMedium
+                            elide: Text.ElideRight
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
 
                     Component.onCompleted: currentIndex = app.settings.resume_saved_info
+
                     onActivated: {
                         app.settings.resume_saved_info = currentIndex
                     }
+
                     model: [
                         i18n.tr("Never"),
                         i18n.tr("Ask"),
