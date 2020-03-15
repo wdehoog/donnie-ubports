@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-15 14:05+0000\n"
+"POT-Creation-Date: 2020-03-15 17:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:146 ../qml/Main.qml:575
+#: ../qml/Main.qml:146 ../qml/Main.qml:636
 msgid "Error"
 msgstr ""
 
@@ -59,6 +59,18 @@ msgstr ""
 
 #: ../qml/Main.qml:330
 msgid "UPnP Error"
+msgstr ""
+
+#: ../qml/Main.qml:566
+msgid "Yes"
+msgstr ""
+
+#: ../qml/Main.qml:566
+msgid "Ok"
+msgstr ""
+
+#: ../qml/Main.qml:588
+msgid "No"
 msgstr ""
 
 #: ../qml/pages/PlayerPage.qml:46
