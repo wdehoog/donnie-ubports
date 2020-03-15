@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-14 21:09+0000\n"
+"POT-Creation-Date: 2020-03-15 09:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,6 +61,10 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
+#: ../qml/pages/Discovery.qml:152
+msgid "Device Details"
+msgstr ""
+
 #: ../qml/pages/Settings.qml:21 ../qml/pages/Menu.qml:46
 msgid "Settings"
 msgstr ""
@@ -97,22 +101,26 @@ msgstr ""
 msgid "Thanks to"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:38
+#: ../qml/pages/Browse.qml:35
 msgid "UPnP Browser"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:259
+#: ../qml/pages/Browse.qml:256
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:263
+#: ../qml/pages/Browse.qml:260
 msgid "Replace in To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:267
+#: ../qml/pages/Browse.qml:264
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:271
+#: ../qml/pages/Browse.qml:268
 msgid "Replace All in Player"
+msgstr ""
+
+#: ../qml/pages/Browse.qml:299
+msgid "Choose A Path"
 msgstr ""

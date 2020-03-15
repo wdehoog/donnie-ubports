@@ -145,26 +145,24 @@ Page {
                 }
             }
 
-            /*onClicked: {
-                var item = devicesList.model.get(index);
-                pageStack.push(upnpDeviceDetails, {
-                    type: item.type,
-                    friendlyName: item.friendlyName,
-                    manufacturer: item.manufacturer,
-                    modelName: item.modelName,
-                    udn: item.UDN,
-                    urlBase: item.URLBase,
-                    deviceType: item.deviceType
-                });
-            }*/
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    var item = devicesList.model.get(index)
+                    app.showMessageDialog(i18n.tr("Device Details"),
+                        "Type: " + item.type +
+                        "\nName: " + item.friendlyName +
+                        "\nMan.: " + item.manufacturer +
+                        "\nModel: " + item.modelName +
+                        "\nUDN: " + item.UDN +
+                        "\nURL: " + item.URLBase +
+                        "\nDev.Type: " + item.deviceType)
+                }
+            }
         }
 
-        /*ViewPlaceholder {
-            enabled: devicesList.count == 0;
-            text: qsTr("No Devices")
-        }
+        ScrollBar.vertical: ScrollBar {}
 
-        VerticalScrollDecorator {}*/
     }
 
     Component.onCompleted: {
