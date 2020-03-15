@@ -184,6 +184,7 @@ Page {
                 var selected;
                 var hasSelected = false;
 
+                /* currently there is no support for renderers
                 for(i=0;i<app.discoveredRenderers.length;i++) {
                     var renderer = app.discoveredRenderers[i];
                     selected = renderer["UDN"] === app.settings.renderer_udn;
@@ -230,7 +231,7 @@ Page {
                         app.setCurrentRenderer(app.discoveredRenderers[0]);
                     else
                         app.useBuiltInPlayer = true;
-                }
+                }*/
 
                 hasSelected = false;
                 for(i=0;i<app.discoveredServers.length;i++) {
