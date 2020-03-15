@@ -96,14 +96,15 @@ Page {
                 source: model.icon
             }
 
-            Colorize {
-                visible: name == "devices" && !app.controller.hasCurrentDevice
+            /*Colorize {
+                id: colorize
+                visible: menuItem === ""
                 anchors.fill: image
                 source: image
                 hue: 0.0
                 saturation: 1.0
                 lightness: -0.2
-            }
+            }*/
 
             Text {
                 anchors.left: image.right

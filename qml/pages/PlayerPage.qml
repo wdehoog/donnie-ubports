@@ -493,9 +493,9 @@ Page {
         if(currentItem == -1 && trackListModel.count>0) {
             if(arguments.length >= 2 && arguments[1] > -1) // is index passed?
                 currentItem = arguments[1] - 1 // next will do +1
-            if(arguments.length >= 3) // is positiom passed?
+            if(arguments.length >= 3) // is position passed?
                 requestedAudioPosition = arguments[2]
-            next();
+            next()
         }
     }
 

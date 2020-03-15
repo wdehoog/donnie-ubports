@@ -335,25 +335,26 @@ Page {
     }
 
     onCidChanged: {
+        console.log("onCidChanged: " + cid)
         if(cid === "")
-            return;
+            return
 
-        showBusy = true;
+        showBusy = true
 
         if(app.currentBrowseStack.empty()) {
             if(cid === "0") { // root
-                pushOnBrowseStack(cid, "-1", qsTr("[Top Level]"), -1);
+                pushOnBrowseStack(cid, "-1", qsTr("[Top Level]"), -1)
             } /*else {
                 // probably arrived here from search page
                 // so we have to 'create' a browse stack
                 // BUT that option has been disabled
-                createBrowseStackFor(cid);
-                pathText = UPnP.getCurrentPathString(app.currentBrowseStack);
+                createBrowseStackFor(cid)
+                pathText = UPnP.getCurrentPathString(app.currentBrowseStack)
             }*/
         }
 
-        browseModel.clear();
-        browse(0);
+        browseModel.clear()
+        browse(0)
     }
 
     function browse(start) {
