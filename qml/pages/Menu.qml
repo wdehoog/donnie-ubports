@@ -55,22 +55,21 @@ Page {
 
     Component.onCompleted: {
         menuModel.append({menuItem: "upnp-discovery",
-                          name: ("UPnP Discovery"),
+                          name: i18n.tr("UPnP Discovery"),
                           icon: "image://theme/network-server-symbolic"
                          })
         menuModel.append({menuItem: "upnp-browse",
-                          name: ("Browse"),
+                          name: i18n.tr("Browse"),
                           icon: "image://theme/view-list-symbolic"
                          })
-        menuModel.append({menuItem: "builtin-player",
-                          name: ("Player"),
-                          icon: "image://theme/stock_music"
-                         })
-        /*menuModel.append({hutspotMenuItem: Util.HutspotMenuItem.ShowSearchPage,
+        menuModel.append({menuItem: "upnp-search",
                           name: i18n.tr("Search"),
                           icon: "image://theme/toolkit_input-search"
                          })
-        */
+        menuModel.append({menuItem: "builtin-player",
+                          name: i18n.tr("Player"),
+                          icon: "image://theme/stock_music"
+                         })
     }
 
     ListView {

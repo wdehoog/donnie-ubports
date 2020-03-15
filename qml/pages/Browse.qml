@@ -32,7 +32,7 @@ Page {
     //property bool showPathTree: false;
 
     header: PageHeader {
-        title: i18n.tr("UPnP Browser")
+        title: i18n.tr("Browse")
     }
 
     Connections {

@@ -165,6 +165,10 @@ Window {
                 if(checkHasCurrentServer()) 
                     pageStack.push(playerpage)
                 break
+            case "upnp-search": 
+                pageStack.push(Qt.resolvedUrl("pages/Search.qml"),
+                    {searchCapabilities: app.currentServerSearchCapabilities})
+                break
             case "about": 
                 pageStack.push(Qt.resolvedUrl("pages/About.qml"))
                 break
@@ -172,6 +176,10 @@ Window {
                 pageStack.push(Qt.resolvedUrl("pages/Settings.qml"))
                 break
         }
+    }
+
+    function pushPage(url, options) {
+        return pageStack.push(Qt.resolvedUrl(url), options)
     }
 
     // trial and error and interweb
@@ -653,5 +661,7 @@ Window {
         property string last_playing_info: ""
         property int last_playing_position: 0
         property int resume_saved_info: 0
+        property bool search_allow_containers: false
+        property int selected_search_capabilities: 0xFFF
     }
 }
