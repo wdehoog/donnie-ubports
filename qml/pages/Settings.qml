@@ -12,6 +12,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 import "../components"
+import "../controls"
 
 Page {
     id: settingsPage
@@ -45,37 +46,17 @@ Page {
                     text: i18n.tr("Load saved queue at startup and resume playing")
                 }
 
-                ComboBox {
+                MyComboBox {
                     id: resumeModeSelector
+
                     anchors.right: parent.right
                     width: parent.width - resumeModeLabel.width - app.paddingMedium
                     height: app.comboBoxHeight
-
-                    font.pixelSize: app.fontPixelSizeMedium
-                    indicator.width: height
-                    background: Rectangle {
-                        color: app.normalBackgroundColor
-                        border.width: 1
-                        border.color: "grey"
-                        radius: 7
-                    }
-
-                    delegate: ItemDelegate { // override only to set font.pixelSize
-                        width: resumeModeSelector.width
-                        //height: resumeModeSelector.height
-                        contentItem: Text {
-                            text: modelData
-                            font.pixelSize: app.fontPixelSizeMedium
-                            elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
-                        }
-                    }
+                    fontPixelSize: app.fontPixelSizeMedium
 
                     Component.onCompleted: currentIndex = app.settings.resume_saved_info
 
-                    onActivated: {
-                        app.settings.resume_saved_info = currentIndex
-                    }
+                    onActivated: app.settings.resume_saved_info = currentIndex
 
                     model: [
                         i18n.tr("Never"),
@@ -85,15 +66,19 @@ Page {
                 }
             }
                 
-            Row {
+            Item {
                 width: parent.width
                 height: childrenRect.height
                 Label {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.pixelSize: app.fontPixelSizeMedium
                     text: i18n.tr("Show containers in search results")
                 }
                 Switch {
                     id: allowContainers
                     anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
                     checked: settings.search_allow_containers
                     onCheckedChanged: settings.search_allow_containers = checked
                 }

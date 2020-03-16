@@ -257,7 +257,7 @@ Page {
                 onTriggered: addToPlayer(listView.model.get(listItemMenu.index))
             },
             Action {
-                text: i18n.tr("Replace in To Player")
+                text: i18n.tr("Replace in Player")
                 onTriggered: replaceInPlayer(listView.model.get(listItemMenu.index))
             },
             Action {

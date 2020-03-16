@@ -663,5 +663,6 @@ Window {
         property int resume_saved_info: 0
         property bool search_allow_containers: false
         property int selected_search_capabilities: 0xFFF
+        property string groupby_search_results: "album"
     }
 }

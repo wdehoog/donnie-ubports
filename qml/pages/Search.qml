@@ -12,6 +12,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 import "../components"
+import "../controls"
 
 import "../UPnP.js" as UPnP
 
@@ -30,7 +31,7 @@ Page {
     property var searchCapabilities: []
     property int selectedSearchCapabilitiesMask: app.settings.selected_search_capabilities
     property var scMap: []
-    //property string groupByField: app.settings.groupby_search_results
+    property string groupByField: app.settings.groupby_search_results
 
     header: PageHeader {
         title: i18n.tr("Search")
@@ -41,11 +42,12 @@ Page {
         anchors.centerIn: parent
         width: itemSizeLarge
         height: width
-        running: showBusy;
+        running: showBusy
     }
 
-    ListModel {
+    SortedListModel {
         id: searchModel
+        sortKey: groupByField
     }
 
     ListView {
@@ -95,39 +97,12 @@ Page {
                 }
             }
 
-            PushUpMenu {
-                MenuItem {
-                    text: i18n.tr("Load More")
-                    enabled: searchString.length >= 1
-                             && selectedSearchCapabilitiesMask > 0
-                             && searchModel.count < totalCount
-                    onClicked: searchMore(startIndex+maxCount);
-                }
-                MenuItem {
-                    text: i18n.tr("Load Next Set")
-                    enabled: searchString.length >= 1
-                             && selectedSearchCapabilitiesMask > 0
-                             && (startIndex + searchModel.count) < totalCount
-                    onClicked: {
-                        searchModel.clear();
-                        searchMore(startIndex+maxCount);
-                    }
-                }
-                MenuItem {
-                     text: i18n.tr("Load Previous Set")
-                     enabled: searchString.length >= 1
-                              && selectedSearchCapabilitiesMask > 0
-                              && startIndex >= maxCount
-                     onClicked: {
-                         searchModel.clear();
-                         searchMore(startIndex-maxCount);
-                     }
-                 }
             }*/
 
             Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
             Row {
                 width: parent.width
+                height: searchField.height
                 Icon {
                     id: sfIcon
                     height: searchField.height
@@ -137,6 +112,7 @@ Page {
                 TextField {
                     id: searchField
                     width: parent.width - sfIcon.width
+                    font.pixelSize: app.fontPixelSizeMedium
                     placeholderText: i18n.tr("Search for")
                     inputMethodHints: Qt.ImhNoPredictiveText
 
@@ -155,6 +131,7 @@ Page {
                 property string value: ""
 
                 width: parent.width
+                font.pixelSize: app.fontPixelSizeMedium
 
                 text: i18n.tr("Search In") + ": " + value
 
@@ -213,60 +190,69 @@ Page {
 
             }
 
-            /* Group by */
-            /*ComboBox {
-                id: groupBy
+            Item {
                 width: parent.width
-                label: i18n.tr("Group By")
-                currentIndex: {
-                    if(groupby_search_results === "album")
-                        return 0;
-                    if(groupby_search_results === "artist")
-                        return 1;
-                    if(groupby_search_results === "title")
-                        return 2;
-                    return -1;
+                height: childrenRect.height 
+
+                Label {
+                    id: groupByLabel
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: parent.width * 2 / 3
+                    font.pixelSize: app.fontPixelSizeMedium
+                    wrapMode: Label.WordWrap
+                    text: i18n.tr("Group By")
                 }
-                menu: ContextMenu {
-                    MenuItem {
-                        text: i18n.tr("Album")
-                        onClicked: {
-                            groupby_search_results = "album";
-                        }
+
+                MyComboBox {
+                    id: groupByCombo
+
+                    anchors.right: parent.right
+                    width: parent.width - groupByLabel.width - app.paddingMedium
+                    height: app.comboBoxHeight
+                    fontPixelSize: app.fontPixelSizeMedium
+
+                    Component.onCompleted: {
+                        console.log("onCompleted: " + app.settings.groupby_search_results)
+                        if(app.settings.groupby_search_results === "album")
+                            currentIndex = 0
+                        else if(app.settings.groupby_search_results === "artist")
+                            currentIndex = 1
+                        else if(app.settings.groupby_search_results === "title")
+                            currentIndex = 2
+                        else
+                            currentIndex = -1
+                        console.log("model["+currentIndex+"]="+model[currentIndex])
                     }
-                    MenuItem {
-                        text: i18n.tr("Artist")
-                        onClicked: {
-                            groupby_search_results = "artist";
-                        }
-                    }
-                    MenuItem {
-                        text: i18n.tr("Title")
-                        onClicked: {
-                            groupby_search_results.value = "title";
-                            groupby_search_results.sync();
-                        }
-                    }
+
+                    onActivated: app.settings.groupby_search_results = model[currentIndex].toLowerCase()
+
+                    model: [
+                        i18n.tr("Album"),
+                        i18n.tr("Artist"),
+                        i18n.tr("Title")
+                    ]
                 }
-            }*/
+            }
         }
 
-        /*section.property : groupByField
+        section.property : groupByField
         section.delegate : Component {
             id: sectionHeading
             Item {
-                width: parent.width - 2*app.paddingMedium
+                width: parent.width - 2*x
                 x: app.paddingMedium
                 height: childrenRect.height
 
-                Text {
+                Label {
+                    anchors.right: parent.right
                     text: section
-                    font.bold: true
+                    font.weight: Font.Bold
                     font.pixelSize: app.fontSizeMedium
-                    color: app.highlightColor
+                    color: app.primaryColor
                 }
             }
-        }*/
+        }
 
         delegate: AdaptiveListItem {
             id: delegate
@@ -298,14 +284,14 @@ Page {
                             id: dt
                             anchors.right: parent.right
                             color: app.secondaryColor
-                            font.pixelSize: app.fontSizeExtraSmall
+                            font.pixelSize: app.fontSizeSmall
                             text: durationText
                         }
                     }
 
                     Label {
                         color: app.secondaryColor
-                        font.pixelSize: app.fontSizeExtraSmall
+                        font.pixelSize: app.fontSizeSmall
                         text: metaText
                         textFormat: Text.StyledText
                         //truncationMode: TruncationMode.Fade
@@ -315,39 +301,50 @@ Page {
 
             }
 
-            /*menu: contextMenu
-
-            Component {
-                id: contextMenu
-                ContextMenu {
-                    MenuItem {
-                        text: i18n.tr("Add To Player")
-                        visible: listView.model.get(index).type === "Item"
-                        onClicked: addToPlayer(listView.model.get(index));
-                    }
-                    MenuItem {
-                        text: i18n.tr("Add Group To Player")
-                        visible: listView.model.get(index).type === "Item"
-                        onClicked: addGroupToPlayer(groupByField, listView.model.get(index)[groupByField]);
-                    }
-                    MenuItem {
-                        text: i18n.tr("Add All To Player")
-                        visible: listView.model.get(index).type === "Item"
-                        onClicked: addAllToPlayer();
-                    }
-                    // minidlna and minimserver give complete collection as parent
-                    // so browsing that is useless (and for some reason does not work)
-                    //MenuItem {
-                    //    text: "Browse (experimental)"
-                    //    onClicked: openBrowseOn(listView.model.get(index).pid);
-                    //}
-                }
-            }*/
+            function openActionMenu() {
+                if(listView.model.get(index).type === "Item")
+                    listItemMenu.show(index)
+            }
         }
 
         ScrollBar.vertical: ScrollBar {}
-
     }
+
+    ListItemMenu {
+        id: listItemMenu
+
+        property ListView listView: listView
+
+        actions: [
+            Action {
+                text: i18n.tr("Add To Player")
+                onTriggered: addToPlayer(listView.model.get(listItemMenu.index))
+            },
+            Action {
+                text: i18n.tr("Add Group To Player")
+                onTriggered: addGroupToPlayer(groupByField, listView.model.get(index)[groupByField])
+            },
+            /*Action {
+                text: i18n.tr("Replace in Player")
+                onTriggered: replaceInPlayer(listView.model.get(listItemMenu.index))
+            },*/
+            Action {
+                text: i18n.tr("Add All To Player")
+                onTriggered: addAllToPlayer(listView.model.get(listItemMenu.index))
+            }/*,
+            Action {
+                text: i18n.tr("Replace All in Player")
+                onTriggered: app.replaceAllInPlayer(listView.model.get(listItemMenu.index))
+            }*/
+        ]
+    }
+
+    // minidlna and minimserver give complete collection as parent
+    // so browsing that is useless (and for some reason does not work)
+    //MenuItem {
+    //    text: "Browse (experimental)"
+    //    onClicked: openBrowseOn(listView.model.get(index).pid);
+    //}
 
     onSearchStringChanged: {
         typeDelay.restart()
@@ -367,6 +364,7 @@ Page {
         if(searchString.length >= 1 && selectedSearchCapabilitiesMask > 0) {
             var searchQuery = UPnP.createUPnPQuery(searchString, searchCapabilities, selectedSearchCapabilitiesMask, allowContainers);
             showBusy = true;
+            console.log("query: " + searchQuery);
             upnp.search(searchQuery, 0, maxCount);
             //console.log("search start="+startIndex);
         }
