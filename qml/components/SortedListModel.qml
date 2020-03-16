@@ -41,6 +41,33 @@ ListModel {
     }
 
     function add(item) {
+        if (!count || sortKey.length === 0) {
+            append(item);
+            return;
+        }
+
+
+        var first = 0;
+        var last = count - 1;
+        while (last > first + 1) {
+            var mid = (first + last) >> 1;
+            var cmp = compare(item, get(mid));
+            if (cmp === 0) {
+                insert(mid, item);
+                return;
+            }
+
+            if (cmp < 0) {
+                last = mid;
+            } else {
+                first = mid;
+            }
+        }
+
+        insert(last, item);
+    }
+
+    function addUnique(item) {
         if (!count) {
             append(item);
             return;

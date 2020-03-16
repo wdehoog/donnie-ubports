@@ -29,6 +29,7 @@ ComboBox {
     // override only to set font.pixelSize
     delegate: ItemDelegate { 
         width: control.width
+        height: control.height         
         //height: resumeModeSelector.height
         contentItem: Text {
             text: modelData

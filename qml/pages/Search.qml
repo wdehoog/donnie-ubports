@@ -21,7 +21,7 @@ Page {
     id: searchPage
 
     property bool keepSearchFieldFocus: true
-    property bool showBusy: false;
+    property bool showBusy: false
     property string searchString: ""
     property int startIndex: 0
     property int maxCount: app.settings.max_number_of_results
@@ -74,8 +74,8 @@ Page {
                              && selectedSearchCapabilitiesMask > 0
                              && startIndex >= maxCount
                     onClicked: {
-                        searchModel.clear();
-                        searchMore(startIndex-maxCount);
+                        searchModel.clear()
+                        searchMore(startIndex-maxCount)
                     }
                 }
                 MenuItem {
@@ -84,8 +84,8 @@ Page {
                              && selectedSearchCapabilitiesMask > 0
                              && (startIndex + searchModel.count) < totalCount
                     onClicked: {
-                        searchModel.clear();
-                        searchMore(startIndex+maxCount);
+                        searchModel.clear()
+                        searchMore(startIndex+maxCount)
                     }
                 }
                 MenuItem {
@@ -93,16 +93,17 @@ Page {
                     enabled: searchString.length >= 1
                              && selectedSearchCapabilitiesMask > 0
                              && searchModel.count < totalCount
-                    onClicked: searchMore(startIndex+maxCount);
+                    onClicked: searchMore(startIndex+maxCount)
                 }
             }
 
             }*/
 
             Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
+
             Row {
                 width: parent.width
-                height: searchField.height
+
                 Icon {
                     id: sfIcon
                     height: searchField.height
@@ -112,7 +113,7 @@ Page {
                 TextField {
                     id: searchField
                     width: parent.width - sfIcon.width
-                    font.pixelSize: app.fontPixelSizeMedium
+                    font.pixelSize: app.fontPixelSizeLarge
                     placeholderText: i18n.tr("Search for")
                     inputMethodHints: Qt.ImhNoPredictiveText
 
@@ -140,7 +141,7 @@ Page {
                 }
 
                 Component.onCompleted: {
-                    var c = 0;
+                    var c = 0
                     value = i18n.tr("None")
                     indexes = []
                     items.clear()
@@ -234,6 +235,7 @@ Page {
                     ]
                 }
             }
+            Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
         }
 
         section.property : groupByField
@@ -278,6 +280,7 @@ Page {
                             textFormat: Text.StyledText
                             //truncationMode: TruncationMode.Fade
                             width: parent.width - dt.width
+                            font.pixelSize: app.fontSizeMedium
                             text: titleText
                         }
                         Label {
@@ -322,20 +325,21 @@ Page {
             },
             Action {
                 text: i18n.tr("Add Group To Player")
-                onTriggered: addGroupToPlayer(groupByField, listView.model.get(index)[groupByField])
+                onTriggered: addGroupToPlayer(groupByField, listView.model.get(listItemMenu.index)[groupByField])
             },
-            /*Action {
-                text: i18n.tr("Replace in Player")
-                onTriggered: replaceInPlayer(listView.model.get(listItemMenu.index))
-            },*/
+            Action {
+                text: i18n.tr("Replace Group in Player")
+                onTriggered: replaceGroupInPlayer(groupByField, listView.model.get(listItemMenu.index)[groupByField])
+
+            },
             Action {
                 text: i18n.tr("Add All To Player")
                 onTriggered: addAllToPlayer(listView.model.get(listItemMenu.index))
-            }/*,
+            },
             Action {
                 text: i18n.tr("Replace All in Player")
                 onTriggered: app.replaceAllInPlayer(listView.model.get(listItemMenu.index))
-            }*/
+            }
         ]
     }
 
@@ -343,7 +347,7 @@ Page {
     // so browsing that is useless (and for some reason does not work)
     //MenuItem {
     //    text: "Browse (experimental)"
-    //    onClicked: openBrowseOn(listView.model.get(index).pid);
+    //    onClicked: openBrowseOn(listView.model.get(index).pid)
     //}
 
     onSearchStringChanged: {
@@ -362,108 +366,118 @@ Page {
 
     function refresh() {
         if(searchString.length >= 1 && selectedSearchCapabilitiesMask > 0) {
-            var searchQuery = UPnP.createUPnPQuery(searchString, searchCapabilities, selectedSearchCapabilitiesMask, allowContainers);
-            showBusy = true;
-            console.log("query: " + searchQuery);
-            upnp.search(searchQuery, 0, maxCount);
-            //console.log("search start="+startIndex);
+            var searchQuery = UPnP.createUPnPQuery(searchString, searchCapabilities, selectedSearchCapabilitiesMask, allowContainers)
+            showBusy = true
+            console.log("query: " + searchQuery)
+            upnp.search(searchQuery, 0, maxCount)
+            //console.log("search start="+startIndex)
         }
-        searchModel.clear();
+        searchModel.clear()
     }
 
     function searchMore(start) {
         if(searchString.length < 1 || selectedSearchCapabilitiesMask == 0)
-            return;
-        var searchQuery = UPnP.createUPnPQuery(searchString, searchCapabilities, selectedSearchCapabilitiesMask, allowContainers);
-        showBusy = true;
-        startIndex = start;
-        upnp.search(searchQuery, start, maxCount);
-        //console.log("search start="+startIndex);
+            return
+        var searchQuery = UPnP.createUPnPQuery(searchString, searchCapabilities, selectedSearchCapabilitiesMask, allowContainers)
+        showBusy = true
+        startIndex = start
+        upnp.search(searchQuery, start, maxCount)
+        //console.log("search start="+startIndex)
     }
 
     Connections {
         target: upnp
         onSearchDone: {
-            var i;
+            var i
 
             try {
-                searchResults = JSON.parse(searchResultsJson);
+                searchResults = JSON.parse(searchResultsJson)
+                console.log("onSearchDone: " + searchResults.containers.length +":"+ searchResults.items.length)
 
                 // containers
                 for(i=0;i<searchResults.containers.length;i++) {
-                    var container = searchResults.containers[i];
-                    searchModel.append(UPnP.createListContainer(container));
+                    var container = searchResults.containers[i]
+                    searchModel.add(UPnP.createListContainer(container))
                 }
 
                 // items
                 for(i=0;i<searchResults.items.length;i++) {
-                    var item = searchResults.items[i];
+                    var item = searchResults.items[i]
                     if(UPnP.startsWith(item.properties["upnp:class"], "object.item.audioItem")) {
-                        searchModel.append(UPnP.createListItem(item));
+                        searchModel.add(UPnP.createListItem(item))
                     } else
-                        console.log("onSearchDone: skipped loading of an object of class " + item.properties["upnp:class"]);
+                        console.log("onSearchDone: skipped loading of an object of class " + item.properties["upnp:class"])
                 }
 
-                totalCount = searchResults["totalCount"];
+                totalCount = searchResults["totalCount"]
 
             } catch( err ) {
-                app.error("Exception in onSearchDone: " + err);
-                app.error("json: " + searchResultsJson);
+                app.error("Exception in onSearchDone: " + err)
+                app.error("json: " + searchResultsJson)
             }
 
-            showBusy = false;
+            showBusy = false
         }
 
         onError: {
-            console.log("Search::onError: " + msg);
-            //app.errorLog.push(msg);
-            showBusy = false;
+            console.log("Search::onError: " + msg)
+            //app.errorLog.push(msg)
+            showBusy = false
         }
     }
     function addToPlayer(track) {
-        getPlayerPage().addTracks([track]);
+        getPlayerPage().addTracks([track])
     }
 
     function replaceInPlayer(track) {
-        getPlayerPage().clearList();
-        getPlayerPage().addTracks([track]);
+        getPlayerPage().clearList()
+        getPlayerPage().addTracks([track])
     }
 
     function getAllTracks() {
-        var tracks = [];
+        var tracks = []
         for(var i=0;i<listView.model.count;i++) {
             if(listView.model.get(i).type === "Item")
-                tracks.push(listView.model.get(i));
+                tracks.push(listView.model.get(i))
         }
-        return tracks;
+        return tracks
     }
 
     function addAllToPlayer() {
-        var tracks = getAllTracks();
-        getPlayerPage().addTracks(tracks);
+        var tracks = getAllTracks()
+        getPlayerPage().addTracks(tracks)
     }
 
     function replaceAllInPlayer() {
-        var tracks = getAllTracks();
-        getPlayerPage().clearList();
-        getPlayerPage().addTracks(tracks);
+        var tracks = getAllTracks()
+        getPlayerPage().clearList()
+        getPlayerPage().addTracks(tracks)
+    }
+
+    function getGroupTracks(field, value) {
+        var tracks = []
+        for(var i=0;i<listView.model.count;i++) {
+            if(listView.model.get(i).type === "Item") {
+                var track = listView.model.get(i)
+                if(track[field] === value)
+                    tracks.push(track)
+            }
+        }
+        return tracks
     }
 
     function addGroupToPlayer(field, value) {
-        var tracks = [];
-        for(var i=0;i<listView.model.count;i++) {
-            if(listView.model.get(i).type === "Item") {
-                var track = listView.model.get(i);
-                if(track[field] === value)
-                    tracks.push(track);
-            }
-        }
-        getPlayerPage().addTracks(tracks);
+        getPlayerPage().addTracks(getGroupTracks(field, value))
+    }
+
+    function replaceGroupInPlayer(field, value) {
+        getPlayerPage().clearList()
+        getPlayerPage().addTracks(getGroupTracks(field, value))
     }
 
     function openBrowseOn(id) {
-        pageStack.pop();
-        mainPage.openBrowsePage(id);
+        pageStack.pop()
+        mainPage.openBrowsePage(id)
     }
 
 }

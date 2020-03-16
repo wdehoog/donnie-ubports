@@ -34,11 +34,13 @@ Window {
     property color primaryColor: text1color
     property color secondaryColor: text2color
 
+    property int fontPixelSizeExtraLarge: units.dp(16)
     property int fontPixelSizeLarge: units.dp(14)
     property int fontPixelSizeMedium: units.dp(12)
     property int fontPixelSizeSmall: units.dp(10)
     property int fontPixelSizeExtraSmall: units.dp(8)
 
+    property int fontSizeExtraLarge: fontPixelSizeExtraLarge
     property int fontSizeLarge: fontPixelSizeLarge
     property int fontSizeMedium: fontPixelSizeMedium 
     property int fontSizeSmall: fontPixelSizeSmall

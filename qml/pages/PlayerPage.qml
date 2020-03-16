@@ -217,7 +217,7 @@ Page {
                 Image {
                     id: imageItem
                     source: imageItemSource ? imageItemSource : defaultImageSource
-                    width: parent.width / 2
+                    width: parent.width * 2 / 3
                     height: width
                     fillMode: Image.PreserveAspectFit
                 }
@@ -228,7 +228,7 @@ Page {
 
                   anchors.verticalCenter: parent.verticalCenter
                   spacing: app.paddingMedium
-                  width: parent.width / 2
+                  width: parent.width - imageItem.width
                   //height: playIcon.height
 
                   Icon {

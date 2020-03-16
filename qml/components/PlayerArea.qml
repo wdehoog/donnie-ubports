@@ -18,7 +18,7 @@ Column {
     width: parent.width
     anchors {
         bottom: parent.bottom
-        bottomMargin: app.gu(0.5)
+        //bottomMargin: app.gu(0.5)
     }
 
     Rectangle { 
