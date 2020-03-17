@@ -129,7 +129,7 @@ Window {
         id: audio
 
         autoLoad: true
-        autoPlay: false
+        autoPlay: true
         //source: channelStreamUrl
 
         onError: {
