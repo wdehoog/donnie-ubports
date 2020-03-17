@@ -47,7 +47,13 @@ Page {
 
     SortedListModel {
         id: searchModel
-        sortKey: groupByField
+        //sortKey: groupByField
+
+        // sort by group field and track number
+        comparator: function(a, b) {
+            return a[groupByField].localeCompare(b[groupByField])
+                || (groupByField == "album" ? (a.trackNumber - b.trackNumber) : 0)
+        }
     }
 
     ListView {
@@ -128,6 +134,7 @@ Page {
 
             /* Which fields to search in */
             Button {
+                id: searchInButton
                 property var indexes: []
                 property string value: ""
 
@@ -138,6 +145,13 @@ Page {
 
                 ListModel {
                     id: items
+                }
+
+                background: Rectangle {
+                    border.color: app.controlBorderColor
+                    border.width: 1
+                    radius: app.controlRadius
+                    color: app.controlBackgroundColor
                 }
 
                 Component.onCompleted: {

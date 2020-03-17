@@ -64,6 +64,10 @@ Window {
     property color normalBackgroundColor: "white" // theme.palette.normal.base
     property color highlightBackgroundColor: "#CDCDCD" // theme.palette.highlited.base
 
+    property color controlBackgroundColor: "white"
+    property color controlBorderColor: "black"
+    property int controlRadius: 3
+
     property var fontPrimaryWeight: Font.Light
     property var fontHighlightWeight: Font.Bold
 

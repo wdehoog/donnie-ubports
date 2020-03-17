@@ -15,21 +15,20 @@ ComboBox {
     id: control
 
     property int fontPixelSize
-    property color backgroundColor: "white"
+    property color backgroundColor: app.controlBackgroundColor
 
     font.pixelSize: fontPixelSize
     indicator.width: height
     background: Rectangle {
         color: control.backgroundColor
         border.width: 1
-        border.color: "black"
-        //radius: 7
+        border.color: app.controlBorderColor
+        radius: app.controlRadius
     }
 
     // override only to set font.pixelSize
     delegate: ItemDelegate { 
         width: control.width
-        height: control.height         
         //height: resumeModeSelector.height
         contentItem: Text {
             text: modelData

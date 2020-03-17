@@ -292,6 +292,7 @@ function createListItem(item) {
         artist: item.properties["dc:creator"],
         album: item.properties["upnp:album"],
         albumArtURI: item.properties["upnp:albumArtURI"],
+        trackNumber: item.properties["upnp:originalTrackNumber"],
         uri: item.resources[0]["Uri"],
         didl: item["didl"],
         duration: (item.resources[0] && item.resources[0].attributes["duration"])
