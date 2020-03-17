@@ -31,13 +31,13 @@ Column {
         color: "darkgrey"
         width: audio.playbackState == Audio.PlayingState
                ? (parent.width * (audio.position / audio.duration)) : 0
-        height: app.paddingSmall
+        height: app.paddingExtraSmall
     }
 
     Row {
         id: playerUI
      
-        width: parent.width - app.gu(2)
+        width: parent.width - 2*x
         x: app.gu(1)
         height: imageItem.height
 

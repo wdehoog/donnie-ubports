@@ -168,7 +168,7 @@ Page {
         meta.Length = 0;
         meta.ArtUrl = track.albumArtURI;
         meta.TrackNumber = currentItem;
-        //app.updateMprisMetaData(meta);
+        app.updateMprisMetaData(meta);
     }
 
     function updateMprisForTrack(track) {
@@ -179,7 +179,7 @@ Page {
         meta.Length = track.duration * 1000; // ms -> us
         meta.ArtUrl = track.albumArtURI;
         meta.TrackNumber = currentItem;
-        //app.updateMprisMetaData(meta);
+        app.updateMprisMetaData(meta);
     }
 
     ListView {

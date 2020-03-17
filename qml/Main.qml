@@ -49,6 +49,7 @@ Window {
     //
     // UI stuff
     //
+    property double paddingExtraSmall: units.dp(2)
     property double paddingSmall: units.dp(4)
     property double paddingMedium: units.dp(8)
     property double paddingLarge: units.dp(16)
@@ -111,6 +112,7 @@ Window {
     PlayerArea {
         id: playerArea
         height: visible ? childrenRect.height : 0
+        width: parent.width
         audio: audio
         visible: pageStack.currentItem.objectName != "PlayerPage"
         trackMetaText1: getPlayerPage().trackMetaText1
@@ -137,6 +139,15 @@ Window {
             console.log("source: " + source)
             showErrorDialog(i18n.tr("Audio Player:") + "\n\n" + errorString)
         }
+    }
+
+    function updateMprisMetaData(meta) {
+        audio.metaData.title = meta.Title
+        audio.metaData.albumTitle = meta.Album
+        audio.metaData.albumArtist = meta.Artist
+        audio.metaData.coverArtUrlSmall = meta.ArtUrl
+        audio.metaData.coverArtUrlLarge = meta.ArtUrl
+        audio.metaData.trackNumber = meta.TrackNumber
     }
 
     function playPause() {
