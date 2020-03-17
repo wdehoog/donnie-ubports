@@ -121,7 +121,7 @@ Page {
                     width: parent.width - sfIcon.width
                     font.pixelSize: app.fontPixelSizeLarge
                     placeholderText: i18n.tr("Search for")
-                    inputMethodHints: Qt.ImhNoPredictiveText
+                    inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
 
                     Binding {
                         target: searchPage
