@@ -47,37 +47,56 @@ Column {
             width: app.gu(10)
             height: width
             anchors.verticalCenter: parent.verticalCenter
+            MouseArea {
+                 anchors.fill: parent
+                 onClicked: {
+                     app.doSelectedMenuItem("builtin-player")
+                 }
+            }
         }
 
-        Column {
+        SwipeArea {
             id: meta
             width: parent.width - imageItem.width - playerButton.width
-            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height
+            Column {
+                width: parent.width
+                anchors.verticalCenter: parent.verticalCenter
 
-            Text {
-                id: m1
-                x: app.gu(1)
-                width: parent.width - app.gu(1)
-                font.bold: true
-                font.pixelSize: app.fontPixelSizeLarge
-                color: app.text1color
-                wrapMode: Text.Wrap
-                text: trackMetaText1
-            }
-            Text {
-                id: m2
-                x: app.gu(1)
-                width: parent.width - app.gu(1)
-                anchors.right: parent.right
-                wrapMode: Text.Wrap
-                font.pixelSize: app.fontPixelSizeLarge
-                font.bold: true
-                color: app.text2color
-                text: trackMetaText2
-            }
+                Text {
+                    id: m1
+                    x: app.gu(1)
+                    width: parent.width - app.gu(1)
+                    font.bold: true
+                    font.pixelSize: app.fontPixelSizeLarge
+                    color: app.text1color
+                    wrapMode: Text.Wrap
+                    text: trackMetaText1
+                }
+                Text {
+                    id: m2
+                    x: app.gu(1)
+                    width: parent.width - app.gu(1)
+                    anchors.right: parent.right
+                    wrapMode: Text.Wrap
+                    font.pixelSize: app.fontPixelSizeLarge
+                    font.bold: true
+                    color: app.text2color
+                    text: trackMetaText2
+                }
 
+            }
+            onSwipe: {
+                switch(direction) {
+                    case "left":
+                        app.getPlayerPage().next()
+                        break
+                    case "right":
+                        app.getPlayerPage().prev()
+                        break
+                }
+            }
         }
-
 
         Icon {
             id: playerButton
@@ -89,7 +108,7 @@ Column {
                         : "media-preview-start"
             MouseArea {
                 anchors.fill: parent
-                onClicked: playPause()
+                onClicked: app.playPause()
             }
         }
     }
