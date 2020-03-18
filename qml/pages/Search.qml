@@ -133,7 +133,7 @@ Page {
             }
 
             /* Which fields to search in */
-            Button {
+            MyButton {
                 id: searchInButton
                 property var indexes: []
                 property string value: ""
@@ -145,13 +145,6 @@ Page {
 
                 ListModel {
                     id: items
-                }
-
-                background: Rectangle {
-                    border.color: app.controlBorderColor
-                    border.width: 1
-                    radius: app.controlRadius
-                    color: app.controlBackgroundColor
                 }
 
                 Component.onCompleted: {

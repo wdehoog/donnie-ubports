@@ -8,6 +8,7 @@ import QtQuick.Window 2.0
 import Qt.labs.settings 1.0 as QLS
 
 import "components"
+import "controls"
 import "pages"
 
 import "UPnP.js" as UPnP
@@ -562,73 +563,83 @@ Window {
             y: (parent.height - height) / 2
 
             title: messageTitle
-            //standardButtons: confirmation ? Dialog.Yes | Dialog.No : Dialog.Ok
             modal: true
-           
+
+            //height: app.fontPixelSizeMedium * 9
+            height: app.height / 3
+
             header: Label { // copied from Qt, added font.pixelSize
                 text: dialog.title
                 visible: dialog.title
                 elide: Label.ElideRight
                 font.bold: true
                 font.pixelSize: app.fontPixelSizeMedium
-                padding: 12
+                
+                leftPadding: app.paddingLarge
+                topPadding: app.paddingSmall
+                bottomPadding: app.paddingSmall
+
                 background: Rectangle {
-                    x: 1; y: 1
-                    width: parent.width - 2
-                    height: parent.height - 1
+                    //x: 1; y: 1
+                    width: parent.width //- 2
+                    height: parent.height //- 1
+                    border.color: app.controlBorderColor
+                    border.width: 1
+                    radius: app.controlRadius
+                    color: app.controlBackgroundColor
                 }
             }
 
             Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
                 text: dialog.messageText
                 font.pixelSize: app.fontPixelSizeMedium
             }
 
+            background: Rectangle {
+                border.color: app.controlBorderColor
+                border.width: 1
+                radius: app.controlRadius
+                color: app.controlBackgroundColor
+            }
+
             // create footer to set font size on buttons 
             footer: DialogButtonBox {
-                Button {
+                id: dbBox
+                height: app.fontPixelSizeMedium * 3
+                spacing: app.paddingLarge
+
+                MyButton {
                     id: acceptButton
                     text: confirmation ? i18n.tr("Yes") : i18n.tr("Ok")
                     DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
-                    contentItem: Text {
-                        text: acceptButton.text
-                        font.pixelSize: app.fontPixelSizeMedium
-                        //color: acceptButton.ontrol.down ? "#17a81a" : "#21be2b"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                        elide: Text.ElideRight
-                    } 
-                    /*background: Rectangle {
-                        implicitWidth: 100
-                        implicitHeight: 40
-                        opacity: enabled ? 1 : 0.3
-                        //border.color: acceptButton.down ? "#17a81a" : "#21be2b"
-                        border.width: 1
-                        radius: 2
-                    }*/
                 }
-                Button {
+                MyButton {
                     id: rejectButton
                     visible: confirmation
                     text: i18n.tr("No")
                     DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
-                    contentItem: Text {
-                        text: rejectButton.text
-                        font.pixelSize: app.fontPixelSizeMedium
-                        //color: rejectButton.down ? "#17a81a" : "#21be2b"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                        elide: Text.ElideRight
-                    }
-                    /*background: Rectangle {
-                        implicitWidth: 100
-                        implicitHeight: 40
-                        opacity: enabled ? 1 : 0.3
-                        //border.color: rejectButton.down ? "#17a81a" : "#21be2b"
-                        border.width: 1
-                        radius: 2
-                    }*/
                 }
+
+                /*background: Rectangle {
+                    anchors.fill: parent          
+                    border.color: app.controlBorderColor
+                    border.width: 1
+                    radius: app.controlRadius
+                    color: app.controlBackgroundColor
+                }*/
+
+                /*contentItem: ListView {
+                    implicitWidth: contentWidth
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    model: dbBox.contentModel
+                    spacing: dbBox.spacing
+                    orientation: ListView.Horizontal
+                    boundsBehavior: Flickable.StopAtBounds
+                    snapMode: ListView.SnapToItem
+                }*/
             }
 
             onAccepted: {
