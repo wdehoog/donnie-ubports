@@ -28,10 +28,21 @@ Column {
     }
 
     Rectangle {
+        id: progress
         color: "darkgrey"
-        width: audio.playbackState == Audio.PlayingState
-               ? (parent.width * (audio.position / audio.duration)) : 0
         height: app.paddingExtraSmall
+    }
+
+    // Using binding on width results in binding loop (why?)
+    // so use a timer.
+    Timer { 
+        interval: 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            progress.width = audio.playbackState == Audio.PlayingState
+               ? (parent.width * (audio.position / audio.duration)) : 0
+        }
     }
 
     Row {
