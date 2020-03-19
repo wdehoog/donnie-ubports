@@ -610,12 +610,12 @@ Window {
 
             footer: DialogButtonBox {
                 id: dbBox
-                height: app.fontPixelSizeMedium * 3
+                height: app.fontPixelSizeMedium * 4
                 padding: app.paddingMedium
                 alignment: Qt.AlignRight 
 
                 property int buttonHeight: dbBox.height / 2
-                property int buttonWidth: dbBox.width / (confirmation?3:2)
+                property int buttonWidth: dbBox.width / 3
 
                 /*Component.onCompleted: {
                     console.log("dbox w="+width+",x="+x)
