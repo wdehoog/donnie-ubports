@@ -566,7 +566,7 @@ Window {
             modal: true
 
             //height: app.fontPixelSizeMedium * 9
-            height: app.height / 3
+            //height: app.height / 3
 
             header: Label { // copied from Qt, added font.pixelSize
                 text: dialog.title
@@ -595,6 +595,10 @@ Window {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dialog.messageText
                 font.pixelSize: app.fontPixelSizeMedium
+                leftPadding: app.paddingMedium
+                rightPadding: leftPadding
+                topPadding: app.paddingLarge
+                bottomPadding: topPadding
             }
 
             background: Rectangle {
@@ -638,13 +642,13 @@ Window {
                     DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
                 }
 
-                background: Rectangle {
+                /*background: Rectangle {
                     anchors.fill: parent          
                     border.color: app.controlBorderColor
                     border.width: 1
                     radius: app.controlRadius
                     color: app.controlBackgroundColor
-                }
+                }*/
             }
 
             onAccepted: {
