@@ -604,42 +604,47 @@ Window {
                 color: app.controlBackgroundColor
             }
 
-            // create footer to set font size on buttons 
             footer: DialogButtonBox {
                 id: dbBox
                 height: app.fontPixelSizeMedium * 3
-                spacing: app.paddingLarge
+                padding: app.paddingMedium
+                alignment: Qt.AlignRight 
+
+                property int buttonHeight: dbBox.height / 2
+                property int buttonWidth: dbBox.width / (confirmation?3:2)
+
+                /*Component.onCompleted: {
+                    console.log("dbox w="+width+",x="+x)
+                    console.log("parent w="+parent.width)
+                    console.log("content w="+contentItem.width+",x="+contentItem.x)
+                }*/
 
                 MyButton {
                     id: acceptButton
+                    height: dbBox.buttonHeight
+                    width: dbBox.buttonWidth
+                    anchors.verticalCenter: parent.verticalCenter
                     text: confirmation ? i18n.tr("Yes") : i18n.tr("Ok")
                     DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
                 }
+
                 MyButton {
                     id: rejectButton
+                    height: dbBox.buttonHeight
+                    width: dbBox.buttonWidth
+                    anchors.verticalCenter: parent.verticalCenter
                     visible: confirmation
                     text: i18n.tr("No")
                     DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
                 }
 
-                /*background: Rectangle {
+                background: Rectangle {
                     anchors.fill: parent          
                     border.color: app.controlBorderColor
                     border.width: 1
                     radius: app.controlRadius
                     color: app.controlBackgroundColor
-                }*/
-
-                /*contentItem: ListView {
-                    implicitWidth: contentWidth
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    model: dbBox.contentModel
-                    spacing: dbBox.spacing
-                    orientation: ListView.Horizontal
-                    boundsBehavior: Flickable.StopAtBounds
-                    snapMode: ListView.SnapToItem
-                }*/
+                }
             }
 
             onAccepted: {
