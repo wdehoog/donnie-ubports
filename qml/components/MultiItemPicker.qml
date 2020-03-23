@@ -51,18 +51,28 @@ Page {
                 id: stuff
                 width: parent.width
                 height: Math.max(cb.height, label.height)
+                spacing: app.paddingMedium
                 anchors.verticalCenter: parent.verticalCenter
 
                 CheckBox {
                     id: cb
-                    anchors.verticalCenter: parent.verticalCenter
+                    height: label.height
+                    width: height
+                    Component.onCompleted: { 
+                        // set indicator sizes 
+                        indicator.height = cb.height * 0.8
+                        indicator.width = indicator.height
+                        // Qt really hates to give access to usefull properties
+                        indicator.children[0].width = indicator.width
+                        indicator.children[0].height = indicator.height
+                    }
                     checked: selected
                 }
 
                 Label {
                     id: label
-                    anchors.verticalCenter: parent.verticalCenter
-                    //width: parent.width 
+                    height: app.labelHeight
+                    verticalAlignment: Text.AlignVCenter
                     wrapMode: Text.Wrap
                     font.pixelSize: app.fontSizeLarge
                     text: name

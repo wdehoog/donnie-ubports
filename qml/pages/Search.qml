@@ -119,6 +119,7 @@ Page {
                 TextField {
                     id: searchField
                     width: parent.width - sfIcon.width
+                    height: app.textFieldHeight
                     font.pixelSize: app.fontPixelSizeLarge
                     placeholderText: i18n.tr("Search for")
                     inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
@@ -139,6 +140,7 @@ Page {
                 property string value: ""
 
                 width: parent.width
+                height: app.buttonHeight
                 font.pixelSize: app.fontPixelSizeMedium
 
                 text: i18n.tr("Search In") + ": " + value

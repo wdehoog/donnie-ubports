@@ -79,7 +79,10 @@ Window {
     property double popupBackgroundOpacity: 0.1
     property double popupRadius: units.dp(8)
 
+    property double buttonHeight: itemSizeMedium
     property double comboBoxHeight: itemSizeMedium
+    property double labelHeight: itemSizeMedium
+    property double textFieldHeight: itemSizeMedium
 
     // 0 inactive, 1 load queue data, 2 load browse stack data
     property int resumeState: 0

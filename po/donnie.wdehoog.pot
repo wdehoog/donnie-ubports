@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-23 21:49+0000\n"
+"POT-Creation-Date: 2020-03-23 22:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:643
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:646
 msgid "Ok"
 msgstr ""
 
@@ -33,43 +33,43 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:89 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:92 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:155
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:175 ../qml/Main.qml:695
+#: ../qml/Main.qml:178 ../qml/Main.qml:698
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:175 ../qml/Main.qml:362
+#: ../qml/Main.qml:178 ../qml/Main.qml:365
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:356
+#: ../qml/Main.qml:359
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:356
+#: ../qml/Main.qml:359
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:362
+#: ../qml/Main.qml:365
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:367
+#: ../qml/Main.qml:370
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:643
+#: ../qml/Main.qml:646
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:654
+#: ../qml/Main.qml:657
 msgid "No"
 msgstr ""
 
@@ -137,51 +137,51 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/Search.qml:123
+#: ../qml/pages/Search.qml:124
 msgid "Search for"
 msgstr ""
 
-#: ../qml/pages/Search.qml:144
+#: ../qml/pages/Search.qml:146
 msgid "Search In"
 msgstr ""
 
-#: ../qml/pages/Search.qml:152 ../qml/pages/Search.qml:185
+#: ../qml/pages/Search.qml:154 ../qml/pages/Search.qml:187
 msgid "None"
 msgstr ""
 
-#: ../qml/pages/Search.qml:212
+#: ../qml/pages/Search.qml:214
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:239
+#: ../qml/pages/Search.qml:241
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:240
+#: ../qml/pages/Search.qml:242
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:241
+#: ../qml/pages/Search.qml:243
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:330 ../qml/pages/Browse.qml:256
+#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:256
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:334
+#: ../qml/pages/Search.qml:336
 msgid "Add Group To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:338
+#: ../qml/pages/Search.qml:340
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:343 ../qml/pages/Browse.qml:264
+#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:264
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:347 ../qml/pages/Browse.qml:268
+#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:268
 msgid "Replace All in Player"
 msgstr ""
 
