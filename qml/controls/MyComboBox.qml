@@ -39,6 +39,10 @@ ComboBox {
         }
     }
 
+    Component.onCompleted: {
+        popup.background.color = control.backgroundColor
+    }
+
     // setting a custom indicator results in: 'Cannot assign a value directly to a grouped property'
 
     /*indicator: Image {

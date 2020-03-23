@@ -66,7 +66,9 @@ Window {
     property color normalBackgroundColor: "white" // theme.palette.normal.base
     property color highlightBackgroundColor: "#CDCDCD" // theme.palette.highlited.base
 
-    property color controlBackgroundColor: "white"
+    property color nonTransparentBackgroundColor: "white"
+    property color controlBackgroundColor: settings.use_albumart_as_background 
+        ? "transparent" : nonTransparentBackgroundColor
     property color controlBorderColor: "black"
     property int controlRadius: 3
 
@@ -120,6 +122,15 @@ Window {
         trackMetaText2: getPlayerPage().trackMetaText2
         imageSource: app.getPlayerPage().imageItemSource
         onPlayPause: app.playPause()
+    }
+
+    Image {
+        anchors.fill: parent
+        //z: -1
+        fillMode: Image.PreserveAspectCrop
+        opacity: 0.1
+        source: app.getPlayerPage().imageItemSource
+        visible: settings.use_albumart_as_background
     }
 
     signal previous()
@@ -586,7 +597,7 @@ Window {
                     border.color: app.controlBorderColor
                     border.width: 1
                     radius: app.controlRadius
-                    color: app.controlBackgroundColor
+                    color: app.nonTransparentBackgroundColor
                 }
             }
 
@@ -605,7 +616,7 @@ Window {
                 border.color: app.controlBorderColor
                 border.width: 1
                 radius: app.controlRadius
-                color: app.controlBackgroundColor
+                color: app.nonTransparentBackgroundColor
             }
 
             footer: DialogButtonBox {
@@ -617,11 +628,12 @@ Window {
                 property int buttonHeight: dbBox.height / 2
                 property int buttonWidth: dbBox.width / 3
 
-                /*Component.onCompleted: {
-                    console.log("dbox w="+width+",x="+x)
-                    console.log("parent w="+parent.width)
-                    console.log("content w="+contentItem.width+",x="+contentItem.x)
-                }*/
+                Component.onCompleted: {
+                    //console.log("dbox w="+width+",x="+x)
+                    //console.log("parent w="+parent.width)
+                    //console.log("content w="+contentItem.width+",x="+contentItem.x)
+                    background.color = app.nonTransparentBackgroundColor
+                }
 
                 MyButton {
                     id: acceptButton
@@ -630,6 +642,7 @@ Window {
                     anchors.verticalCenter: parent.verticalCenter
                     text: confirmation ? i18n.tr("Yes") : i18n.tr("Ok")
                     DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
+                    //backgroundColor: app.nonTransparentBackgroundColor
                 }
 
                 MyButton {
@@ -640,6 +653,7 @@ Window {
                     visible: confirmation
                     text: i18n.tr("No")
                     DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
+                    //backgroundColor: app.nonTransparentBackgroundColor
                 }
 
                 /*background: Rectangle {
@@ -701,5 +715,6 @@ Window {
         property bool search_allow_containers: false
         property int selected_search_capabilities: 0xFFF
         property string groupby_search_results: "album"
+        property bool use_albumart_as_background: true
     }
 }

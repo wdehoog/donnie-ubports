@@ -76,11 +76,27 @@ Page {
                     text: i18n.tr("Show containers in search results")
                 }
                 Switch {
-                    id: allowContainers
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     checked: settings.search_allow_containers
                     onCheckedChanged: settings.search_allow_containers = checked
+                }
+            }
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+                Label {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.pixelSize: app.fontPixelSizeMedium
+                    text: i18n.tr("Use Album Art as app background")
+                }
+                Switch {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: settings.use_albumart_as_background
+                    onCheckedChanged: settings.use_albumart_as_background = checked
                 }
             }
 

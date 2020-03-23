@@ -13,6 +13,7 @@ import QtQuick.Templates 2.2 as T
 
 Button {
     id: control
+    property color backgroundColor: app.controlBackgroundColor
 
     contentItem: Text {
         text: control.text
@@ -27,6 +28,6 @@ Button {
         border.color: app.controlBorderColor
         border.width: 1
         radius: app.controlRadius
-        color: app.controlBackgroundColor
+        color: control.backgroundColor
     }
 }

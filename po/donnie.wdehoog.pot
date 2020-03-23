@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 22:19+0000\n"
+"POT-Creation-Date: 2020-03-23 21:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:631
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:643
 msgid "Ok"
 msgstr ""
 
@@ -33,43 +33,43 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:87 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:89 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:141
+#: ../qml/Main.qml:152
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:164 ../qml/Main.qml:681
+#: ../qml/Main.qml:175 ../qml/Main.qml:695
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:164 ../qml/Main.qml:351
+#: ../qml/Main.qml:175 ../qml/Main.qml:362
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:345
+#: ../qml/Main.qml:356
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:345
+#: ../qml/Main.qml:356
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:351
+#: ../qml/Main.qml:362
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:356
+#: ../qml/Main.qml:367
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:631
+#: ../qml/Main.qml:643
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:641
+#: ../qml/Main.qml:654
 msgid "No"
 msgstr ""
 
@@ -111,6 +111,10 @@ msgstr ""
 
 #: ../qml/pages/Settings.qml:76
 msgid "Show containers in search results"
+msgstr ""
+
+#: ../qml/pages/Settings.qml:93
+msgid "Use Album Art as app background"
 msgstr ""
 
 #: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:41
