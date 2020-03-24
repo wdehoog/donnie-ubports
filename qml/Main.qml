@@ -80,6 +80,7 @@ Window {
     property double popupRadius: units.dp(8)
 
     property double buttonHeight: itemSizeMedium
+    property double checkBoxHeight: itemSizeMedium
     property double comboBoxHeight: itemSizeMedium
     property double labelHeight: itemSizeMedium
     property double textFieldHeight: itemSizeMedium

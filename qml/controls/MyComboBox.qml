@@ -18,6 +18,8 @@ ComboBox {
     property color backgroundColor: app.controlBackgroundColor
 
     font.pixelSize: fontPixelSize
+    font.weight: Font.DemiBold
+
     indicator.width: height
     background: Rectangle {
         color: control.backgroundColor
@@ -39,42 +41,49 @@ ComboBox {
         }
     }
 
-    Component.onCompleted: {
+    // transparent drop down looks cool but the control on the line below
+    // shines through
+    /*Component.onCompleted: {
         popup.background.color = control.backgroundColor
+    }*/
+
+    Component {
+        id: indicatorFactory
+        /*Image {
+            x: control.mirrored ? control.padding : control.width - width - control.padding
+            y: control.topPadding + (control.availableHeight - height) / 2
+            source: "image://theme/toolkit_arrow-down"
+            sourceSize.width: width
+            sourceSize.height: height
+            opacity: enabled ? 1 : 0.3
+        }*/
+        Canvas {
+            id: canvas
+            x: control.width - width - control.rightPadding
+            y: control.topPadding + (control.availableHeight - height) / 2
+            width: height * 1.5
+            height: control.height * 0.25
+            contextType: "2d"
+
+            Connections {
+                target: control
+                onPressedChanged: canvas.requestPaint()
+            }
+
+            onPaint: {
+                context.reset();
+                context.moveTo(0, 0);
+                context.lineTo(width, 0);
+                context.lineTo(width / 2, height);
+                context.closePath();
+                context.fillStyle = app.controlBorderColor
+                context.fill();
+            }
+        }
     }
 
-    // setting a custom indicator results in: 'Cannot assign a value directly to a grouped property'
+    Component.onCompleted: {
+        indicator = indicatorFactory.createObject(control)
+    }
 
-    /*indicator: Image {
-        x: control.mirrored ? control.padding : control.width - width - control.padding
-        y: control.topPadding + (control.availableHeight - height) / 2
-        source: "image://theme/toolkit_arrow-down/" + (!control.editable && control.visualFocus ? Default.focusColor : Default.textColor)
-        sourceSize.width: width
-        sourceSize.height: height
-        opacity: enabled ? 1 : 0.3
-    }*/
-
-    /*indicator: Canvas {
-        id: canvas
-        x: control.width - width - control.rightPadding
-        y: control.topPadding + (control.availableHeight - height) / 2
-        width: 12
-        height: 8
-        contextType: "2d"
-
-        Connections {
-            target: control
-            onPressedChanged: canvas.requestPaint()
-        }
-
-        onPaint: {
-            context.reset();
-            context.moveTo(0, 0);
-            context.lineTo(width, 0);
-            context.lineTo(width / 2, height);
-            context.closePath();
-            //context.fillStyle = control.pressed ? "#17a81a" : "#21be2b";
-            context.fill();
-        }
-    }*/
 }
