@@ -52,7 +52,7 @@ Page {
                     Label {
                         anchors.horizontalCenter: parent.horizontalCenter
                         font.pixelSize: app.fontPixelSizeLarge
-                        text: "Donnie 0.2"
+                        text: "Donnie 0.1"
                     }
 
                     Label {
