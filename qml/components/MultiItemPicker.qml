@@ -20,7 +20,7 @@ Page {
     signal accepted()
 
     header: PageHeader {
-        title: title
+        title: itemPicker.title
         trailingActions: [
             Action {
                 iconName: "toolkit_tick"
