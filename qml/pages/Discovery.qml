@@ -13,6 +13,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 import "../components"
+import "../controls"
 
 Page {
     id: page
@@ -107,17 +108,17 @@ Page {
                 }
             }
 
-            Switch {
+            MyCheckBox {
                 id: checkbox
-                checked: selected
-                //automaticCheck: false
+                width: height
+                height: app.checkBoxHeight
                 anchors {
                     right: parent.right;
                     rightMargin: app.horizontalPageMargin
-                    //verticalCenter: listItem.verticalCenter
                 }
-
-                onClicked: {
+                enabled: app.discoveredServers.length > 1   
+                checked: selected
+                onCheckedChanged: {
                     var device = devicesModel.get(index);
 
                     // clear current choice
@@ -146,7 +147,10 @@ Page {
             }
 
             MouseArea {
-                anchors.fill: parent
+                width: parent.width - checkbox.width
+                height: parent.height
+                x:0
+                y:0
                 onClicked: {
                     var item = devicesList.model.get(index)
                     app.showMessageDialog(i18n.tr("Device Details"),

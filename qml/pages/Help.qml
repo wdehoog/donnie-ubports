@@ -34,7 +34,12 @@ Player Area:<br>
 <ul>
   <li>Press on image to go to Player page</li>
   <li>Swipe Left/Right for Prev/Next</li>
-</ul>"
+</ul><br>
+Discovery Page:<br>
+<ul>
+  <li>Press an item to view some of it's properties </li>
+</ul>
+"
         }
     }
 }
