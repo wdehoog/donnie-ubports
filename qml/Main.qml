@@ -205,6 +205,9 @@ Window {
             case "about": 
                 pageStack.push(Qt.resolvedUrl("pages/About.qml"))
                 break
+            case "help": 
+                pageStack.push(Qt.resolvedUrl("pages/Help.qml"))
+                break
             case "settings": 
                 pageStack.push(Qt.resolvedUrl("pages/Settings.qml"))
                 break

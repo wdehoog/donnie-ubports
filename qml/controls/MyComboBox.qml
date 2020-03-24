@@ -50,12 +50,13 @@ ComboBox {
     Component {
         id: indicatorFactory
         /*Image {
-            x: control.mirrored ? control.padding : control.width - width - control.padding
+            width: height
+            height: control.height * 0.5
+            x: control.mirrored ? width : control.width - 1.5 * width
             y: control.topPadding + (control.availableHeight - height) / 2
             source: "image://theme/toolkit_arrow-down"
             sourceSize.width: width
             sourceSize.height: height
-            opacity: enabled ? 1 : 0.3
         }*/
         Canvas {
             id: canvas

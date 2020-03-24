@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-24 21:13+0000\n"
+"POT-Creation-Date: 2020-03-24 21:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:647
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:650
 msgid "Ok"
 msgstr ""
 
@@ -41,35 +41,35 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:699
+#: ../qml/Main.qml:179 ../qml/Main.qml:702
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:366
+#: ../qml/Main.qml:179 ../qml/Main.qml:369
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:360
+#: ../qml/Main.qml:363
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:360
+#: ../qml/Main.qml:363
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:366
+#: ../qml/Main.qml:369
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:371
+#: ../qml/Main.qml:374
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:647
+#: ../qml/Main.qml:650
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:658
+#: ../qml/Main.qml:661
 msgid "No"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Device Details"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:22 ../qml/pages/Menu.qml:46
+#: ../qml/pages/Settings.qml:22 ../qml/pages/Menu.qml:36
 msgid "Settings"
 msgstr ""
 
@@ -195,6 +195,10 @@ msgstr ""
 
 #: ../qml/pages/Browse.qml:299
 msgid "Choose A Path"
+msgstr ""
+
+#: ../qml/pages/Menu.qml:46 ../qml/pages/Help.qml:14
+msgid "Help"
 msgstr ""
 
 #: ../qml/pages/Menu.qml:58

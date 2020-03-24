@@ -31,20 +31,20 @@ Page {
         leadingActions: [] // disable Back button
 
         trailingActions: [
-            //Action {
-            //    iconName: "help"
-            //    text: i18n.tr("Help")
-            //    onTriggered: Qt.openUrlExternally("https://wdehoog.github.io/hutspot-ubports")
-            //},
+            Action {
+                iconName: "settings"
+                text: i18n.tr("Settings")
+                onTriggered: app.doSelectedMenuItem("settings")
+            },
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
                 onTriggered: app.doSelectedMenuItem("about")
             },
             Action {
-                iconName: "settings"
-                text: i18n.tr("Settings")
-                onTriggered: app.doSelectedMenuItem("settings")
+                iconName: "help"
+                text: i18n.tr("Help")
+                onTriggered:  app.doSelectedMenuItem("help")
             }
         ]
     }
