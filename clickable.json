@@ -19,7 +19,7 @@
             "dependencies_target": [
                   "libcurl4-openssl-dev","libexpat1-dev","libmicrohttpd-dev"
             ],
-            "build": "cd $SRC_DIR && ./bootstrap && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make install"
+            "build": "cd $SRC_DIR && ./bootstrap && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make clean && make install"
      },
      "libupnpp": {
             "template": "custom",
