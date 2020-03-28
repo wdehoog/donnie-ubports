@@ -129,7 +129,7 @@ Page {
 
     function loadTrack(track) {
         //audio.stop();
-        console.log("loadTrack: " + JSON.stringify(track))
+        //console.log("loadTrack: " + JSON.stringify(track))
         audio.source = track.uri
         imageItemSource = track.albumArtURI ? track.albumArtURI : defaultImageSource
         updatePlayIcons()

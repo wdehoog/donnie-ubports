@@ -46,6 +46,11 @@ Page {
         interactive: contentHeight > height
         spacing: units.dp(8)
 
+        header: Rectangle {
+            width: parent.width
+            height: app.paddingMedium
+            opacity: 1.0
+        }
         /*
         section {
             property: "type"
@@ -113,13 +118,14 @@ Page {
                 width: height
                 height: app.checkBoxHeight
                 anchors {
-                    right: parent.right;
+                    right: parent.right
                     rightMargin: app.horizontalPageMargin
                 }
                 enabled: app.discoveredServers.length > 1   
-                checked: selected
-                onCheckedChanged: {
-                    var device = devicesModel.get(index);
+                checked: UDN == app.settings.server_udn
+                onClicked: {
+                    console.log("onClicked")
+                    var device = devicesModel.get(index)
 
                     // clear current choice
                     for(var i=0;i<devicesModel.count;i++) {
@@ -128,39 +134,44 @@ Page {
                     }
 
                     // update for new choice
-                    devicesModel.set(index, { "selected": true })
                     if(device.type === "Content Server") {
-                        app.setCurrentServer(app.discoveredServers[device.discoveryIndex]);
-                        storeSelectedServer(device);
-                    } else {
+                        app.setCurrentServer(app.discoveredServers[device.discoveryIndex])
+                        storeSelectedServer(device)
+                    /*} else {
                         if(device.UDN === "donnie-player-udn") {
-                            app.useBuiltInPlayer = true;
-                            app.setCurrentRenderer(undefined);
+                            app.useBuiltInPlayer = true
+                            app.setCurrentRenderer(undefined)
                         } else {
-                            app.useBuiltInPlayer = false;
-                            app.setCurrentRenderer(app.discoveredRenderers[device.discoveryIndex]);
+                            app.useBuiltInPlayer = false
+                            app.setCurrentRenderer(app.discoveredRenderers[device.discoveryIndex])
                         }
-                        storeSelectedRenderer(device);
+                        storeSelectedRenderer(device)*/
                     }
 
                 }
             }
 
+            // I am getting crazy. For some reason the mouse events on the checkbox 
+            // are never triggered. So I use this mousearea to mimic them.
             MouseArea {
-                width: parent.width - checkbox.width
+                width: parent.width// - checkbox.width
                 height: parent.height
                 x:0
                 y:0
                 onClicked: {
-                    var item = devicesList.model.get(index)
-                    app.showMessageDialog(i18n.tr("Device Details"),
-                        "Type: " + item.type +
-                        "\nName: " + item.friendlyName +
-                        "\nMan.: " + item.manufacturer +
-                        "\nModel: " + item.modelName +
-                        "\nUDN: " + item.UDN +
-                        "\nURL: " + item.URLBase +
-                        "\nDev.Type: " + item.deviceType)
+                    if(mouse.x > (parent.width - checkbox.width)) {
+                        checkbox.clicked()
+                    } else {  
+                        var item = devicesList.model.get(index)
+                        app.showMessageDialog(i18n.tr("Device Details"),
+                            "Type: " + item.type +
+                            "\nName: " + item.friendlyName +
+                            "\nMan.: " + item.manufacturer +
+                            "\nModel: " + item.modelName +
+                            "\nUDN: " + item.UDN +
+                            "\nURL: " + item.URLBase +
+                            "\nDev.Type: " + item.deviceType)
+                    }
                 }
             }
         }
@@ -183,6 +194,7 @@ Page {
 
                 app.discoveredRenderers = devices["renderers"];
                 app.discoveredServers = devices["servers"];
+                console.log("onDiscoveryDone: l=" + app.discoveredServers.length)
 
                 devicesModel.clear();
                 var selected;
@@ -239,11 +251,12 @@ Page {
 
                 hasSelected = false;
                 for(i=0;i<app.discoveredServers.length;i++) {
-                    var server = app.discoveredServers[i];
-                    selected = server["UDN"] === app.settings.server_udn;
+                    var server = app.discoveredServers[i]
+                    selected = server["UDN"] === app.settings.server_udn
+                    console.log("UDN:"+server.UDN +", app:"+app.settings.server_udn)
                     if(selected) {
-                        app.setCurrentServer(server);
-                        updateSelectedServer(server["friendlyName"]);
+                        app.setCurrentServer(server)
+                        updateSelectedServer(server["friendlyName"])
                         hasSelected = true;
                     }
                     devicesModel.append({
@@ -254,22 +267,19 @@ Page {
                         modelName: server["modelName"],
                         UDN: server["UDN"],
                         URLBase: server["URLBase"],
-                        deviceType: server["deviceType"],
-                        selected: selected
-                    });
+                        deviceType: server["deviceType"]
+                    })
                 }
                 if(!hasSelected && app.discoveredServers.length>0) {
                     // if no server is selected select the first one
-                    app.setCurrentServer(app.discoveredServers[0]);
-                    var firstIndex = app.discoveredRenderers?app.discoveredRenderers.length+1:1;
-                    devicesModel.set(firstIndex, { "selected": true });
-                    storeSelectedServer(devicesModel.get(firstIndex));
+                    app.setCurrentServer(app.discoveredServers[0])
+                    storeSelectedServer(devicesModel.get(firstIndex))
                 }
             } catch(err) {
-                app.error("Exception in Discovery: "+err);
-                app.error("json: " + devicesJson);
+                app.error("Exception in Discovery: "+err)
+                app.error("json: " + devicesJson)
             }
-            showBusy = false;
+            showBusy = false
         }
     }
 
