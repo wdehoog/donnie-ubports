@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-28 23:04+0000\n"
+"POT-Creation-Date: 2020-03-29 09:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Built-In Player"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:431
+#: ../qml/pages/PlayerPage.qml:430
 msgid "Remove"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:256
+#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:261
 msgid "Add To Player"
 msgstr ""
 
@@ -177,11 +177,11 @@ msgstr ""
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:264
+#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:269
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:268
+#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:273
 msgid "Replace All in Player"
 msgstr ""
 
@@ -189,11 +189,11 @@ msgstr ""
 msgid "Browse"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:260
+#: ../qml/pages/Browse.qml:265
 msgid "Replace in Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:299
+#: ../qml/pages/Browse.qml:304
 msgid "Choose A Path"
 msgstr ""
 

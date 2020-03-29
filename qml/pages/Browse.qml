@@ -127,22 +127,27 @@ Page {
         interactive: contentHeight > height
         spacing: units.dp(8)
 
-        header: Text {
-            id: path
+        header: Column {
+              x: app.paddingMedium
+              y: x
+              width: parent.width - 2*x
 
-            x: app.paddingMedium
-            width: parent.width - 2*x
-            anchors.topMargin: app.paddingMedium
-            anchors.bottomMargin: app.paddingMedium
-            horizontalAlignment: Text.AlignRight
-            font.pixelSize: app.fontSizeLarge
-            color: app.primaryColor
-            elide: Text.ElideLeft
-            text: pathText
-            MouseArea {
-                anchors.fill: parent
-                onClicked: pageStack.push(menuDialogComponent)
-            }
+              Rectangle { width: parent.width; height: app.paddingMedium; opacity: 1.0; }
+              Text {
+                  id: path
+                  width: parent.width
+                  horizontalAlignment: Text.AlignRight
+                  verticalAlignment: Text.AlignVCenter
+                  font.pixelSize: app.fontSizeLarge
+                  color: app.primaryColor
+                  elide: Text.ElideLeft
+                  text: pathText
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: pageStack.push(menuDialogComponent)
+                  }
+             }
+             Rectangle { width: parent.width; height: app.paddingMedium; opacity: 1.0; }
         }
 
         delegate: AdaptiveListItem {
@@ -166,7 +171,7 @@ Page {
                   anchors.verticalCenter: parent.verticalCenter
                   source: {
                       if(pid === "-2") // the ".." item
-                          return "" // "image://theme/back";
+                          return "image://theme/up";
                       if(type === "Container") { //
                           if(albumArtURI && albumArtURI.length > 0)
                               return albumArtURI
@@ -343,7 +348,7 @@ Page {
 
         if(app.currentBrowseStack.empty()) {
             if(cid === "0") { // root
-                pushOnBrowseStack(cid, "-1", qsTr("[Top Level]"), -1)
+                pushOnBrowseStack(cid, "-1", qsTr("[Top]"), -1)
             } /*else {
                 // probably arrived here from search page
                 // so we have to 'create' a browse stack
@@ -425,7 +430,7 @@ Page {
     /*function createBrowseStackFor(id) {
         var i;
 
-        pushOnBrowseStack("0", "-1", "[Top Level]");
+        pushOnBrowseStack("0", "-1", "[Top]");
         var pathJson = upnp.getPathJson(id);
         try {
             var path = JSON.parse(pathJson);

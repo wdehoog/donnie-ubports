@@ -4,7 +4,7 @@ A UPnP Audio Player for UBports.
 
 Browse your audio files on your UPnP server and play them on your UBports phone.
 
-Tested with [MinimServer](https://minimserver.com/) on a Oneplus One.
+Tested with [MinimServer](https://minimserver.com/) and [Gerbera](https://gerbera.io/) on a Oneplus One.
 
 
 ## License
