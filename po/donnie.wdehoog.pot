@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-29 09:49+0000\n"
+"POT-Creation-Date: 2020-03-29 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,32 @@ msgstr ""
 msgid "UPnP Error"
 msgstr ""
 
+#: ../qml/Main.qml:383
+msgid ""
+"Failed to retrieve metadata for previously saved Ids.\n"
+"Can not Resume."
+msgstr ""
+
+#: ../qml/Main.qml:436
+msgid "[Top Level]"
+msgstr ""
+
+#: ../qml/Main.qml:452
+msgid ""
+"Failed to parse previously saved Ids.\n"
+"Can not Resume."
+msgstr ""
+
+#: ../qml/Main.qml:497
+msgid "Failed to load previously saved Browse Stack Ids."
+msgstr ""
+
+#: ../qml/Main.qml:530
+msgid ""
+"Failed to load previously saved Queue Ids.\n"
+"Can not Resume."
+msgstr ""
+
 #: ../qml/Main.qml:650
 msgid "Yes"
 msgstr ""
@@ -73,12 +99,24 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: ../qml/controls/MyCheckBox.qml:6
+msgid "CheckBox"
+msgstr ""
+
 #: ../qml/pages/PlayerPage.qml:46
 msgid "Built-In Player"
 msgstr ""
 
+#: ../qml/pages/PlayerPage.qml:50
+msgid "Empty List"
+msgstr ""
+
 #: ../qml/pages/PlayerPage.qml:430
 msgid "Remove"
+msgstr ""
+
+#: ../qml/pages/Discovery.qml:26
+msgid "UPnP Devices"
 msgstr ""
 
 #: ../qml/pages/Discovery.qml:30
@@ -153,15 +191,15 @@ msgstr ""
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:241
+#: ../qml/pages/Search.qml:241 ../qml/UPnP.js:195
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:242
+#: ../qml/pages/Search.qml:242 ../qml/UPnP.js:191
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:243
+#: ../qml/pages/Search.qml:243 ../qml/UPnP.js:193
 msgid "Title"
 msgstr ""
 
@@ -197,6 +235,10 @@ msgstr ""
 msgid "Choose A Path"
 msgstr ""
 
+#: ../qml/pages/Browse.qml:351
+msgid "[Top]"
+msgstr ""
+
 #: ../qml/pages/Menu.qml:46 ../qml/pages/Help.qml:14
 msgid "Help"
 msgstr ""
@@ -207,4 +249,32 @@ msgstr ""
 
 #: ../qml/pages/Menu.qml:70
 msgid "Player"
+msgstr ""
+
+#: ../qml/UPnP.js:197
+msgid "Genre"
+msgstr ""
+
+#: ../qml/UPnP.js:199
+msgid "Creator"
+msgstr ""
+
+#: ../qml/UPnP.js:201
+msgid "Publisher"
+msgstr ""
+
+#: ../qml/UPnP.js:203
+msgid "Description"
+msgstr ""
+
+#: ../qml/UPnP.js:205
+msgid "User Annotation"
+msgstr ""
+
+#: ../qml/UPnP.js:207
+msgid "Long Description"
+msgstr ""
+
+#: ../qml/UPnP.js:341
+msgid "User entered URI"
 msgstr ""

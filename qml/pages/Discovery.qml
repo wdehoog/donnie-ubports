@@ -23,7 +23,7 @@ Page {
 
     header: PageHeader {
         id: pHeader
-        title: qsTr("UPnP Devices")
+        title: i18n.tr("UPnP Devices")
         trailingActions: [
             Action {
                 iconName: "reload"
@@ -58,8 +58,8 @@ Page {
             delegate: SectionHeader {
                 text: {
                     switch(section) {
-                    case "Renderer": return qsTr("Renderer")
-                    case "Content Server": return qsTr("Content Server")
+                    case "Renderer": return i18n.tr("Renderer")
+                    case "Content Server": return i18n.tr("Content Server")
                     default: return section
                     }
                 }
@@ -124,7 +124,7 @@ Page {
                 enabled: app.discoveredServers.length > 1   
                 checked: UDN == app.settings.server_udn
                 onClicked: {
-                    console.log("onClicked")
+                    //console.log("onClicked")
                     var device = devicesModel.get(index)
 
                     // clear current choice
@@ -194,7 +194,6 @@ Page {
 
                 app.discoveredRenderers = devices["renderers"];
                 app.discoveredServers = devices["servers"];
-                console.log("onDiscoveryDone: l=" + app.discoveredServers.length)
 
                 devicesModel.clear();
                 var selected;
@@ -229,12 +228,12 @@ Page {
                 devicesModel.append({
                     type: "Renderer",
                     discoveryIndex: app.discoveredRenderers.length,
-                    friendlyName: qsTr("Built-in Player"),
+                    friendlyName: i18n.tr("Built-in Player"),
                     manufacturer: "donnie",
-                    modelName: qsTr("QTAudio Player"),
+                    modelName: i18n.tr("QTAudio Player"),
                     UDN: "donnie-player-udn",
                     URLBase: "",
-                    deviceType: qsTr("a page with audio player controls and list of tracks"),
+                    deviceType: i18n.tr("a page with audio player controls and list of tracks"),
                     selected: selected
                 });
 
@@ -253,7 +252,7 @@ Page {
                 for(i=0;i<app.discoveredServers.length;i++) {
                     var server = app.discoveredServers[i]
                     selected = server["UDN"] === app.settings.server_udn
-                    console.log("UDN:"+server.UDN +", app:"+app.settings.server_udn)
+                    //console.log("UDN:"+server.UDN +", app:"+app.settings.server_udn)
                     if(selected) {
                         app.setCurrentServer(server)
                         updateSelectedServer(server["friendlyName"])

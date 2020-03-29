@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 
 CheckBox {
     id: control
-    text: qsTr("CheckBox")
+    text: i18n.tr("CheckBox")
     checked: true
 
     indicator: Rectangle {

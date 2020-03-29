@@ -47,7 +47,7 @@ Page {
         trailingActions: [
             Action {
                 iconName: "toolkit_input-clear"
-                text: qsTr("Empty List")
+                text: i18n.tr("Empty List")
                 onTriggered: clearList()
             }
         ]

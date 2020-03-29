@@ -188,23 +188,23 @@ function createUPnPQuery(searchString, searchCapabilities, capabilitiesMask, all
 
 function geSearchCapabilityDisplayString(searchCapability) {
     if(searchCapability === "upnp:artist")
-        return qsTr("Artist");
+        return i18n.tr("Artist");
     if(searchCapability === "dc:title")
-        return qsTr("Title");
+        return i18n.tr("Title");
     if(searchCapability === "upnp:album")
-        return qsTr("Album");
+        return i18n.tr("Album");
     if(searchCapability === "upnp:genre")
-        return qsTr("Genre");
+        return i18n.tr("Genre");
     if(searchCapability === "dc:creator")
-        return qsTr("Creator");
+        return i18n.tr("Creator");
     if(searchCapability === "dc:publisher")
-        return qsTr("Publisher");
+        return i18n.tr("Publisher");
     if(searchCapability === "dc:description")
-        return qsTr("Description");
+        return i18n.tr("Description");
     if(searchCapability === "upnp:userAnnotation")
-        return qsTr("User Annotation");
+        return i18n.tr("User Annotation");
     if(searchCapability === "upnp:longDescription")
-        return qsTr("Long Description");
+        return i18n.tr("Long Description");
 
     return undefined;
 }
@@ -338,7 +338,7 @@ function createUserAddedTrack(uri, label, streamType) {
         pid: pid,
         title: title,
         titleText: title,
-        metaText: qsTr("User entered URI"),
+        metaText: i18n.tr("User entered URI"),
         uri: uri,
         upnpclass: streamType,
         duration: 0,

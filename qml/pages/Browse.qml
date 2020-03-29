@@ -348,7 +348,7 @@ Page {
 
         if(app.currentBrowseStack.empty()) {
             if(cid === "0") { // root
-                pushOnBrowseStack(cid, "-1", qsTr("[Top]"), -1)
+                pushOnBrowseStack(cid, "-1", i18n.tr("[Top]"), -1)
             } /*else {
                 // probably arrived here from search page
                 // so we have to 'create' a browse stack

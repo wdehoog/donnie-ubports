@@ -380,7 +380,7 @@ Window {
         onMetaData: {
             //console.log("onMetaData: " + metaDataJson);
             if(error !== 0) {
-                app.showErrorDialog(qsTr("Failed to retrieve metadata for previously saved Ids.\nCan not Resume."))
+                app.showErrorDialog(i18n.tr("Failed to retrieve metadata for previously saved Ids.\nCan not Resume."))
                 //showBusy = false
                 if(resumeState == 1)
                     loadBrowseStackMetaData()
@@ -433,7 +433,7 @@ Window {
                     // restore browse stack
                     var index = 0
                     browsePage.reset()
-                    browsePage.pushOnBrowseStack("0", "-1", qsTr("[Top Level]"), -1);
+                    browsePage.pushOnBrowseStack("0", "-1", i18n.tr("[Top Level]"), -1);
                     for(var i=0;i<metaData.length;i++) {
                         if(metaData[i].containers && metaData[i].containers.length>0) {
                             var item = metaData[i].containers[0]
@@ -449,7 +449,7 @@ Window {
             } catch(err) {
                 app.error("Exception in onMetaData: "+err);
                 app.error("json: " + metaDataJson);
-                app.showErrorDialog(qsTr("Failed to parse previously saved Ids.\nCan not Resume."))
+                app.showErrorDialog(i18n.tr("Failed to parse previously saved Ids.\nCan not Resume."))
                 //showBusy = false
             }
         }
@@ -494,7 +494,7 @@ Window {
             }
         } catch(err) {
             app.error("Exception in loadBrowseStackMetaData: "+err);
-            app.showErrorDialog(qsTr("Failed to load previously saved Browse Stack Ids."))
+            app.showErrorDialog(i18n.tr("Failed to load previously saved Browse Stack Ids."))
             //showBusy = false
         }
     }
@@ -527,7 +527,7 @@ Window {
             }
         } catch(err) {
             app.error("Exception in loadResumeMetaData: "+err);
-            app.showErrorDialog(qsTr("Failed to load previously saved Queue Ids.\nCan not Resume."))
+            app.showErrorDialog(i18n.tr("Failed to load previously saved Queue Ids.\nCan not Resume."))
         }
         if(resumeState == 0) // not loading the queue
             loadBrowseStackMetaData()
