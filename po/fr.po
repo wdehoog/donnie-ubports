@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the donnie.wdehoog package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: donnie.wdehoog\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-29 09:49+0000\n"
+"PO-Revision-Date: 2020-03-30 11:42+0000\n"
+"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:650
+msgid "Ok"
+msgstr "Valider"
+
+#: ../qml/components/MessageDialog.qml:88
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../qml/components/MessageDialog.qml:98
+msgid "OK"
+msgstr "Valider"
+
+#: ../qml/components/PageHeader.qml:23
+msgid "Back"
+msgstr "Retour"
+
+#: ../qml/Main.qml:93 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+msgid "Donnie"
+msgstr "Donnie"
+
+#: ../qml/Main.qml:156
+msgid "Audio Player:"
+msgstr "Lecteur audio :"
+
+#: ../qml/Main.qml:179 ../qml/Main.qml:702
+msgid "Error"
+msgstr "Erreur"
+
+#: ../qml/Main.qml:179 ../qml/Main.qml:369
+msgid "No UPnP Server found"
+msgstr "Aucun serveur UPnP trouvé"
+
+#: ../qml/Main.qml:363
+msgid "Load previously saved queue?"
+msgstr "Charger la liste d'attente précédemment enregistrée ?"
+
+#: ../qml/Main.qml:363
+msgid "Load"
+msgstr "Charger"
+
+#: ../qml/Main.qml:369
+msgid "Warning"
+msgstr "Attention"
+
+#: ../qml/Main.qml:374
+msgid "UPnP Error"
+msgstr "Erreur UPnP"
+
+#: ../qml/Main.qml:650
+msgid "Yes"
+msgstr "Oui"
+
+#: ../qml/Main.qml:661
+msgid "No"
+msgstr "Non"
+
+#: ../qml/pages/PlayerPage.qml:46
+msgid "Built-In Player"
+msgstr "Lecteur intégré"
+
+#: ../qml/pages/PlayerPage.qml:430
+msgid "Remove"
+msgstr "Supprimer"
+
+#: ../qml/pages/Discovery.qml:30
+msgid "Reload"
+msgstr "Recharger"
+
+#: ../qml/pages/Discovery.qml:166
+msgid "Device Details"
+msgstr "Détails de l'appareil"
+
+#: ../qml/pages/Settings.qml:22 ../qml/pages/Menu.qml:36
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../qml/pages/Settings.qml:46
+msgid "Load saved queue at startup and resume playing"
+msgstr "Charger au démarrage la liste d'attente enregistrée et reprendre la lecture"
+
+#: ../qml/pages/Settings.qml:62
+msgid "Never"
+msgstr "Jamais"
+
+#: ../qml/pages/Settings.qml:63
+msgid "Ask"
+msgstr "Demander"
+
+#: ../qml/pages/Settings.qml:64
+msgid "Always"
+msgstr "Toujours"
+
+#: ../qml/pages/Settings.qml:76
+msgid "Show containers in search results"
+msgstr "Afficher les conteneurs dans les résultats de recherche"
+
+#: ../qml/pages/Settings.qml:95
+msgid "Use Album Art as app background"
+msgstr "Utiliser la pochette de l'album en tant qu'arrière-plan de l'application"
+
+#: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:41
+msgid "About"
+msgstr "À propos"
+
+#: ../qml/pages/About.qml:61
+msgid "UPnP player for UBPorts"
+msgstr "Lecteur UPnP pour UBPorts"
+
+#: ../qml/pages/About.qml:84
+msgid "License: MIT"
+msgstr "Licence : MIT"
+
+#: ../qml/pages/About.qml:116
+msgid "Thanks to"
+msgstr "Remerciements à"
+
+#: ../qml/pages/Search.qml:37 ../qml/pages/Menu.qml:66
+msgid "Search"
+msgstr "Chercher"
+
+#: ../qml/pages/Search.qml:124
+msgid "Search for"
+msgstr "Rechercher"
+
+#: ../qml/pages/Search.qml:146
+msgid "Search In"
+msgstr "Rechercher dans"
+
+#: ../qml/pages/Search.qml:154 ../qml/pages/Search.qml:187
+msgid "None"
+msgstr "Aucun"
+
+#: ../qml/pages/Search.qml:214
+msgid "Group By"
+msgstr "Grouper par"
+
+#: ../qml/pages/Search.qml:241
+msgid "Album"
+msgstr "Album"
+
+#: ../qml/pages/Search.qml:242
+msgid "Artist"
+msgstr "Artiste"
+
+#: ../qml/pages/Search.qml:243
+msgid "Title"
+msgstr "Titre"
+
+#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:261
+msgid "Add To Player"
+msgstr "Ajouter au lecteur"
+
+#: ../qml/pages/Search.qml:336
+msgid "Add Group To Player"
+msgstr "Ajouter le groupe au lecteur"
+
+#: ../qml/pages/Search.qml:340
+msgid "Replace Group in Player"
+msgstr "Remplacer le groupe dans le lecteur"
+
+#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:269
+msgid "Add All To Player"
+msgstr "Ajouter tout au lecteur"
+
+#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:273
+msgid "Replace All in Player"
+msgstr "Remplacer tout dans le lecteur"
+
+#: ../qml/pages/Browse.qml:35 ../qml/pages/Menu.qml:62
+msgid "Browse"
+msgstr "Parcourir"
+
+#: ../qml/pages/Browse.qml:265
+msgid "Replace in Player"
+msgstr "Remplacer dans le lecteur"
+
+#: ../qml/pages/Browse.qml:304
+msgid "Choose A Path"
+msgstr "Choisissez un chemin"
+
+#: ../qml/pages/Menu.qml:46 ../qml/pages/Help.qml:14
+msgid "Help"
+msgstr "Aide"
+
+#: ../qml/pages/Menu.qml:58
+msgid "UPnP Discovery"
+msgstr "Découverte de UPnP"
+
+#: ../qml/pages/Menu.qml:70
+msgid "Player"
+msgstr "Lecteur"
