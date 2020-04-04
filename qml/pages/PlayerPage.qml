@@ -358,13 +358,14 @@ Page {
 
         delegate: AdaptiveListItem {
             id: delegate
-            width: parent.width - 2*app.paddingMedium
             x: app.paddingMedium
+            width: parent.width - 2*x
             height: stuff.height
 
             Column {
                 id: stuff
                 width: parent.width
+                spacing: app.paddingMedium
 
                 Item {
                     width: parent.width
@@ -376,7 +377,7 @@ Page {
                         font.pixelSize: app.fontPixelSizeMedium
                         font.weight: currentItem === index ? Font.Bold: Font.Normal
                         textFormat: Text.StyledText
-                        //truncationMode: TruncationMode.Fade
+                        elide: Text.ElideLeft
                         width: parent.width - dt.width
                         text: titleText
                     }
@@ -396,7 +397,7 @@ Page {
                     font.weight: currentItem === index ? Font.Bold: Font.Normal
                     font.pixelSize: app.fontSizeSmall
                     textFormat: Text.StyledText
-                    //truncationMode: TruncationMode.Fade
+                    elide: Text.ElideLeft
                     width: parent.width
                     visible: metaText ? metaText.length > 0 : false
                     text: metaText

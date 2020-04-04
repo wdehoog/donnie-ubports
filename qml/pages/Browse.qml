@@ -197,7 +197,7 @@ Page {
                             id: tt
                             color: app.primaryColor
                             textFormat: Text.StyledText
-                            //truncationMode: TruncationMode.Fade
+                            elide: Text.ElideLeft
                             width: parent.width - dt.width
                             font.pixelSize: app.fontPixelSizeMedium
                             text: titleText ? titleText : ""
@@ -216,7 +216,7 @@ Page {
                         color: app.secondaryColor
                         font.pixelSize: app.fontSizeSmall
                         textFormat: Text.StyledText
-                        //truncationMode: TruncationMode.Fade
+                        elide: Text.ElideLeft
                         width: parent.width
                         visible: metaText ? (metaText.length > 0) : false
                         text: metaText ? metaText : ""
