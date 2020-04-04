@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 16:37+0000\n"
+"POT-Creation-Date: 2020-04-04 19:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,19 +103,19 @@ msgstr ""
 msgid "CheckBox"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:47
+#: ../qml/pages/PlayerPage.qml:48
 msgid "Built-In Player"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:51
+#: ../qml/pages/PlayerPage.qml:52
 msgid "Empty List"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:102
+#: ../qml/pages/PlayerPage.qml:103
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:475
+#: ../qml/pages/PlayerPage.qml:428
 msgid "Remove"
 msgstr ""
 

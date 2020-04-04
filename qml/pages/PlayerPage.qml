@@ -29,6 +29,7 @@ Page {
     property bool metaShown : false
     property string trackClass
     property string durationText
+    property string positionText
 
     property string trackMetaText1 : ""
     property string trackMetaText2 : ""
@@ -165,6 +166,7 @@ Page {
             trackMetaText2 = ""
             trackClass = ""
             durationText = ""
+            positionText = ""
             imageItemSource = defaultImageSource
         } else {
             var track = trackListModel.get(index)
@@ -341,7 +343,7 @@ Page {
                     id: durationLabel
                     font.pixelSize: app.fontSizeSmall
                     anchors.verticalCenter: parent.verticalCenter
-                    text: durationText
+                    text: positionText
                 }
             }
 
@@ -351,28 +353,12 @@ Page {
                 opacity: 1.0
             }
 
-            Column {
-                anchors.left: parent.left
-                anchors.right: parent.right
-
-                Text {
-                    width: parent.width
-                    font.pixelSize: app.fontSizeMedium
-                    color:  app.primaryColor
-                    font.weight: Font.Bold
-                    textFormat: Text.StyledText
-                    wrapMode: Text.Wrap
-                    text: trackMetaText1
-                }
-                Text {
-                    width: parent.width
-                    font.pixelSize: app.fontSizeMedium
-                    color: app.secondaryColor
-                    font.weight: Font.Bold
-                    textFormat: Text.StyledText
-                    wrapMode: Text.Wrap
-                    text: trackMetaText2
-                }
+            PlaylistItem {
+                id: stuff
+                index: currentItem
+                title: trackMetaText1
+                meta: trackMetaText2
+                duration: durationText
             }
 
             Rectangle { 
@@ -389,7 +375,7 @@ Page {
 
             Rectangle { 
                 width: parent.width
-                height: app.paddingLarge
+                height: app.paddingMedium
                 opacity: 1.0
             }
 
@@ -404,49 +390,16 @@ Page {
             id: delegate
             x: app.paddingMedium
             width: parent.width - 2*x
-            height: stuff.height
+            height: stuff.height + 2*app.paddingSmall
 
-            Column {
+            PlaylistItem {
                 id: stuff
-                width: parent.width
-                spacing: app.paddingMedium
+                anchors.verticalCenter: parent.verticalCenter
 
-                Item {
-                    width: parent.width
-                    height: tt.height
-
-                    Label {
-                        id: tt
-                        color: app.primaryColor
-                        font.pixelSize: app.fontPixelSizeMedium
-                        font.weight: currentItem === index ? Font.Bold: Font.Normal
-                        textFormat: Text.StyledText
-                        elide: Text.ElideRight
-                        width: parent.width - dt.width
-                        text: titleText
-                    }
-
-                    Label {
-                        id: dt
-                        anchors.right: parent.right
-                        color: app.primaryColor
-                        font.weight: currentItem === index ? Font.Bold: Font.Normal
-                        font.pixelSize: app.fontSizeSmall
-                        text: durationText ? durationText : ""
-                    }
-                }
-
-                Label {
-                    color: app.secondaryColor
-                    font.weight: currentItem === index ? Font.Bold: Font.Normal
-                    font.pixelSize: app.fontSizeSmall
-                    textFormat: Text.StyledText
-                    elide: Text.ElideRight
-                    width: parent.width
-                    visible: metaText ? metaText.length > 0 : false
-                    text: metaText
-                }
-
+                index: model.index
+                title: titleText
+                meta: metaText
+                duration: durationText
             }
 
             function openActionMenu() {
@@ -494,7 +447,7 @@ Page {
                  && trackClass === UPnP.AudioItemType.MusicTrack
         repeat: true
         onTriggered: {
-            durationText = UPnP.getDurationString(audio.position)
+            positionText = UPnP.getDurationString(audio.position)
         }
     }
 
