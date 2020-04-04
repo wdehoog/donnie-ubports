@@ -170,11 +170,10 @@ Window {
     }
 
     function playPause() {
-        console.log("pause() audio.source:" + audio.source)
         if(audio.playbackState === Audio.PlayingState)
             audio.pause()
         else
-          audio.play()
+            audio.play()
     }
     
     function checkHasCurrentServer() {

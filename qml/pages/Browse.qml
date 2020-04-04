@@ -9,6 +9,7 @@ import Ergo 0.0
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtMultimedia 5.6
 import QtGraphicalEffects 1.0
 
 import "../components"
@@ -67,7 +68,7 @@ Page {
                 for(i=0;i<contents.items.length;i++) {
                     var item = contents.items[i];
                     var upnpClass = item.properties["upnp:class"];
-                    if(upnpClass && UPnP.startsWith(upnpClass, "object.item.audioItem")) {                        
+                    if(upnpClass && UPnP.startsWith(upnpClass, "object.item.audioItem")) {
                         browseModel.append(UPnP.createListItem(item));
                     } else
                         console.log("onBrowseDone: skipped loading of an object of class " + item.properties["upnp:class"]);
@@ -109,7 +110,7 @@ Page {
             pathText = UPnP.getCurrentPathString(app.currentBrowseStack);
             console.log("Browse::onError: " + msg);
             app.errorLog.push(msg);
-            showBusy = false;            
+            showBusy = false;
         }
     }
 
@@ -384,7 +385,7 @@ Page {
         } while(app.currentBrowseStack.length()>0)
     }
 
-    function popFromBrowseStack() {        
+    function popFromBrowseStack() {
         cScrollIndex = app.currentBrowseStack.peek().currentIndex;
         app.currentBrowseStack.pop();
         if(pathListModel.count > 1) {
@@ -406,10 +407,11 @@ Page {
 
     function replaceInPlayer(track) {
         var isPlaying = getPlayerPage().canPause
-        getPlayerPage().clearList()
-        getPlayerPage().addTracks([track])
+        var playerPage = getPlayerPage()
+        playerPage.clearList()
+        playerPage.addTracks([track])
         if(isPlaying)
-            play()
+            playerPage.play()
     }
 
     function getAllTracks() {
@@ -428,11 +430,12 @@ Page {
 
     function replaceAllInPlayer() {
         var tracks = getAllTracks()
-        var isPlaying = getPlayerPage().canPause
-        getPlayerPage().clearList()
-        getPlayerPage().addTracks(tracks)
+        var playerPage = getPlayerPage()
+        var isPlaying = playerPage.canPause
+        playerPage.clearList()
+        playerPage.addTracks(tracks)
         if(isPlaying)
-            play()
+            playerPage.play()
     }
 
     /*function createBrowseStackFor(id) {

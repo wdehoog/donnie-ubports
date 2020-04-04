@@ -37,8 +37,8 @@ Page {
     property bool hasTracks : listView.model.count > 0
     property bool canNext: hasTracks && (currentItem < (listView.model.count - 1))
     property bool canPrevious: hasTracks && (currentItem > 0)
-    property bool canPlay: hasTracks && (audio.playbackState != audio.PlayingState)
-    property bool canPause: audio.playbackState == audio.PlayingState
+    property bool canPlay: hasTracks && (audio.playbackState != Audio.PlayingState)
+    property bool canPause: audio.playbackState == Audio.PlayingState
     property int requestedAudioPosition : -1
 
     // 1 playing, 2 paused, the rest inactive
@@ -81,7 +81,7 @@ Page {
 
             //if(audio.status == Audio.EndOfMedia) {
             //    next();
-            //}            
+            //}
         }
 
         onPlaybackStateChanged: refreshTransportState()
@@ -100,7 +100,7 @@ Page {
             updateForTrack(audio.playlist.currentIndex)
         }
         onErrorChanged: {
-            app.showErrorDialog(i18n.tr("Playlist") + ": " + audio.playlist.errorString) 
+            app.showErrorDialog(i18n.tr("Playlist") + ": " + audio.playlist.errorString)
         }
         onItemChanged: console.log("playlist.onItemChanged("+start+","+end+")")
         onItemInserted: console.log("playlist.onItemInserted("+start+","+end+")")
@@ -260,12 +260,10 @@ Page {
 
                 Column {
                   id: playerButtons
-                  //property int currentPlayerState: Audio.Pl
 
                   anchors.verticalCenter: parent.verticalCenter
                   spacing: app.paddingMedium
                   width: parent.width - imageItem.width
-                  //height: playIcon.height
 
                   Icon {
                       anchors.horizontalCenter: parent.horizontalCenter
@@ -333,10 +331,8 @@ Page {
                             return
                         audio.seek(value);
                     }
-                    to: audio.playbackState == Audio.PlayingState
-                           ? audio.duration : 0
-                    value: audio.playbackState == Audio.PlayingState
-                           ? audio.position : 0
+                    to: audio.duration
+                    value: audio.position
                 }
 
                 Text {
@@ -347,7 +343,7 @@ Page {
                 }
             }
 
-            Rectangle { 
+            Rectangle {
                 width: parent.width
                 height: app.paddingMedium
                 opacity: 1.0
@@ -361,19 +357,19 @@ Page {
                 duration: durationText
             }
 
-            Rectangle { 
+            Rectangle {
                 width: parent.width
                 height: app.paddingMedium
                 opacity: 1.0
             }
 
-            Rectangle { 
+            Rectangle {
                 width: parent.width
                 height: 1
                 color: "black"
             }
 
-            Rectangle { 
+            Rectangle {
                 width: parent.width
                 height: app.paddingMedium
                 opacity: 1.0
@@ -427,22 +423,21 @@ Page {
             Action {
                 text: i18n.tr("Remove")
                 onTriggered: {
-                    var saveIndex = index
-                    trackListModel.remove(index)
-                    audio.playlist.removeItem(index)
-                    if(currentItem === saveIndex) {
+                    trackListModel.remove(listItemMenu.index)
+                    audio.playlist.removeItem(listItemMenu.index)
+                    if(currentItem === listItemMenu.index) {
                         currentItem--
-                        next();
-                    } else if(currentItem > saveIndex)
+                        next()
+                    } else if(currentItem > listItemMenu.index)
                         currentItem--
                 }
             }
         ]
     }
 
-    Timer { 
+    Timer {
         interval: 1000
-        running: useBuiltInPlayer 
+        running: useBuiltInPlayer
                  && audio.hasAudio
                  && trackClass === UPnP.AudioItemType.MusicTrack
         repeat: true
@@ -454,8 +449,8 @@ Page {
     // for internet radio the QT Audio object seems to support some metadata
     Timer {
         interval: 5000;
-        running: useBuiltInPlayer 
-                 && audio.hasAudio 
+        running: useBuiltInPlayer
+                 && audio.hasAudio
                  && trackClass === UPnP.AudioItemType.AudioBroadcast
         repeat: true
         onTriggered: {
@@ -488,11 +483,13 @@ Page {
     }*/
 
     function addTracksNoStart(tracks) {
-        var i;
+        var i
+        var uris = []
         for(i=0;i<tracks.length;i++) {
             trackListModel.append(tracks[i])
-            audio.playlist.addItem(tracks[i].uri)  
+            uris[i] = tracks[i].uri
         }
+        audio.playlist.addItems(uris)
     }
 
     function openTrack(track) {
@@ -505,7 +502,7 @@ Page {
         addTracksNoStart(tracks)
         if(currentItem == -1 && trackListModel.count>0) {
             if(arguments.length >= 2 && arguments[1] > -1) { // is index passed?
-                audio.playlist.currentIndex = arguments[1] 
+                audio.playlist.currentIndex = arguments[1]
                 if(arguments.length >= 3) // is position passed?
                     requestedAudioPosition = arguments[2]
             }

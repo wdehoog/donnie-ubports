@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 19:13+0000\n"
+"POT-Creation-Date: 2020-04-04 21:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:653
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:652
 msgid "Ok"
 msgstr ""
 
@@ -41,61 +41,61 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:182 ../qml/Main.qml:705
+#: ../qml/Main.qml:181 ../qml/Main.qml:704
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:182 ../qml/Main.qml:372
+#: ../qml/Main.qml:181 ../qml/Main.qml:371
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:366
+#: ../qml/Main.qml:365
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:366
+#: ../qml/Main.qml:365
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:372
+#: ../qml/Main.qml:371
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:377
+#: ../qml/Main.qml:376
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:386
+#: ../qml/Main.qml:385
 msgid ""
 "Failed to retrieve metadata for previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:439
+#: ../qml/Main.qml:438
 msgid "[Top Level]"
 msgstr ""
 
-#: ../qml/Main.qml:455
+#: ../qml/Main.qml:454
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:500
+#: ../qml/Main.qml:499
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:533
+#: ../qml/Main.qml:532
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:653
+#: ../qml/Main.qml:652
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:664
+#: ../qml/Main.qml:663
 msgid "No"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:428
+#: ../qml/pages/PlayerPage.qml:424
 msgid "Remove"
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:263
+#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:264
 msgid "Add To Player"
 msgstr ""
 
@@ -219,27 +219,27 @@ msgstr ""
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:271
+#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:272
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:275
+#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:276
 msgid "Replace All in Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:35 ../qml/pages/Menu.qml:62
+#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:62
 msgid "Browse"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:267
+#: ../qml/pages/Browse.qml:268
 msgid "Replace in Player"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:306
+#: ../qml/pages/Browse.qml:307
 msgid "Choose A Path"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:353
+#: ../qml/pages/Browse.qml:354
 msgid "[Top]"
 msgstr ""
 
