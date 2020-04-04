@@ -79,7 +79,7 @@ Column {
                     x: app.gu(1)
                     width: parent.width - app.gu(1)
                     font.bold: true
-                    font.pixelSize: app.fontPixelSizeLarge
+                    font.pixelSize: app.fontPixelSizeMedium
                     color: app.text1color
                     wrapMode: Text.Wrap
                     text: trackMetaText1
@@ -90,7 +90,7 @@ Column {
                     width: parent.width - app.gu(1)
                     anchors.right: parent.right
                     wrapMode: Text.Wrap
-                    font.pixelSize: app.fontPixelSizeLarge
+                    font.pixelSize: app.fontPixelSizeMedium
                     font.bold: true
                     color: app.text2color
                     text: trackMetaText2

@@ -143,7 +143,7 @@ Page {
 
     function clearList() {
         stop()
-        audio.source = ""
+        //audio.source = "" causes Audio to throw error 'Resource cannot be ...'
         listView.model.clear()
         trackMetaText1 = ""
         trackMetaText2 = ""
@@ -190,18 +190,13 @@ Page {
 
 
         header: Column {
-            width: parent.width - 2*app.paddingMedium
             x: app.paddingMedium
-
-            anchors {
-                topMargin: 0
-                bottomMargin: app.paddingLarge
-            }
+            width: parent.width - 2*x
 
             Rectangle {
                 width: parent.width
                 height:app.paddingLarge
-                opacity: 0
+                opacity: 1.0
             }
 
             Row {
@@ -271,8 +266,8 @@ Page {
 
             Rectangle {
                 width: parent.width
-                height:app.paddingMedium
-                opacity: 0
+                height: app.paddingMedium
+                opacity: 1.0
             }
 
             Row {
@@ -311,6 +306,12 @@ Page {
                 }
             }
 
+            Rectangle { 
+                width: parent.width
+                height: app.paddingMedium
+                opacity: 1.0
+            }
+
             Column {
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -336,16 +337,20 @@ Page {
             }
 
             Rectangle { 
-                anchors.left: parent.left
-                anchors.right: parent.right
+                width: parent.width
+                height: app.paddingMedium
+                opacity: 1.0
+            }
+
+            Rectangle { 
+                width: parent.width
                 height: 1
                 color: "black"
             }
 
             Rectangle { 
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 4
+                width: parent.width
+                height: app.paddingLarge
                 opacity: 1.0
             }
 
@@ -377,7 +382,7 @@ Page {
                         font.pixelSize: app.fontPixelSizeMedium
                         font.weight: currentItem === index ? Font.Bold: Font.Normal
                         textFormat: Text.StyledText
-                        elide: Text.ElideLeft
+                        elide: Text.ElideRight
                         width: parent.width - dt.width
                         text: titleText
                     }
@@ -397,7 +402,7 @@ Page {
                     font.weight: currentItem === index ? Font.Bold: Font.Normal
                     font.pixelSize: app.fontSizeSmall
                     textFormat: Text.StyledText
-                    elide: Text.ElideLeft
+                    elide: Text.ElideRight
                     width: parent.width
                     visible: metaText ? metaText.length > 0 : false
                     text: metaText

@@ -49,11 +49,12 @@ Page {
                 if(cid !== "0" && browseModel.count == 0) {
                     browseModel.append({
                         type: "Container",
+                        dtype: UPnP.DonnieItemType.ContentServer,
                         id: app.currentBrowseStack.peek().pid,
                         pid: "-2",
-                        title: "..",
-                        artist: "", album: "", duration: "",
-                        titleText: "..", metaText: "", durationText: "",
+                        title: "..", titleText: "..",
+                        artist: "", album: "", albumArtURI: "", duration: "",
+                        metaText: "", durationText: "",
                         currentIndex: app.currentBrowseStack.peek().currentIndex
                     });
                 }
@@ -96,11 +97,12 @@ Page {
             if(cid !== "0" && browseModel.count == 0) { // no ".." for the root
                 browseModel.append({
                     type: "Container",
+                    dtype: UPnP.DonnieItemType.ContentServer,
                     id: app.currentBrowseStack.peek().pid,
                     pid: "-2",
-                    title: "..",
-                    artist: "", album: "", duration: "",
-                    titleText: "..", metaText: "", durationText: "",
+                    title: "..", titleText: "..",
+                    artist: "", album: "", albumArtURI: "", duration: "",
+                    metaText: "", durationText: "",
                     currentIndex: app.currentBrowseStack.peek().currentIndex
                 });
             }
@@ -197,7 +199,7 @@ Page {
                             id: tt
                             color: app.primaryColor
                             textFormat: Text.StyledText
-                            elide: Text.ElideLeft
+                            elide: Text.ElideRight
                             width: parent.width - dt.width
                             font.pixelSize: app.fontPixelSizeMedium
                             text: titleText ? titleText : ""
@@ -216,7 +218,7 @@ Page {
                         color: app.secondaryColor
                         font.pixelSize: app.fontSizeSmall
                         textFormat: Text.StyledText
-                        elide: Text.ElideLeft
+                        elide: Text.ElideRight
                         width: parent.width
                         visible: metaText ? (metaText.length > 0) : false
                         text: metaText ? metaText : ""
@@ -399,32 +401,33 @@ Page {
     }
 
     function addToPlayer(track) {
-        getPlayerPage().addTracks([track]);
+        getPlayerPage().addTracks([track])
     }
 
     function replaceInPlayer(track) {
-        getPlayerPage().clearList();
-        getPlayerPage().addTracks([track]);
+        getPlayerPage().clearList()
+        getPlayerPage().addTracks([track])
+        play()
     }
 
     function getAllTracks() {
         var tracks = [];
         for(var i=0;i<listView.model.count;i++) {
             if(listView.model.get(i).type === "Item")
-                tracks.push(listView.model.get(i));
+                tracks.push(listView.model.get(i))
         }
-        return tracks;
+        return tracks
     }
 
     function addAllToPlayer() {
-        var tracks = getAllTracks();
-        getPlayerPage().addTracks(tracks);
+        var tracks = getAllTracks()
+        getPlayerPage().addTracks(tracks)
     }
 
     function replaceAllInPlayer() {
-        var tracks = getAllTracks();
-        getPlayerPage().clearList();
-        getPlayerPage().addTracks(tracks);
+        var tracks = getAllTracks()
+        getPlayerPage().clearList()
+        getPlayerPage().addTracks(tracks)
     }
 
     /*function createBrowseStackFor(id) {
