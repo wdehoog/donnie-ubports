@@ -487,10 +487,23 @@ Page {
         ]
     }
 
+    Timer { 
+        interval: 1000
+        running: useBuiltInPlayer 
+                 && audio.hasAudio
+                 && trackClass === UPnP.AudioItemType.MusicTrack
+        repeat: true
+        onTriggered: {
+            durationText = UPnP.getDurationString(audio.position)
+        }
+    }
+
     // for internet radio the QT Audio object seems to support some metadata
     Timer {
         interval: 5000;
-        running: useBuiltInPlayer && audio.hasAudio && trackClass === UPnP.AudioItemType.AudioBroadcast
+        running: useBuiltInPlayer 
+                 && audio.hasAudio 
+                 && trackClass === UPnP.AudioItemType.AudioBroadcast
         repeat: true
         onTriggered: {
             var title = audio.metaData.title

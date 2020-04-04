@@ -75,7 +75,7 @@ function getDurationString(d) {
       // assume ms
       d /= 1000;
       var minutes = Math.floor(d / 60);
-      var seconds = "0" + (d - minutes * 60);
+      var seconds = "0" + Math.floor(d - minutes * 60);
       return minutes + ":" + seconds.substr(-2);
     }
 }
