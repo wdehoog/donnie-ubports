@@ -405,9 +405,11 @@ Page {
     }
 
     function replaceInPlayer(track) {
+        var isPlaying = getPlayerPage().canPause
         getPlayerPage().clearList()
         getPlayerPage().addTracks([track])
-        play()
+        if(isPlaying)
+            play()
     }
 
     function getAllTracks() {
@@ -426,8 +428,11 @@ Page {
 
     function replaceAllInPlayer() {
         var tracks = getAllTracks()
+        var isPlaying = getPlayerPage().canPause
         getPlayerPage().clearList()
         getPlayerPage().addTracks(tracks)
+        if(isPlaying)
+            play()
     }
 
     /*function createBrowseStackFor(id) {

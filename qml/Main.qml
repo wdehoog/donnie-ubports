@@ -148,7 +148,10 @@ Window {
 
         autoLoad: true
         autoPlay: true
-        //source: channelStreamUrl
+
+        playlist: Playlist {
+            id: playlist
+        }
 
         onError: {
             console.log("Audio Player error:" + errorString)

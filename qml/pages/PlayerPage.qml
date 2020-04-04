@@ -28,6 +28,7 @@ Page {
     property int currentItem: -1
     property bool metaShown : false
     property string trackClass
+    property string durationText
 
     property string trackMetaText1 : ""
     property string trackMetaText2 : ""
@@ -77,9 +78,9 @@ Page {
                 requestedAudioPosition = -1
             }
 
-            if(audio.status == Audio.EndOfMedia) {
-                next();
-            }            
+            //if(audio.status == Audio.EndOfMedia) {
+            //    next();
+            //}            
         }
 
         onPlaybackStateChanged: refreshTransportState()
@@ -92,18 +93,29 @@ Page {
         }
     }
 
+    Connections {
+        target: app.audio.playlist
+        onCurrentIndexChanged: {
+            updateForTrack(audio.playlist.currentIndex)
+        }
+        onErrorChanged: {
+            app.showErrorDialog(i18n.tr("Playlist") + ": " + audio.playlist.errorString) 
+        }
+        onItemChanged: console.log("playlist.onItemChanged("+start+","+end+")")
+        onItemInserted: console.log("playlist.onItemInserted("+start+","+end+")")
+        onItemRemoved: console.log("playlist.onItemRemoved("+start+","+end+")")
+    }
+
     function next() {
-        if(currentItem >= (trackListModel.count-1))
+        if(audio.playlist.currentIndex >= (audio.playlist.itemCount-1))
             return;
-        currentItem++;
-        loadTrack(trackListModel.get(currentItem));
+        audio.playlist.next()
     }
 
     function prev() {
-        if(currentItem <= 0)
+        if(audio.playlist.currentIndex <= 0)
             return;
-        currentItem--;
-        loadTrack(trackListModel.get(currentItem));
+        audio.playlist.previous()
     }
 
     function pause() {
@@ -127,29 +139,56 @@ Page {
         app.settings.last_playing_position = audio.position
     }
 
+    function gotoTrack(track) {
+        var i
+        for(i=0;i<audio.playlist.itemCount;i++) {
+            if(audio.playlist.itemSource(i) == track.uri) {
+                audio.playlist.currentIndex = i
+                break
+            }
+        }
+    }
+
     function loadTrack(track) {
         //console.log("loadTrack: " + JSON.stringify(track))
-        audio.source = track.uri
-        imageItemSource = track.albumArtURI ? track.albumArtURI : defaultImageSource
-        updatePlayIcons()
+        //audio.source = track.uri
+        audio.playlist.clear()
+        audio.playlist.addItem(track.uri)
+        audio.play()
+    }
 
-        trackMetaText1 = track.titleText
-        trackMetaText2 = track.metaText
-        trackClass = track.upnpclass;
+    function updateForTrack(index) {
+        currentItem = index
+        console.log("updateForTrack("+currentItem+")")
+        if(index < 0 || index >= trackListModel.count) {
+            trackMetaText1 = ""
+            trackMetaText2 = ""
+            trackClass = ""
+            durationText = ""
+            imageItemSource = defaultImageSource
+        } else {
+            var track = trackListModel.get(index)
+            //console.log("updateForTrack: " + JSON.stringify(track,null,2))
+            updatePlayIcons()
 
-        updateMprisForTrack(track);
-        app.saveLastPlayingJSON(track, trackListModel)
+            trackMetaText1 = track.titleText
+            trackMetaText2 = track.metaText
+            trackClass = track.upnpclass
+            console.log("trackClass: " + trackClass)
+            durationText = track.durationText
+            imageItemSource = track.albumArtURI ? track.albumArtURI : defaultImageSource
+
+            updateMprisForTrack(track)
+            app.saveLastPlayingJSON(track, trackListModel)
+        }
     }
 
     function clearList() {
         stop()
         //audio.source = "" causes Audio to throw error 'Resource cannot be ...'
+        audio.playlist.clear()
         listView.model.clear()
-        trackMetaText1 = ""
-        trackMetaText2 = ""
-        trackClass = ""
-        currentItem = -1
-        imageItemSource = defaultImageSource
+        updateForTrack(-1)
     }
 
     function updatePlayIcons() {
@@ -302,7 +341,7 @@ Page {
                     id: durationLabel
                     font.pixelSize: app.fontSizeSmall
                     anchors.verticalCenter: parent.verticalCenter
-                    text: UPnP.getDurationString(audio.duration)
+                    text: durationText
                 }
             }
 
@@ -418,7 +457,7 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     currentItem = index
-                    loadTrack(trackListModel.get(index))
+                    gotoTrack(trackListModel.get(index))
                 }
             }
         }
@@ -437,6 +476,7 @@ Page {
                 onTriggered: {
                     var saveIndex = index
                     trackListModel.remove(index)
+                    audio.playlist.removeItem(index)
                     if(currentItem === saveIndex) {
                         currentItem--
                         next();
@@ -468,7 +508,6 @@ Page {
             trackMetaText2 = publisher ? publisher : ""
             updateMprisForTrackMetaData(getCurrentTrack())
             imageItemSource = logo ? logo : defaultImageSource
-            cover.updateDisplayData(logo, publisher, trackClass)
         }
     }
 
@@ -484,24 +523,26 @@ Page {
 
     function addTracksNoStart(tracks) {
         var i;
-        for(i=0;i<tracks.length;i++)
+        for(i=0;i<tracks.length;i++) {
             trackListModel.append(tracks[i])
+            audio.playlist.addItem(tracks[i].uri)  
+        }
     }
 
     function openTrack(track) {
         addTracksNoStart([track])
         currentItem = trackListModel.count - 1
-        loadTrack(trackListModel.get(currentItem))
+        gotoTrack(trackListModel.get(currentItem))
     }
 
     function addTracks(tracks) {
         addTracksNoStart(tracks)
         if(currentItem == -1 && trackListModel.count>0) {
-            if(arguments.length >= 2 && arguments[1] > -1) // is index passed?
-                currentItem = arguments[1] - 1 // next will do +1
-            if(arguments.length >= 3) // is position passed?
-                requestedAudioPosition = arguments[2]
-            next()
+            if(arguments.length >= 2 && arguments[1] > -1) { // is index passed?
+                audio.playlist.currentIndex = arguments[1] 
+                if(arguments.length >= 3) // is position passed?
+                    requestedAudioPosition = arguments[2]
+            }
         }
     }
 

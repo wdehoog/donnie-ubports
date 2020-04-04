@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 10:39+0000\n"
+"POT-Creation-Date: 2020-04-04 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:650
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:653
 msgid "Ok"
 msgstr ""
 
@@ -37,65 +37,65 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:156
+#: ../qml/Main.qml:159
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:702
+#: ../qml/Main.qml:182 ../qml/Main.qml:705
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:369
+#: ../qml/Main.qml:182 ../qml/Main.qml:372
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:363
+#: ../qml/Main.qml:366
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:363
+#: ../qml/Main.qml:366
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:369
+#: ../qml/Main.qml:372
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:374
+#: ../qml/Main.qml:377
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:383
+#: ../qml/Main.qml:386
 msgid ""
 "Failed to retrieve metadata for previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:436
+#: ../qml/Main.qml:439
 msgid "[Top Level]"
 msgstr ""
 
-#: ../qml/Main.qml:452
+#: ../qml/Main.qml:455
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:497
+#: ../qml/Main.qml:500
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:530
+#: ../qml/Main.qml:533
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:650
+#: ../qml/Main.qml:653
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:661
+#: ../qml/Main.qml:664
 msgid "No"
 msgstr ""
 
@@ -103,15 +103,19 @@ msgstr ""
 msgid "CheckBox"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:46
+#: ../qml/pages/PlayerPage.qml:47
 msgid "Built-In Player"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:50
+#: ../qml/pages/PlayerPage.qml:51
 msgid "Empty List"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:436
+#: ../qml/pages/PlayerPage.qml:102
+msgid "Playlist"
+msgstr ""
+
+#: ../qml/pages/PlayerPage.qml:475
 msgid "Remove"
 msgstr ""
 
