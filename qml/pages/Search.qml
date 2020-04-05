@@ -157,7 +157,7 @@ Page {
 
                     // load capabilities
                     for (var u=0;u<searchCapabilities.length;u++) {
-                        var scapLabel = UPnP.geSearchCapabilityDisplayString(searchCapabilities[u])
+                        var scapLabel = getSearchCapabilityDisplayString(searchCapabilities[u])
                         if(scapLabel === undefined)
                             continue
 
@@ -267,50 +267,18 @@ Page {
 
         delegate: AdaptiveListItem {
             id: delegate
-            width: parent.width - 2*x
             x: app.paddingMedium
-            height: stuff.height
+            width: parent.width - 2*x
+            height: stuff.height + 2*app.paddingSmall
 
-            Row {
+            PlaylistItem {
                 id: stuff
-                spacing: app.paddingMedium
-                width: parent.width
+                anchors.verticalCenter: parent.verticalCenter
 
-                Column {
-                    width: parent.width
-
-                    Item {
-                        width: parent.width
-                        height: tt.height
-
-                        Label {
-                            id: tt
-                            color: app.primaryColor
-                            textFormat: Text.StyledText
-                            //truncationMode: TruncationMode.Fade
-                            width: parent.width - dt.width
-                            font.pixelSize: app.fontSizeMedium
-                            text: titleText
-                        }
-                        Label {
-                            id: dt
-                            anchors.right: parent.right
-                            color: app.secondaryColor
-                            font.pixelSize: app.fontSizeSmall
-                            text: durationText
-                        }
-                    }
-
-                    Label {
-                        color: app.secondaryColor
-                        font.pixelSize: app.fontSizeSmall
-                        text: metaText
-                        textFormat: Text.StyledText
-                        //truncationMode: TruncationMode.Fade
-                        width: parent.width
-                    }
-                }
-
+                index: model.index
+                title: titleText
+                meta: metaText
+                duration: durationText
             }
 
             function openActionMenu() {
@@ -330,24 +298,28 @@ Page {
         actions: [
             Action {
                 text: i18n.tr("Add To Player")
-                onTriggered: addToPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().addTracks([listView.model.get(listItemMenu.index)])
+            },
+            Action {
+                text: i18n.tr("Replace in Player")
+                onTriggered: getPlayerPage().replaceTracks([listView.model.get(listItemMenu.index)])
             },
             Action {
                 text: i18n.tr("Add Group To Player")
-                onTriggered: addGroupToPlayer(groupByField, listView.model.get(listItemMenu.index)[groupByField])
+                onTriggered: getPlayerPage().addTracks(getGroupTracks(groupByField, listView.model.get(listItemMenu.index)[groupByField]))
             },
             Action {
                 text: i18n.tr("Replace Group in Player")
-                onTriggered: replaceGroupInPlayer(groupByField, listView.model.get(listItemMenu.index)[groupByField])
+                onTriggered: getPlayerPage().replaceTracks(getGroupTracks(groupByField, listView.model.get(listItemMenu.index)[groupByField]))
 
             },
             Action {
                 text: i18n.tr("Add All To Player")
-                onTriggered: addAllToPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().addTracks(getAllTracks())
             },
             Action {
                 text: i18n.tr("Replace All in Player")
-                onTriggered: app.replaceAllInPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().replaceTracks(getAllTracks())
             }
         ]
     }
@@ -434,9 +406,6 @@ Page {
             showBusy = false
         }
     }
-    function addToPlayer(track) {
-        getPlayerPage().addTracks([track])
-    }
 
     function replaceInPlayer(track) {
         getPlayerPage().clearList()
@@ -450,11 +419,6 @@ Page {
                 tracks.push(listView.model.get(i))
         }
         return tracks
-    }
-
-    function addAllToPlayer() {
-        var tracks = getAllTracks()
-        getPlayerPage().addTracks(tracks)
     }
 
     function replaceAllInPlayer() {
@@ -475,10 +439,6 @@ Page {
         return tracks
     }
 
-    function addGroupToPlayer(field, value) {
-        getPlayerPage().addTracks(getGroupTracks(field, value))
-    }
-
     function replaceGroupInPlayer(field, value) {
         getPlayerPage().clearList()
         getPlayerPage().addTracks(getGroupTracks(field, value))
@@ -487,6 +447,29 @@ Page {
     function openBrowseOn(id) {
         pageStack.pop()
         mainPage.openBrowsePage(id)
+    }
+
+    function getSearchCapabilityDisplayString(searchCapability) {
+        if(searchCapability === "upnp:artist")
+            return i18n.tr("Artist");
+        if(searchCapability === "dc:title")
+            return i18n.tr("Title");
+        if(searchCapability === "upnp:album")
+            return i18n.tr("Album");
+        if(searchCapability === "upnp:genre")
+            return i18n.tr("Genre");
+        if(searchCapability === "dc:creator")
+            return i18n.tr("Creator");
+        if(searchCapability === "dc:publisher")
+            return i18n.tr("Publisher");
+        if(searchCapability === "dc:description")
+            return i18n.tr("Description");
+        if(searchCapability === "upnp:userAnnotation")
+            return i18n.tr("User Annotation");
+        if(searchCapability === "upnp:longDescription")
+            return i18n.tr("Long Description");
+
+        return undefined;
     }
 
 }

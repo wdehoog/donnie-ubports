@@ -254,19 +254,19 @@ Page {
         actions: [
             Action {
                 text: i18n.tr("Add To Player")
-                onTriggered: addToPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().addTracks([listView.model.get(listItemMenu.index)])
             },
             Action {
                 text: i18n.tr("Replace in Player")
-                onTriggered: replaceInPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().replaceTracks([listView.model.get(listItemMenu.index)])
             },
             Action {
                 text: i18n.tr("Add All To Player")
-                onTriggered: addAllToPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().addTracks(getAllTracks())
             },
             Action {
                 text: i18n.tr("Replace All in Player")
-                onTriggered: replaceAllInPlayer(listView.model.get(listItemMenu.index))
+                onTriggered: getPlayerPage().replaceTracks(getAllTracks())
             }
         ]
     }
@@ -393,19 +393,6 @@ Page {
         //pathComboBoxIndex = -1;
     }
 
-    function addToPlayer(track) {
-        getPlayerPage().addTracks([track])
-    }
-
-    function replaceInPlayer(track) {
-        var isPlaying = getPlayerPage().canPause
-        var playerPage = getPlayerPage()
-        playerPage.clearList()
-        playerPage.addTracks([track])
-        if(isPlaying)
-            playerPage.play()
-    }
-
     function getAllTracks() {
         var tracks = [];
         for(var i=0;i<listView.model.count;i++) {
@@ -413,21 +400,6 @@ Page {
                 tracks.push(listView.model.get(i))
         }
         return tracks
-    }
-
-    function addAllToPlayer() {
-        var tracks = getAllTracks()
-        getPlayerPage().addTracks(tracks)
-    }
-
-    function replaceAllInPlayer() {
-        var tracks = getAllTracks()
-        var playerPage = getPlayerPage()
-        var isPlaying = playerPage.canPause
-        playerPage.clearList()
-        playerPage.addTracks(tracks)
-        if(isPlaying)
-            playerPage.play()
     }
 
     /*function createBrowseStackFor(id) {

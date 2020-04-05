@@ -186,29 +186,6 @@ function createUPnPQuery(searchString, searchCapabilities, capabilitiesMask, all
         return "upnp:class derivedfrom \"object.item.audioItem\" and (" + query +")";
 }
 
-function geSearchCapabilityDisplayString(searchCapability) {
-    if(searchCapability === "upnp:artist")
-        return i18n.tr("Artist");
-    if(searchCapability === "dc:title")
-        return i18n.tr("Title");
-    if(searchCapability === "upnp:album")
-        return i18n.tr("Album");
-    if(searchCapability === "upnp:genre")
-        return i18n.tr("Genre");
-    if(searchCapability === "dc:creator")
-        return i18n.tr("Creator");
-    if(searchCapability === "dc:publisher")
-        return i18n.tr("Publisher");
-    if(searchCapability === "dc:description")
-        return i18n.tr("Description");
-    if(searchCapability === "upnp:userAnnotation")
-        return i18n.tr("User Annotation");
-    if(searchCapability === "upnp:longDescription")
-        return i18n.tr("Long Description");
-
-    return undefined;
-}
-
 function startsWith(str, start) {
     return str.match("^"+start) !== null;
 }

@@ -174,9 +174,8 @@ Page {
             updatePlayIcons()
 
             trackMetaText1 = track.titleText
-            trackMetaText2 = track.metaText
+            trackMetaText2 = track.metaText 
             trackClass = track.upnpclass
-            console.log("trackClass: " + trackClass)
             durationText = track.durationText
             imageItemSource = track.albumArtURI ? track.albumArtURI : defaultImageSource
 
@@ -507,6 +506,14 @@ Page {
                     requestedAudioPosition = arguments[2]
             }
         }
+    }
+
+    function replaceTracks(tracks) {
+        var isPlaying = canPause
+        clearList()
+        addTracks(tracks)
+        if(isPlaying)
+            play()
     }
 
     function getCurrentTrack() {
