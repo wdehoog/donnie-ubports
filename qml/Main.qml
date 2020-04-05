@@ -158,15 +158,20 @@ Window {
             console.log("source: " + source)
             showErrorDialog(i18n.tr("Audio Player:") + "\n\n" + errorString)
         }
+
+        //metaData.onMetaDataChanged: {
+        //    console.log("onMetaDataChanged: " + JSON.stringify(metaData))
+        //}
     }
 
     function updateMprisMetaData(meta) {
-        audio.metaData.title = meta.Title
-        audio.metaData.albumTitle = meta.Album
-        audio.metaData.albumArtist = meta.Artist
-        audio.metaData.coverArtUrlSmall = meta.ArtUrl
-        audio.metaData.coverArtUrlLarge = meta.ArtUrl
-        audio.metaData.trackNumber = meta.TrackNumber
+        // No idea if this should work. probably not
+        //audio.metaData.title = meta.Title
+        //audio.metaData.albumTitle = meta.Album
+        //audio.metaData.albumArtist = meta.Artist
+        //audio.metaData.coverArtUrlSmall = meta.ArtUrl
+        //audio.metaData.coverArtUrlLarge = meta.ArtUrl
+        //audio.metaData.trackNumber = meta.TrackNumber
     }
 
     function playPause() {
@@ -435,7 +440,7 @@ Window {
                     // restore browse stack
                     var index = 0
                     browsePage.reset()
-                    browsePage.pushOnBrowseStack("0", "-1", i18n.tr("[Top Level]"), -1);
+                    browsePage.pushOnBrowseStack("0", "-1", i18n.tr("[Top]"), -1);
                     for(var i=0;i<metaData.length;i++) {
                         if(metaData[i].containers && metaData[i].containers.length>0) {
                             var item = metaData[i].containers[0]

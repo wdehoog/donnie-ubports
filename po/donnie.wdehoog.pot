@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 08:52+0000\n"
+"POT-Creation-Date: 2020-04-05 09:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:652
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:657
 msgid "Ok"
 msgstr ""
 
@@ -41,61 +41,61 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:181 ../qml/Main.qml:704
+#: ../qml/Main.qml:186 ../qml/Main.qml:709
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:181 ../qml/Main.qml:371
+#: ../qml/Main.qml:186 ../qml/Main.qml:376
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:365
+#: ../qml/Main.qml:370
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:365
+#: ../qml/Main.qml:370
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:371
+#: ../qml/Main.qml:376
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:376
+#: ../qml/Main.qml:381
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:385
+#: ../qml/Main.qml:390
 msgid ""
 "Failed to retrieve metadata for previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:438
-msgid "[Top Level]"
+#: ../qml/Main.qml:443 ../qml/pages/Browse.qml:346
+msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:454
+#: ../qml/Main.qml:459
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:499
+#: ../qml/Main.qml:504
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:532
+#: ../qml/Main.qml:537
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:652
+#: ../qml/Main.qml:657
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:663
+#: ../qml/Main.qml:668
 msgid "No"
 msgstr ""
 
@@ -237,10 +237,6 @@ msgstr ""
 
 #: ../qml/pages/Browse.qml:299
 msgid "Choose A Path"
-msgstr ""
-
-#: ../qml/pages/Browse.qml:346
-msgid "[Top]"
 msgstr ""
 
 #: ../qml/pages/Menu.qml:46 ../qml/pages/Help.qml:14
