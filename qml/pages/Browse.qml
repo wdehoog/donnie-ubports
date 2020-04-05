@@ -36,40 +36,42 @@ Page {
         title: i18n.tr("Browse")
     }
 
+    function createDirUpContainer() {
+        var nli = UPnP.createNewListItem("Container")
+        nli.dtype = UPnP.DonnieItemType.ContentServer,
+        nli.id = app.currentBrowseStack.peek().pid,
+        nli.pid = "-2",
+        nli.title = ".."
+        nli.titleText = "..",
+        nli.currentIndex = app.currentBrowseStack.peek().currentIndex
+        return nli
+    }
+
     Connections {
         target: upnp
         onBrowseDone: {
-            var i;
+            var i
 
             try {
 
                 //console.log(contentsJson)
-                contents = JSON.parse(contentsJson);
+                contents = JSON.parse(contentsJson)
 
                 // no ".." for the root or if there already is one
                 if(cid !== "0" && browseModel.count == 0) {
-                    browseModel.append({
-                        type: "Container",
-                        dtype: UPnP.DonnieItemType.ContentServer,
-                        id: app.currentBrowseStack.peek().pid,
-                        pid: "-2",
-                        title: "..", titleText: "..",
-                        artist: "", album: "", albumArtURI: "", duration: "",
-                        metaText: "", durationText: "",
-                        currentIndex: app.currentBrowseStack.peek().currentIndex
-                    });
+                    browseModel.append(createDirUpContainer())
                 }
 
                 for(i=0;i<contents.containers.length;i++) {
-                    var container = contents.containers[i];
-                    browseModel.append(UPnP.createListContainer(container));
+                    var container = contents.containers[i]
+                    browseModel.append(UPnP.createListContainer(container))
                 }
 
                 for(i=0;i<contents.items.length;i++) {
-                    var item = contents.items[i];
-                    var upnpClass = item.properties["upnp:class"];
+                    var item = contents.items[i]
+                    var upnpClass = item.properties["upnp:class"]
                     if(upnpClass && UPnP.startsWith(upnpClass, "object.item.audioItem")) {
-                        browseModel.append(UPnP.createListItem(item));
+                        browseModel.append(UPnP.createListItem(item))
                     } else
                         console.log("onBrowseDone: skipped loading of an object of class " + item.properties["upnp:class"]);
                 }
@@ -77,7 +79,7 @@ Page {
                 pathText = UPnP.getCurrentPathString(app.currentBrowseStack);
                 //pathTreeText = UPnP.getCurrentPathTreeString(app.currentBrowseStack);
 
-                totalCount = contents["totalCount"];
+                totalCount = contents["totalCount"]
 
                 // scroll to previous position
                 if(cScrollIndex > -1 && cScrollIndex < browseModel.count) {
@@ -96,21 +98,11 @@ Page {
 
         onError: {
             if(cid !== "0" && browseModel.count == 0) { // no ".." for the root
-                browseModel.append({
-                    type: "Container",
-                    dtype: UPnP.DonnieItemType.ContentServer,
-                    id: app.currentBrowseStack.peek().pid,
-                    pid: "-2",
-                    title: "..", titleText: "..",
-                    artist: "", album: "", albumArtURI: "", duration: "",
-                    metaText: "", durationText: "",
-                    currentIndex: app.currentBrowseStack.peek().currentIndex
-                });
+                browseModel.append(createDirUpContainer())
             }
-            pathText = UPnP.getCurrentPathString(app.currentBrowseStack);
-            console.log("Browse::onError: " + msg);
-            app.errorLog.push(msg);
-            showBusy = false;
+            pathText = UPnP.getCurrentPathString(app.currentBrowseStack)
+            console.log("Browse::onError: " + msg)
+            showBusy = false
         }
     }
 
