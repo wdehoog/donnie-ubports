@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 11:45+0000\n"
+"POT-Creation-Date: 2020-04-05 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:657
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:659
 msgid "Ok"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:186 ../qml/Main.qml:709
+#: ../qml/Main.qml:186 ../qml/Main.qml:711
 msgid "Error"
 msgstr ""
 
@@ -65,37 +65,35 @@ msgstr ""
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:390
-msgid ""
-"Failed to retrieve metadata for previously saved Ids.\n"
-"Can not Resume."
+#: ../qml/Main.qml:391
+msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:443 ../qml/pages/Browse.qml:346
+#: ../qml/Main.qml:444 ../qml/pages/Browse.qml:346
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:459
+#: ../qml/Main.qml:460
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:504
+#: ../qml/Main.qml:505
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:537
+#: ../qml/Main.qml:539
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:657
+#: ../qml/Main.qml:659
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:668
+#: ../qml/Main.qml:670
 msgid "No"
 msgstr ""
 

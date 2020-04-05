@@ -377,17 +377,18 @@ Window {
         }
 
         onError: {
-            showBusy = false; // VISIT only one could fail
+            showBusy = false // VISIT only one could fail
             showErrorDialog(i18n.tr("UPnP Error") + ": " + msg) 
-            console.log("Main::onError: " + msg);
-            app.error(msg);
+            console.log("Main::onError: " + msg)
+            app.error(msg)
         }
 
         // called when metadata has been collected from stored resume info
         onMetaData: {
-            //console.log("onMetaData: " + metaDataJson);
             if(error !== 0) {
-                app.showErrorDialog(i18n.tr("Failed to retrieve metadata for previously saved Ids.\nCan not Resume."))
+                console.log("onMetaData: " + error)
+                console.log("onMetaData: " + metaDataJson)
+                app.showErrorDialog(i18n.tr("Failed to retrieve all metadata for previously saved Ids."))
                 //showBusy = false
                 if(resumeState == 1)
                     loadBrowseStackMetaData()
@@ -529,6 +530,7 @@ Window {
 
                 if(ids.length > 0) {
                     resumeState = 1
+                    //console.log("get meta data for: " + JSON.stringify(ids))
                     upnp.getMetaData(ids)
                 }
             }

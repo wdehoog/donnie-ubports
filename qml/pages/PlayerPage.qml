@@ -420,7 +420,10 @@ Page {
 
         actions: [
             Action {
-                text: i18n.tr("Remove")
+                text: i18n.tr("Remove") 
+                        + (trackListModel.count > 0 && listItemMenu.index >= 0 
+                           ? " " + trackListModel.get(listItemMenu.index).titleText 
+                           : "")
                 onTriggered: {
                     trackListModel.remove(listItemMenu.index)
                     audio.playlist.removeItem(listItemMenu.index)
