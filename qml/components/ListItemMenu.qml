@@ -28,9 +28,11 @@ Popup {
     //height: childrenRect.height
     width: parent.width - units.dp(8)
     background: Rectangle {
-        color: "#111111"
+        color: app.nonTransparentBackgroundColor // "#111111"
+        border.width: 2
+        border.color: app.controlBorderColor
         opacity: 0.93
-        radius: 9
+        radius: app.controlRadius
     }
 
     ColumnLayout {
@@ -49,7 +51,7 @@ Popup {
                     bottomPadding: topPadding
                     font.pixelSize: app.fontSizeLarge
                     text: modelData.text
-                    color: "#efefef"
+                    //color: "#efefef"
                 }
                 MouseArea {
                     anchors.fill: parent
