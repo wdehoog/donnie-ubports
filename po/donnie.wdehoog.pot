@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 15:57+0000\n"
+"POT-Creation-Date: 2020-04-16 20:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:659
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:664
 msgid "Ok"
 msgstr ""
 
@@ -37,63 +37,63 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:159
+#: ../qml/Main.qml:164
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:186 ../qml/Main.qml:711
+#: ../qml/Main.qml:191 ../qml/Main.qml:716
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:186 ../qml/Main.qml:376
+#: ../qml/Main.qml:191 ../qml/Main.qml:381
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:370
+#: ../qml/Main.qml:375
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:370
+#: ../qml/Main.qml:375
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:376
+#: ../qml/Main.qml:381
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:381
+#: ../qml/Main.qml:386
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:391
+#: ../qml/Main.qml:396
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:444 ../qml/pages/Browse.qml:346
+#: ../qml/Main.qml:449 ../qml/pages/Browse.qml:346
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:460
+#: ../qml/Main.qml:465
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:505
+#: ../qml/Main.qml:510
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:539
+#: ../qml/Main.qml:544
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:659
+#: ../qml/Main.qml:664
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:670
+#: ../qml/Main.qml:675
 msgid "No"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:423
+#: ../qml/pages/PlayerPage.qml:422
 msgid "Remove"
 msgstr ""
 

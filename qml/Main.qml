@@ -93,6 +93,11 @@ Window {
     title: i18n.tr("Donnie")
     visible: true
 
+    /*Connections {
+      target: Qt.application
+      onStateChanged: console.log("Qt.application.onStateChanged: " + Qt.application.state)
+    }*/
+
     StackView {
         id: pageStack
         anchors {
@@ -140,10 +145,10 @@ Window {
     signal previous()
     signal next()
 
-    signal audioBufferFull()
-    onAudioBufferFull: play()
+    //signal audioBufferFull()
+    //onAudioBufferFull: play()
 
-    Audio {
+    MediaPlayer {
         id: audio
 
         autoLoad: true

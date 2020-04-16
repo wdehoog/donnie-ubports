@@ -86,12 +86,12 @@ Page {
 
         onPlaybackStateChanged: refreshTransportState()
         onSourceChanged: refreshTransportState()
-        onBufferProgressChanged: {
+        /*onBufferProgressChanged: {
             if(audio.bufferProgress == 1.0) {
-                play()
+                //play()
                 updatePlayIcons()
             }
-        }
+        }*/
     }
 
     Connections {
@@ -152,7 +152,6 @@ Page {
 
     function loadTrack(track) {
         //console.log("loadTrack: " + JSON.stringify(track))
-        //audio.source = track.uri
         audio.playlist.clear()
         audio.playlist.addItem(track.uri)
         audio.play()
@@ -179,7 +178,7 @@ Page {
             durationText = track.durationText
             imageItemSource = track.albumArtURI ? track.albumArtURI : defaultImageSource
 
-            updateMprisForTrack(track)
+            //updateMprisForTrack(track)
             app.saveLastPlayingJSON(track, trackListModel)
         }
     }
@@ -469,7 +468,7 @@ Page {
 
             trackMetaText1 = title ? title : ""
             trackMetaText2 = publisher ? publisher : ""
-            updateMprisForTrackMetaData(getCurrentTrack())
+            //updateMprisForTrackMetaData(getCurrentTrack())
             imageItemSource = logo ? logo : defaultImageSource
         }
     }
