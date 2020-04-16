@@ -19,11 +19,13 @@ Page {
         anchors.fill: parent
 
         Text {
-            width: parent.width - 2*x
+            width: aboutPage.width - 2*x
             x: app.paddingMedium
             y: app.paddingMedium
-            wrapMode:wrap
+            wrapMode: Text.WordWrap
             font.pixelSize: app.fontPixelSizeLarge
+            textFormat: Text.RichText
+
             text: "
 Donnie is a UPnP audio player. It needs a UPnP server that serves audio files that Ubuntu Touch can handle. So first select a server to use on the Discovery page.<br>
 <br>
