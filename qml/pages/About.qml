@@ -88,7 +88,7 @@ Page {
 
             }
 
-            /*Column {
+            Column {
                 width: parent.width
 
                 Label {
@@ -105,9 +105,9 @@ Page {
                     }
                     font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Text.WordWrap
-                    text: ""
+                    text: "fr: Anne017"
                     }
-            }*/
+            }
 
             Column {
                 width: parent.width
