@@ -59,8 +59,8 @@ Window {
     property double iconSizeMedium: units.dp(32)
     property double iconSizeLarge: units.dp(80)
 
+    property int pageHeaderSize: units.dp(56)
     property double itemSizeMedium: units.dp(32)
-    //property int itemSize: units.dp(56) page header
     property double itemSizeLarge: units.dp(80)
 
     property color normalBackgroundColor: "white" // theme.palette.normal.base

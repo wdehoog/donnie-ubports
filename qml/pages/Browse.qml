@@ -156,7 +156,9 @@ Page {
                 id: stuff
                 spacing: app.paddingMedium
                 width: parent.width
-                height: imageItem.height > labels.height ? imageItem.height : labels.height
+                // causes the app to freeze/hang 
+                //height: imageItem.height > labels.height ? imageItem.height : labels.height
+                height: app.itemSizeMedium 
 
                 Image {
                   id: imageItem

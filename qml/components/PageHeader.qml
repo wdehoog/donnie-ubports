@@ -9,7 +9,7 @@ Rectangle  {
     property string title: "PageHeader"
 
     width: parent.width
-    height: units.dp(56)
+    height: app.pageHeaderSize
     //color: app.bgColor
 
     AdaptiveToolbar {
