@@ -65,6 +65,9 @@ Column {
             }
         }
 
+        /* Using a horizontal ListView looks and works nice. 
+           Except that media-hub does not go to the previous track on prev() 
+           but restarts the current one. Impossible to reflect with these sliding tracks. 
         ListView {
             id: meta
             width: parent.width - imageItem.width - playerButton.width
@@ -102,13 +105,13 @@ Column {
                     app.getPlayerPage().prev()
             }
 
-            /*Connections { why is this not triggered?
-                target: getPlayerPage().trackListView
-                onCurrentIndexChanged: {
-                    var idx = getPlayerPage().currentItem
-                    console.log("PlayerPage currentIndex changed: " + target.currentIndex + ":" + idx)
-                }
-            }*/
+            //Connections { why is this not triggered?
+            //    target: getPlayerPage().trackListView
+            //    onCurrentIndexChanged: {
+            //        var idx = getPlayerPage().currentItem
+            //        console.log("PlayerPage currentIndex changed: " + target.currentIndex + ":" + idx)
+            //    }
+            //}
 
             Connections {
                 target: getPlayerPage()
@@ -159,8 +162,9 @@ Column {
 
                 }
             }
-        }
-        /*SwipeArea {
+        }*/
+
+        SwipeArea {
             id: meta
             width: parent.width - imageItem.width - playerButton.width
             height: parent.height
@@ -201,7 +205,7 @@ Column {
                         break
                 }
             }
-        }*/
+        }
 
         Icon {
             id: playerButton
