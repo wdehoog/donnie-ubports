@@ -18,7 +18,6 @@ Column {
     width: parent.width
     anchors {
         bottom: parent.bottom
-        //bottomMargin: app.gu(0.5)
     }
 
     Rectangle { 
@@ -73,10 +72,8 @@ Column {
             orientation: ListView.Horizontal
             clip: true
 
-            //snapMode: ListView.SnapToItem
             snapMode: ListView.SnapOneItem
-            highlightRangeMode: ListView.StrictlyEnforceRange // no animation
-            //highlightRangeMode: ListView.ApplyRange // no scroll event
+            highlightRangeMode: ListView.StrictlyEnforceRange 
             highlightFollowsCurrentItem: true
 
             model: getPlayerPage().trackListModel
@@ -127,12 +124,6 @@ Column {
                         meta._fromPlayerIndex = target.currentItem
                         meta.positionViewAtIndex(target.currentItem, ListView.Beginning) 
                     }
-
-                    /*if(meta.currentIndex != target.currentItem) {
-                        meta._fromPlayer = true
-                        meta.currentIndex = target.currentItem
-                    }*/
-                    //meta.currentIndex = target.currentItem
                 }
             }
 
@@ -227,14 +218,4 @@ Column {
         }
     }
 
-    /*Timer {
-        running: audioPlaybackState == Audio.PlayingState
-        interval: 1000
-        repeat: true
-
-        onTriggered: {
-            timeSlider.to = audio.duration
-            timeSlider.value = audio.position
-        }
-    }*/
 }

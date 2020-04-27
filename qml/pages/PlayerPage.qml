@@ -205,7 +205,7 @@ Page {
         }
     }
 
-    function updateMprisForTrackMetaData(track) {
+    /*function updateMprisForTrackMetaData(track) {
         var meta = {};
         meta.Title = trackMetaText1;
         meta.Artist = trackMetaText2;
@@ -225,7 +225,7 @@ Page {
         meta.ArtUrl = track.albumArtURI;
         meta.TrackNumber = currentItem;
         app.updateMprisMetaData(meta);
-    }
+    }*/
 
     ListView {
         id: listView
@@ -333,7 +333,7 @@ Page {
                     onPressedChanged: {
                         if(pressed) // only act on release
                             return
-                        audio.seek(value);
+                        audio.seek(value)
                     }
                     to: audio.duration
                     value: audio.position
