@@ -22,6 +22,9 @@ Page {
     objectName: "PlayerPage"
 
     property var audio
+    property alias trackListModel: trackListModel
+    property alias trackListView: listView
+
     property string defaultImageSource : "image://theme/stock_music"
     property string imageItemSource : defaultImageSource
     property string playIconName : "media-preview-start"
@@ -97,6 +100,7 @@ Page {
     Connections {
         target: app.audio.playlist
         onCurrentIndexChanged: {
+            console.log("PlayList currentIndex changed: " + target.currentIndex)
             updateForTrack(audio.playlist.currentIndex)
         }
         onErrorChanged: {
@@ -108,12 +112,14 @@ Page {
     }
 
     function next() {
+        console.log("PlayerPage.next() currentIndex=" + audio.playlist.currentIndex)
         if(audio.playlist.currentIndex >= (audio.playlist.itemCount-1))
             return;
         audio.playlist.next()
     }
 
     function prev() {
+        console.log("PlayerPage.prev() currentIndex=" + audio.playlist.currentIndex)
         if(audio.playlist.currentIndex <= 0)
             return;
         audio.playlist.previous()
