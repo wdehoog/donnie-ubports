@@ -206,7 +206,6 @@ Column {
             }
             onSwipe: {
                 meta.backAnimationEnabled = true
-                //meta.swipeX = 0
                 switch(direction) {
                     case "left":
                         meta.flashButton = nextButton
@@ -233,18 +232,18 @@ Column {
             ParallelAnimation {
                 running: meta.flashButtonEnabled
                 SequentialAnimation {
-                    NumberAnimation { target: playerButton; property: "opacity"; 
+                    NumberAnimation { target: playerButton; property: "opacity";
                                       to: 0; } 
                     PauseAnimation { duration: 300; }
-                    NumberAnimation { target: playerButton; property: "opacity"; 
+                    NumberAnimation { target: playerButton; property: "opacity";
                                       to: 1; duration: 300;} 
                 }
                 SequentialAnimation {
-                    NumberAnimation { target: meta.flashButton; property: "opacity"; 
-                                      to: 1; } 
+                    NumberAnimation { target: meta.flashButton; property: "opacity";
+                                      to: 1; }
                     PauseAnimation { duration: 300 }
-                    NumberAnimation { target: meta.flashButton; property: "opacity"; 
-                                      to: 0; duration: 300; } 
+                    NumberAnimation { target: meta.flashButton; property: "opacity";
+                                      to: 0; duration: 300; }
                 }
             }
         }
@@ -252,37 +251,39 @@ Column {
         Item {
             width: app.iconSizeLarge
             height: width
-        Icon {
-            id: playerButton
-            width: app.iconSizeLarge
-            height: width
-            anchors.verticalCenter: parent.verticalCenter
-            name: audio.playbackState == Audio.PlayingState
-                        ? "media-preview-pause"
-                        : "media-preview-start"
-            MouseArea {
-                anchors.fill: parent
-                onClicked: app.playPause()
+
+            Icon {
+                id: playerButton
+                width: app.iconSizeLarge
+                height: width
+                anchors.verticalCenter: parent.verticalCenter
+                name: audio.playbackState == Audio.PlayingState
+                            ? "media-preview-pause"
+                            : "media-preview-start"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: app.playPause()
+                }
+                opacity: 1
             }
-        }
-        Icon {
-            id: nextButton
-            width: playerButton.width
-            height: width
-            x: playerButton.x
-            y: playerButton.y
-            name: "media-skip-forward"
-            opacity: 0
-        }
-        Icon {
-            id: previousButton
-            width: playerButton.width
-            height: width
-            x: playerButton.x
-            y: playerButton.y
-            name: "media-skip-backward"
-            opacity: 0
-        }
+            Icon {
+                id: nextButton
+                width: playerButton.width
+                height: width
+                x: playerButton.x
+                y: playerButton.y
+                name: "media-skip-forward"
+                opacity: 0
+            }
+            Icon {
+                id: previousButton
+                width: playerButton.width
+                height: width
+                x: playerButton.x
+                y: playerButton.y
+                name: "media-skip-backward"
+                opacity: 0
+            }
         }
     }
 
