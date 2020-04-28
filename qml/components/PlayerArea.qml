@@ -168,7 +168,16 @@ Column {
             id: meta
             width: parent.width - imageItem.width - playerButton.width
             height: parent.height
+            clip: true
+
+            property int swipeX: 0
+            property bool backAnimationEnabled: false
+            property bool flashButtonEnabled: false
+            property var flashButton
+
             Column {
+                id: info
+                x: meta.swipeX 
                 width: parent.width
                 anchors.verticalCenter: parent.verticalCenter
 
@@ -196,17 +205,53 @@ Column {
 
             }
             onSwipe: {
+                meta.backAnimationEnabled = true
+                //meta.swipeX = 0
                 switch(direction) {
                     case "left":
+                        meta.flashButton = nextButton
+                        meta.flashButtonEnabled = true
                         app.getPlayerPage().next()
                         break
                     case "right":
+                        meta.flashButton = previousButton
+                        meta.flashButtonEnabled = true
                         app.getPlayerPage().prev()
                         break
                 }
             }
+            onMove: {
+                meta.backAnimationEnabled = false
+                meta.flashButtonEnabled = false
+                meta.swipeX = x
+            }
+            NumberAnimation on swipeX {
+                id: backToZero
+                running: meta.backAnimationEnabled
+                to: 0
+            }
+            ParallelAnimation {
+                running: meta.flashButtonEnabled
+                SequentialAnimation {
+                    NumberAnimation { target: playerButton; property: "opacity"; 
+                                      to: 0; } 
+                    PauseAnimation { duration: 300; }
+                    NumberAnimation { target: playerButton; property: "opacity"; 
+                                      to: 1; duration: 300;} 
+                }
+                SequentialAnimation {
+                    NumberAnimation { target: meta.flashButton; property: "opacity"; 
+                                      to: 1; } 
+                    PauseAnimation { duration: 300 }
+                    NumberAnimation { target: meta.flashButton; property: "opacity"; 
+                                      to: 0; duration: 300; } 
+                }
+            }
         }
 
+        Item {
+            width: app.iconSizeLarge
+            height: width
         Icon {
             id: playerButton
             width: app.iconSizeLarge
@@ -219,6 +264,25 @@ Column {
                 anchors.fill: parent
                 onClicked: app.playPause()
             }
+        }
+        Icon {
+            id: nextButton
+            width: playerButton.width
+            height: width
+            x: playerButton.x
+            y: playerButton.y
+            name: "media-skip-forward"
+            opacity: 0
+        }
+        Icon {
+            id: previousButton
+            width: playerButton.width
+            height: width
+            x: playerButton.x
+            y: playerButton.y
+            name: "media-skip-backward"
+            opacity: 0
+        }
         }
     }
 
