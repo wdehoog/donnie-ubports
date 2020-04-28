@@ -172,7 +172,6 @@ Column {
 
             property int swipeX: 0
             property bool backAnimationEnabled: false
-            property bool flashButtonEnabled: false
             property var flashButton
 
             Column {
@@ -205,46 +204,28 @@ Column {
 
             }
             onSwipe: {
-                meta.backAnimationEnabled = true
                 switch(direction) {
                     case "left":
                         meta.flashButton = nextButton
-                        meta.flashButtonEnabled = true
+                        meta.swipeX = meta.width
                         app.getPlayerPage().next()
                         break
                     case "right":
                         meta.flashButton = previousButton
-                        meta.flashButtonEnabled = true
+                        meta.swipeX = -meta.width
                         app.getPlayerPage().prev()
                         break
                 }
+                meta.backAnimationEnabled = true
             }
             onMove: {
                 meta.backAnimationEnabled = false
-                meta.flashButtonEnabled = false
                 meta.swipeX = x
             }
             NumberAnimation on swipeX {
                 id: backToZero
                 running: meta.backAnimationEnabled
                 to: 0
-            }
-            ParallelAnimation {
-                running: meta.flashButtonEnabled
-                SequentialAnimation {
-                    NumberAnimation { target: playerButton; property: "opacity";
-                                      to: 0; } 
-                    PauseAnimation { duration: 300; }
-                    NumberAnimation { target: playerButton; property: "opacity";
-                                      to: 1; duration: 300;} 
-                }
-                SequentialAnimation {
-                    NumberAnimation { target: meta.flashButton; property: "opacity";
-                                      to: 1; }
-                    PauseAnimation { duration: 300 }
-                    NumberAnimation { target: meta.flashButton; property: "opacity";
-                                      to: 0; duration: 300; }
-                }
             }
         }
 
