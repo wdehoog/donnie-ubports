@@ -265,7 +265,13 @@ function createListItem(item) {
     nli.artist = item.properties["dc:creator"];
     nli.album = item.properties["upnp:album"];
     nli.albumArtURI = item.properties["upnp:albumArtURI"];
-    nli.trackNumber = item.properties["upnp:originalTrackNumber"];
+    if(item.properties["upnp:originalTrackNumber"])
+        nli.trackNumber = parseInt(item.properties["upnp:originalTrackNumber"], 10);
+    else {
+        // as a fallback search in the title
+        var tn = nli.title.match(/\d+/);
+        nli.trackNumber = tn ? parseInt(tn, 10) : 100; // unknown so put at the end
+    }
     nli.uri = item.resources[0]["Uri"];
     nli.didl = item["didl"];
     nli.duration = (item.resources[0] && item.resources[0].attributes["duration"])

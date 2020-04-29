@@ -385,7 +385,9 @@ Page {
                 for(i=0;i<searchResults.items.length;i++) {
                     var item = searchResults.items[i]
                     if(UPnP.startsWith(item.properties["upnp:class"], "object.item.audioItem")) {
-                        searchModel.add(UPnP.createListItem(item))
+                        var li = UPnP.createListItem(item)
+                        //console.log("adding: " + li.title + ":" + li.trackNumber)
+                        searchModel.add(li)
                     } else
                         console.log("onSearchDone: skipped loading of an object of class " + item.properties["upnp:class"])
                 }

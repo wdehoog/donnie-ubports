@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-28 21:46+0000\n"
+"POT-Creation-Date: 2020-04-29 19:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,15 +197,15 @@ msgstr ""
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:241 ../qml/pages/Search.qml:458
+#: ../qml/pages/Search.qml:241 ../qml/pages/Search.qml:460
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:242 ../qml/pages/Search.qml:454
+#: ../qml/pages/Search.qml:242 ../qml/pages/Search.qml:456
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:243 ../qml/pages/Search.qml:456
+#: ../qml/pages/Search.qml:243 ../qml/pages/Search.qml:458
 msgid "Title"
 msgstr ""
 
@@ -233,27 +233,27 @@ msgstr ""
 msgid "Replace All in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:460
+#: ../qml/pages/Search.qml:462
 msgid "Genre"
 msgstr ""
 
-#: ../qml/pages/Search.qml:462
+#: ../qml/pages/Search.qml:464
 msgid "Creator"
 msgstr ""
 
-#: ../qml/pages/Search.qml:464
+#: ../qml/pages/Search.qml:466
 msgid "Publisher"
 msgstr ""
 
-#: ../qml/pages/Search.qml:466
+#: ../qml/pages/Search.qml:468
 msgid "Description"
 msgstr ""
 
-#: ../qml/pages/Search.qml:468
+#: ../qml/pages/Search.qml:470
 msgid "User Annotation"
 msgstr ""
 
-#: ../qml/pages/Search.qml:470
+#: ../qml/pages/Search.qml:472
 msgid "Long Description"
 msgstr ""
 
@@ -277,6 +277,6 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: ../qml/UPnP.js:312
+#: ../qml/UPnP.js:318
 msgid "User entered URI"
 msgstr ""
