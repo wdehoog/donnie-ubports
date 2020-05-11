@@ -148,9 +148,10 @@ Window {
     //signal audioBufferFull()
     //onAudioBufferFull: play()
 
-    MediaPlayer {
+    Audio {
         id: audio
 
+        audioRole: Audio.MusicRole 
         autoLoad: true
         autoPlay: true
 

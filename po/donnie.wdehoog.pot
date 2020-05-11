@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 19:54+0000\n"
+"POT-Creation-Date: 2020-05-08 19:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:664
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:665
 msgid "Ok"
 msgstr ""
 
@@ -37,63 +37,63 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:164
+#: ../qml/Main.qml:165
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:191 ../qml/Main.qml:716
+#: ../qml/Main.qml:192 ../qml/Main.qml:717
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:191 ../qml/Main.qml:381
+#: ../qml/Main.qml:192 ../qml/Main.qml:382
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:375
+#: ../qml/Main.qml:376
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:375
+#: ../qml/Main.qml:376
 msgid "Load"
 msgstr ""
 
-#: ../qml/Main.qml:381
+#: ../qml/Main.qml:382
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:386
+#: ../qml/Main.qml:387
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:396
+#: ../qml/Main.qml:397
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:449 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:450 ../qml/pages/Browse.qml:348
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:465
+#: ../qml/Main.qml:466
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:510
+#: ../qml/Main.qml:511
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:544
+#: ../qml/Main.qml:545
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:664
+#: ../qml/Main.qml:665
 msgid "Yes"
 msgstr ""
 
-#: ../qml/Main.qml:675
+#: ../qml/Main.qml:676
 msgid "No"
 msgstr ""
 
