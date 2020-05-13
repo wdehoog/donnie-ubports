@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the donnie.wdehoog package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-29 09:49+0000\n"
-"PO-Revision-Date: 2020-03-30 11:42+0000\n"
+"POT-Creation-Date: 2020-04-29 19:54+0000\n"
+"PO-Revision-Date: 2020-05-13 12:11+0200\n"
 "Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:650
+#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:664
 msgid "Ok"
 msgstr "Valider"
 
@@ -36,49 +36,93 @@ msgstr "Retour"
 msgid "Donnie"
 msgstr "Donnie"
 
-#: ../qml/Main.qml:156
+#: ../qml/Main.qml:164
 msgid "Audio Player:"
 msgstr "Lecteur audio :"
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:702
+#: ../qml/Main.qml:191 ../qml/Main.qml:716
 msgid "Error"
 msgstr "Erreur"
 
-#: ../qml/Main.qml:179 ../qml/Main.qml:369
+#: ../qml/Main.qml:191 ../qml/Main.qml:381
 msgid "No UPnP Server found"
 msgstr "Aucun serveur UPnP trouvé"
 
-#: ../qml/Main.qml:363
+#: ../qml/Main.qml:375
 msgid "Load previously saved queue?"
 msgstr "Charger la liste d'attente précédemment enregistrée ?"
 
-#: ../qml/Main.qml:363
+#: ../qml/Main.qml:375
 msgid "Load"
 msgstr "Charger"
 
-#: ../qml/Main.qml:369
+#: ../qml/Main.qml:381
 msgid "Warning"
 msgstr "Attention"
 
-#: ../qml/Main.qml:374
+#: ../qml/Main.qml:386
 msgid "UPnP Error"
-msgstr "Erreur UPnP"
+msgstr "Erreur avec UPnP"
 
-#: ../qml/Main.qml:650
+#: ../qml/Main.qml:396
+msgid "Failed to retrieve all metadata for previously saved Ids."
+msgstr "Impossible de récupérer toutes les métadonnées des identifiants précédemment enregistrés."
+
+#: ../qml/Main.qml:449 ../qml/pages/Browse.qml:348
+msgid "[Top]"
+msgstr "[Haut]"
+
+#: ../qml/Main.qml:465
+msgid ""
+"Failed to parse previously saved Ids.\n"
+"Can not Resume."
+msgstr ""
+"Impossible d'analyser les identifiants précédemment enregistrés.\n"
+"Reprise impossible."
+
+#: ../qml/Main.qml:510
+msgid "Failed to load previously saved Browse Stack Ids."
+msgstr "Impossible de charger les identifiants de la pile précédemment enregistrée."
+
+#: ../qml/Main.qml:544
+msgid ""
+"Failed to load previously saved Queue Ids.\n"
+"Can not Resume."
+msgstr ""
+"Impossible de charger les identifiants de la liste d'attente précédemment enregistrés.\n"
+"Reprise impossible."
+
+#: ../qml/Main.qml:664
 msgid "Yes"
 msgstr "Oui"
 
-#: ../qml/Main.qml:661
+#: ../qml/Main.qml:675
 msgid "No"
 msgstr "Non"
 
-#: ../qml/pages/PlayerPage.qml:46
+#: ../qml/controls/MyCheckBox.qml:6
+msgid "CheckBox"
+msgstr "Case à cocher"
+
+#: ../qml/pages/PlayerPage.qml:51
 msgid "Built-In Player"
 msgstr "Lecteur intégré"
 
-#: ../qml/pages/PlayerPage.qml:430
+#: ../qml/pages/PlayerPage.qml:55
+msgid "Empty List"
+msgstr "Liste vide"
+
+#: ../qml/pages/PlayerPage.qml:107
+msgid "Playlist"
+msgstr "Liste de lecture"
+
+#: ../qml/pages/PlayerPage.qml:428
 msgid "Remove"
 msgstr "Supprimer"
+
+#: ../qml/pages/Discovery.qml:26
+msgid "UPnP Devices"
+msgstr "Appareils UPnP"
 
 #: ../qml/pages/Discovery.qml:30
 msgid "Reload"
@@ -128,6 +172,10 @@ msgstr "Lecteur UPnP pour UBPorts"
 msgid "License: MIT"
 msgstr "Licence : MIT"
 
+#: ../qml/pages/About.qml:95
+msgid "Translations"
+msgstr "Traductions"
+
 #: ../qml/pages/About.qml:116
 msgid "Thanks to"
 msgstr "Remerciements à"
@@ -152,47 +200,71 @@ msgstr "Aucun"
 msgid "Group By"
 msgstr "Grouper par"
 
-#: ../qml/pages/Search.qml:241
+#: ../qml/pages/Search.qml:241 ../qml/pages/Search.qml:460
 msgid "Album"
 msgstr "Album"
 
-#: ../qml/pages/Search.qml:242
+#: ../qml/pages/Search.qml:242 ../qml/pages/Search.qml:456
 msgid "Artist"
 msgstr "Artiste"
 
-#: ../qml/pages/Search.qml:243
+#: ../qml/pages/Search.qml:243 ../qml/pages/Search.qml:458
 msgid "Title"
 msgstr "Titre"
 
-#: ../qml/pages/Search.qml:332 ../qml/pages/Browse.qml:261
+#: ../qml/pages/Search.qml:300 ../qml/pages/Browse.qml:258
 msgid "Add To Player"
 msgstr "Ajouter au lecteur"
 
-#: ../qml/pages/Search.qml:336
-msgid "Add Group To Player"
-msgstr "Ajouter le groupe au lecteur"
-
-#: ../qml/pages/Search.qml:340
-msgid "Replace Group in Player"
-msgstr "Remplacer le groupe dans le lecteur"
-
-#: ../qml/pages/Search.qml:345 ../qml/pages/Browse.qml:269
-msgid "Add All To Player"
-msgstr "Ajouter tout au lecteur"
-
-#: ../qml/pages/Search.qml:349 ../qml/pages/Browse.qml:273
-msgid "Replace All in Player"
-msgstr "Remplacer tout dans le lecteur"
-
-#: ../qml/pages/Browse.qml:35 ../qml/pages/Menu.qml:62
-msgid "Browse"
-msgstr "Parcourir"
-
-#: ../qml/pages/Browse.qml:265
+#: ../qml/pages/Search.qml:304 ../qml/pages/Browse.qml:262
 msgid "Replace in Player"
 msgstr "Remplacer dans le lecteur"
 
-#: ../qml/pages/Browse.qml:304
+#: ../qml/pages/Search.qml:308
+msgid "Add Group To Player"
+msgstr "Ajouter le groupe au lecteur"
+
+#: ../qml/pages/Search.qml:312
+msgid "Replace Group in Player"
+msgstr "Remplacer le groupe dans le lecteur"
+
+#: ../qml/pages/Search.qml:317 ../qml/pages/Browse.qml:266
+msgid "Add All To Player"
+msgstr "Ajouter tout au lecteur"
+
+#: ../qml/pages/Search.qml:321 ../qml/pages/Browse.qml:270
+msgid "Replace All in Player"
+msgstr "Remplacer tout dans le lecteur"
+
+#: ../qml/pages/Search.qml:462
+msgid "Genre"
+msgstr "Genre"
+
+#: ../qml/pages/Search.qml:464
+msgid "Creator"
+msgstr "Créateur/trice"
+
+#: ../qml/pages/Search.qml:466
+msgid "Publisher"
+msgstr "Éditeur"
+
+#: ../qml/pages/Search.qml:468
+msgid "Description"
+msgstr "Description"
+
+#: ../qml/pages/Search.qml:470
+msgid "User Annotation"
+msgstr "Annotation de l'utilisateur/trice"
+
+#: ../qml/pages/Search.qml:472
+msgid "Long Description"
+msgstr "Description longue"
+
+#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:62
+msgid "Browse"
+msgstr "Parcourir"
+
+#: ../qml/pages/Browse.qml:301
 msgid "Choose A Path"
 msgstr "Choisissez un chemin"
 
@@ -207,3 +279,7 @@ msgstr "Découverte de UPnP"
 #: ../qml/pages/Menu.qml:70
 msgid "Player"
 msgstr "Lecteur"
+
+#: ../qml/UPnP.js:318
+msgid "User entered URI"
+msgstr "Lien rentré par l'utilisateur/trice"
