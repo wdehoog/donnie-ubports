@@ -58,7 +58,7 @@ Page {
                     Label {
                         horizontalAlignment: Text.AlignHCenter
                         font.pixelSize: app.fontPixelSizeLarge
-                        text: i18n.tr("UPnP player for UBPorts")
+                        text: i18n.tr("UPnP player for Ubuntu Touch")
                         width: parent.width
                         wrapMode: Text.WordWrap
                     }
@@ -74,7 +74,7 @@ Page {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         font.pixelSize: app.fontPixelSizeMedium
-                        text: i18n.tr("sources: https://github.com/wdehoog/somafm-ubports")
+                        text: i18n.tr("sources: https://github.com/wdehoog/somafm-ut")
                         width: parent.width
                     }*/
                     Label {
@@ -130,7 +130,7 @@ Page {
 "
 J.F.Dockes for amazing UPnP libs
 Rodney: https://gitlab.com/calm-os/ergo
-UBPorts Team: UBPorts
+UBports Team: Ubuntu Touch
 "
                 }
             }

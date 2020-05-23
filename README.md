@@ -1,8 +1,8 @@
 # Donnie
 
-A UPnP Audio Player for UBports.
+A UPnP Audio Player for Ubuntu Touch.
 
-Browse your audio files on your UPnP server and play them on your UBports phone.
+Browse your audio files on your UPnP server and play them on your Ubuntu Touch phone.
 
 Tested with [MinimServer](https://minimserver.com/) and [Gerbera](https://gerbera.io/) on a Oneplus One.
 

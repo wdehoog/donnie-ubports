@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 19:53+0000\n"
+"POT-Creation-Date: 2020-05-23 08:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/components/MultiItemPicker.qml:27 ../qml/Main.qml:665
+#: ../qml/components/MultiItemPicker.qml:27
 msgid "Ok"
 msgstr ""
 
@@ -33,68 +33,60 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:93 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:92 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:165
+#: ../qml/Main.qml:164
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:192 ../qml/Main.qml:717
+#: ../qml/Main.qml:191 ../qml/Main.qml:635
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:192 ../qml/Main.qml:382
+#: ../qml/Main.qml:191 ../qml/Main.qml:381
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:376
+#: ../qml/Main.qml:375
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:376
-msgid "Load"
+#: ../qml/Main.qml:375
+msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:382
+#: ../qml/Main.qml:381
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:387
+#: ../qml/Main.qml:386
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:397
+#: ../qml/Main.qml:396
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:450 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:449 ../qml/pages/Browse.qml:348
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:466
+#: ../qml/Main.qml:465
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:511
+#: ../qml/Main.qml:510
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:545
+#: ../qml/Main.qml:544
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
-msgstr ""
-
-#: ../qml/Main.qml:665
-msgid "Yes"
-msgstr ""
-
-#: ../qml/Main.qml:676
-msgid "No"
 msgstr ""
 
 #: ../qml/controls/MyCheckBox.qml:6
@@ -162,7 +154,7 @@ msgid "About"
 msgstr ""
 
 #: ../qml/pages/About.qml:61
-msgid "UPnP player for UBPorts"
+msgid "UPnP player for Ubuntu Touch"
 msgstr ""
 
 #: ../qml/pages/About.qml:84
