@@ -46,13 +46,13 @@ Page {
                     text: i18n.tr("Load saved queue at startup and resume playing")
                 }
 
-                MyComboBox {
+                ComboBox {
                     id: resumeModeSelector
 
                     anchors.right: parent.right
                     width: parent.width - resumeModeLabel.width - app.paddingMedium
                     height: app.comboBoxHeight
-                    fontPixelSize: app.fontPixelSizeLarge
+                    //fontPixelSize: app.fontPixelSizeLarge
 
                     Component.onCompleted: currentIndex = app.settings.resume_saved_info
 
@@ -75,7 +75,7 @@ Page {
                     font.pixelSize: app.fontPixelSizeLarge
                     text: i18n.tr("Show containers in search results")
                 }
-                MyCheckBox {
+                CheckBox {
                     width: height
                     height: app.checkBoxHeight
                     anchors.right: parent.right
@@ -94,7 +94,7 @@ Page {
                     font.pixelSize: app.fontPixelSizeLarge
                     text: i18n.tr("Use Album Art as app background")
                 }
-                MyCheckBox {
+                CheckBox {
                     width: height
                     height: app.checkBoxHeight
                     anchors.right: parent.right

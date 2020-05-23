@@ -134,7 +134,7 @@ Page {
             }
 
             /* Which fields to search in */
-            MyButton {
+            Button {
                 id: searchInButton
                 property var indexes: []
                 property string value: ""
@@ -214,13 +214,13 @@ Page {
                     text: i18n.tr("Group By")
                 }
 
-                MyComboBox {
+                ComboBox {
                     id: groupByCombo
 
                     anchors.right: parent.right
                     width: parent.width - groupByLabel.width - app.paddingMedium
                     height: app.comboBoxHeight
-                    fontPixelSize: app.fontPixelSizeMedium
+                    //fontPixelSize: app.fontPixelSizeMedium
 
                     Component.onCompleted: {
                         console.log("onCompleted: " + app.settings.groupby_search_results)

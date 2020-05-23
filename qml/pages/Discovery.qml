@@ -113,7 +113,7 @@ Page {
                 }
             }
 
-            MyCheckBox {
+            CheckBox {
                 id: checkbox
                 width: height
                 height: app.checkBoxHeight

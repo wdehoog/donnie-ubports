@@ -10,7 +10,7 @@ Rectangle  {
 
     width: parent.width
     height: app.pageHeaderSize
-    //color: app.bgColor
+    color: app.bgColor
 
     AdaptiveToolbar {
         id: toolbar
@@ -29,7 +29,6 @@ Rectangle  {
             text: title
             font.pixelSize: app.fontPixelSizeLarge
             font.bold: true
-            //color: app.fgColor
             anchors.verticalCenter: parent.verticalCenter
         }
     }

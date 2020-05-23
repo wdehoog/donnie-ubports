@@ -6,6 +6,7 @@ import Qt.labs.settings 1.0
 import QtMultimedia 5.9
 import QtQuick.Window 2.0
 import Qt.labs.settings 1.0 as QLS
+import QtQuick.Controls.Suru 2.2
 
 import "components"
 import "controls"
@@ -24,9 +25,10 @@ Window {
     width: units.dp(480)
     height: units.dp(640)
 
-    // Use these colors for the UI.
-    readonly property color fgColor: "#232323"
-    readonly property color bgColor: "#efefef"
+    //
+    // UI stuff
+    //
+    readonly property color bgColor: app.Suru.backgroundColor //"#efefef"
 
     property color text1color: "#E95420" // Ubuntu orange
     property color text2color: "#333333" // some dark grey 
@@ -47,9 +49,6 @@ Window {
     property int fontSizeSmall: fontPixelSizeSmall
     property int fontSizeExtraSmall: fontPixelSizeExtraSmall
 
-    //
-    // UI stuff
-    //
     property double paddingExtraSmall: units.dp(2)
     property double paddingSmall: units.dp(4)
     property double paddingMedium: units.dp(8)
@@ -373,7 +372,7 @@ Window {
 
             if(app.hasCurrentServer()) {
                 if(settings.resume_saved_info === 1) // 0: never, 1: ask, 2:always
-                    app.showConfirmDialog(i18n.tr("Load previously saved queue?"), i18n.tr("Load"), function() {
+                    app.showConfirmDialog(i18n.tr("Load previously saved queue?"), i18n.tr("Restore Queue"), function() {
                         loadResumeMetaData()
                     })
                 else if(settings.resume_saved_info === 2)
@@ -598,93 +597,12 @@ Window {
             title: messageTitle
             modal: true
 
-            //height: app.fontPixelSizeMedium * 9
-            //height: app.height / 3
-
-            header: Label { // copied from Qt, added font.pixelSize
-                text: dialog.title
-                visible: dialog.title
-                elide: Label.ElideRight
-                font.bold: true
-                font.pixelSize: app.fontPixelSizeMedium
-                
-                leftPadding: app.paddingLarge
-                topPadding: app.paddingSmall
-                bottomPadding: app.paddingSmall
-
-                background: Rectangle {
-                    //x: 1; y: 1
-                    width: parent.width //- 2
-                    height: parent.height //- 1
-                    border.color: app.controlBorderColor
-                    border.width: 1
-                    radius: app.controlRadius
-                    color: app.nonTransparentBackgroundColor
-                }
-            }
+            standardButtons: confirmation ? (Dialog.Yes | Dialog.No) : Dialog.Ok
 
             Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width
+                wrapMode: Label.Wrap
                 text: dialog.messageText
-                font.pixelSize: app.fontPixelSizeMedium
-                leftPadding: app.paddingMedium
-                rightPadding: leftPadding
-                topPadding: app.paddingLarge
-                bottomPadding: topPadding
-            }
-
-            background: Rectangle {
-                border.color: app.controlBorderColor
-                border.width: 1
-                radius: app.controlRadius
-                color: app.nonTransparentBackgroundColor
-            }
-
-            footer: DialogButtonBox {
-                id: dbBox
-                height: app.fontPixelSizeMedium * 4
-                padding: app.paddingMedium
-                alignment: Qt.AlignRight 
-
-                property int buttonHeight: dbBox.height / 2
-                property int buttonWidth: dbBox.width / 3
-
-                Component.onCompleted: {
-                    //console.log("dbox w="+width+",x="+x)
-                    //console.log("parent w="+parent.width)
-                    //console.log("content w="+contentItem.width+",x="+contentItem.x)
-                    background.color = app.nonTransparentBackgroundColor
-                }
-
-                MyButton {
-                    id: acceptButton
-                    height: dbBox.buttonHeight
-                    width: dbBox.buttonWidth
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: confirmation ? i18n.tr("Yes") : i18n.tr("Ok")
-                    DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
-                    //backgroundColor: app.nonTransparentBackgroundColor
-                }
-
-                MyButton {
-                    id: rejectButton
-                    height: dbBox.buttonHeight
-                    width: dbBox.buttonWidth
-                    anchors.verticalCenter: parent.verticalCenter
-                    visible: confirmation
-                    text: i18n.tr("No")
-                    DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
-                    //backgroundColor: app.nonTransparentBackgroundColor
-                }
-
-                /*background: Rectangle {
-                    anchors.fill: parent          
-                    border.color: app.controlBorderColor
-                    border.width: 1
-                    radius: app.controlRadius
-                    color: app.controlBackgroundColor
-                }*/
             }
 
             onAccepted: {

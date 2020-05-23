@@ -9,6 +9,7 @@
 int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+    QQuickStyle::setStyle("Suru");
     //QQuickStyle::setStyle("Ergo");
 
     QCoreApplication::setApplicationName("donnie.wdehoog");
