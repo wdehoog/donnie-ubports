@@ -28,7 +28,7 @@ Popup {
     //height: childrenRect.height
     width: parent.width - units.dp(8)
     background: Rectangle {
-        color: app.nonTransparentBackgroundColor // "#111111"
+        color: app.bgColor
         border.width: 2
         border.color: app.controlBorderColor
         opacity: 0.93

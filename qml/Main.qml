@@ -68,7 +68,7 @@ Window {
     property color nonTransparentBackgroundColor: "white"
     property color controlBackgroundColor: settings.use_albumart_as_background 
         ? "transparent" : nonTransparentBackgroundColor
-    property color controlBorderColor: "black"
+    property color controlBorderColor: app.Suru.neutralColor
     property int controlRadius: 3
 
     property var fontPrimaryWeight: Font.Light
