@@ -241,6 +241,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height:app.paddingLarge
+                color: app.bgColor
                 opacity: 1.0
             }
 
@@ -310,6 +311,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: app.paddingMedium
+                color: app.bgColor
                 opacity: 1.0
             }
 
@@ -350,6 +352,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: app.paddingMedium
+                color: app.bgColor
                 opacity: 1.0
             }
 
@@ -364,6 +367,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: app.paddingMedium
+                color: app.bgColor
                 opacity: 1.0
             }
 
@@ -376,6 +380,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: app.paddingMedium
+                color: app.bgColor
                 opacity: 1.0
             }
 

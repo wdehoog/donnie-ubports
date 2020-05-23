@@ -127,7 +127,7 @@ Page {
               y: x
               width: parent.width - 2*x
 
-              Rectangle { width: parent.width; height: app.paddingMedium; opacity: 1.0; }
+              Rectangle { width: parent.width; height: app.paddingMedium; color: app.bgColor; opacity: 1.0; }
               Text {
                   id: path
                   width: parent.width
@@ -142,7 +142,7 @@ Page {
                       onClicked: pageStack.push(menuDialogComponent)
                   }
              }
-             Rectangle { width: parent.width; height: app.paddingMedium; opacity: 1.0; }
+             Rectangle { width: parent.width; height: app.paddingMedium; color: app.bgColor; opacity: 1.0; }
         }
 
         delegate: AdaptiveListItem {
