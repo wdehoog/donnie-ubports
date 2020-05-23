@@ -1,18 +1,18 @@
 {
-  "template": "cmake",
+  "builder": "cmake",
   "kill": "donnie",
   "dependencies_target": [
       "libmicrohttpd10", "libmicrohttpd-dev"
   ],
   "libraries": {
      "ergo": {
-       "template": "cmake",
+       "builder": "cmake",
        "build_args": [
           "-DCLICK_MODE=on"
        ]
      },
      "npupnp": {
-            "template": "custom",
+            "builder": "custom",
             "dependencies_host": [
                   "automake","libtool"
             ],
@@ -22,7 +22,7 @@
             "build": "cd $SRC_DIR && ./bootstrap && ./configure --host=$ARCH_TRIPLET --prefix=$INSTALL_DIR && make clean && make install"
      },
      "libupnpp": {
-            "template": "custom",
+            "builder": "custom",
             "dependencies_host": [
                   "automake","libtool"
             ],
