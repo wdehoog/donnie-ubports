@@ -9,7 +9,6 @@ import Qt.labs.settings 1.0 as QLS
 import QtQuick.Controls.Suru 2.2
 
 import "components"
-import "controls"
 import "pages"
 
 import "UPnP.js" as UPnP
@@ -656,5 +655,7 @@ Window {
         property int selected_search_capabilities: 0xFFF
         property string groupby_search_results: "album"
         property bool use_albumart_as_background: true
+        property var searchHistory: "[]"
+        property int searchHistoryMaxSize: 50
     }
 }

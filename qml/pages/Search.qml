@@ -10,9 +10,9 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Suru 2.2
 
 import "../components"
-import "../controls"
 
 import "../UPnP.js" as UPnP
 
@@ -53,6 +53,21 @@ Page {
         comparator: function(a, b) {
             return a[groupByField].localeCompare(b[groupByField])
                 || (groupByField == "album" ? (a.trackNumber - b.trackNumber) : 0)
+        }
+    }
+
+    ListModel {
+        id: searchHistoryModel
+        Component.onCompleted: reloadSearchHistoryModel()
+    }
+
+    function reloadSearchHistoryModel() {
+        searchHistoryModel.clear()
+        console.log(app.settings.searchHistory)
+        var data = JSON.parse(app.settings.searchHistory)
+        for(var i=0;i<data.length;i++) {
+            console.log("adding: " + data[i])
+            searchHistoryModel.append({query: data[i]})
         }
     }
 
@@ -107,19 +122,36 @@ Page {
 
             Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
 
-            Row {
+            // Suru styled ComboBox is not editable so combine with a TextField
+            Item {
                 width: parent.width
-
-                Icon {
-                    id: sfIcon
-                    height: searchField.height
-                    width: height
-                    name: "find"
+                height: searchCombo.height
+                ComboBox {
+                    id: searchCombo
+                    width: parent.width
+                    font.pixelSize: app.fontPixelSizeLarge
+                    model: searchHistoryModel
+                    onAccepted: {
+                        searchString = editText.toLowerCase().trim()
+                        refresh()
+                        app.settings.searchHistory =
+                            updateSearchHistory(editText,
+                                                app.settings.searchHistory,
+                                                app.settings.searchHistoryMaxSize)
+                        reloadSearchHistoryModel()
+                    }
+                    onActivated: {
+                        var selectedText = model.get(index).query
+                        editText = selectedText
+                        accepted()
+                        searchField.text = selectedText
+                    }
                 }
                 TextField {
                     id: searchField
-                    width: parent.width - sfIcon.width
-                    height: app.textFieldHeight
+                    width: parent.width - searchCombo.indicator.width - searchCombo.leftPadding - searchCombo.rightPadding
+                    height: searchCombo.height
+                    anchors.verticalCenter: parent.verticalCenter
                     font.pixelSize: app.fontPixelSizeLarge
                     placeholderText: i18n.tr("Search for")
                     inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
@@ -129,7 +161,13 @@ Page {
                         property: "searchString"
                         value: searchField.text.toLowerCase().trim()
                     }
-                    Keys.onReturnPressed: refresh()
+                    Component.onCompleted: {
+                        background.width = width
+                    }
+                    Keys.onReturnPressed: {
+                        searchCombo.editText = searchField.text
+                        searchCombo.accepted()
+                    }
                 }
             }
 
@@ -472,6 +510,28 @@ Page {
             return i18n.tr("Long Description");
 
         return undefined;
+    }
+
+    function updateSearchHistory(searchString, search_history, maxSize) {
+        if(!searchString || searchString.length === 0)
+            return
+
+        var sh = JSON.parse(search_history)
+        var pos = sh.indexOf(searchString)
+        console.log("updateSearchHistory " + searchString + ": maxSize=" + maxSize + ", pos=" + pos)
+        if(pos > -1) {
+            // already in the list so reorder
+            for(var i=pos;i>0;i--)
+                sh[i] = sh[i-1]
+            sh[0] = searchString
+        } else
+            // a new item
+            sh.unshift(searchString)
+
+        while(sh.length > maxSize)
+            sh.pop()
+
+        return JSON.stringify(sh)
     }
 
 }

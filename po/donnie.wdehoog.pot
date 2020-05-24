@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 11:24+0000\n"
+"POT-Creation-Date: 2020-05-23 21:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,64 +33,60 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:92 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:91 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:164
+#: ../qml/Main.qml:163
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:191 ../qml/Main.qml:635
+#: ../qml/Main.qml:190 ../qml/Main.qml:634
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:191 ../qml/Main.qml:381
+#: ../qml/Main.qml:190 ../qml/Main.qml:380
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:375
+#: ../qml/Main.qml:374
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:375
+#: ../qml/Main.qml:374
 msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:381
+#: ../qml/Main.qml:380
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:386
+#: ../qml/Main.qml:385
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:396
+#: ../qml/Main.qml:395
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:449 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:448 ../qml/pages/Browse.qml:348
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:465
+#: ../qml/Main.qml:464
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:510
+#: ../qml/Main.qml:509
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:544
+#: ../qml/Main.qml:543
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
-msgstr ""
-
-#: ../qml/controls/MyCheckBox.qml:6
-msgid "CheckBox"
 msgstr ""
 
 #: ../qml/pages/PlayerPage.qml:51
@@ -109,43 +105,43 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:26
+#: ../qml/pages/Discovery.qml:25
 msgid "UPnP Devices"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:30
+#: ../qml/pages/Discovery.qml:29
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:166
+#: ../qml/pages/Discovery.qml:165
 msgid "Device Details"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:22 ../qml/pages/Menu.qml:36
+#: ../qml/pages/Settings.qml:21 ../qml/pages/Menu.qml:36
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:46
+#: ../qml/pages/Settings.qml:45
 msgid "Load saved queue at startup and resume playing"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:62
+#: ../qml/pages/Settings.qml:61
 msgid "Never"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:63
+#: ../qml/pages/Settings.qml:62
 msgid "Ask"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:64
+#: ../qml/pages/Settings.qml:63
 msgid "Always"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:76
+#: ../qml/pages/Settings.qml:75
 msgid "Show containers in search results"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:95
+#: ../qml/pages/Settings.qml:94
 msgid "Use Album Art as app background"
 msgstr ""
 
@@ -173,79 +169,79 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/Search.qml:124
+#: ../qml/pages/Search.qml:156
 msgid "Search for"
 msgstr ""
 
-#: ../qml/pages/Search.qml:146
+#: ../qml/pages/Search.qml:184
 msgid "Search In"
 msgstr ""
 
-#: ../qml/pages/Search.qml:154 ../qml/pages/Search.qml:187
+#: ../qml/pages/Search.qml:192 ../qml/pages/Search.qml:225
 msgid "None"
 msgstr ""
 
-#: ../qml/pages/Search.qml:214
+#: ../qml/pages/Search.qml:252
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:241 ../qml/pages/Search.qml:460
+#: ../qml/pages/Search.qml:279 ../qml/pages/Search.qml:498
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:242 ../qml/pages/Search.qml:456
+#: ../qml/pages/Search.qml:280 ../qml/pages/Search.qml:494
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:243 ../qml/pages/Search.qml:458
+#: ../qml/pages/Search.qml:281 ../qml/pages/Search.qml:496
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:300 ../qml/pages/Browse.qml:258
+#: ../qml/pages/Search.qml:338 ../qml/pages/Browse.qml:258
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:304 ../qml/pages/Browse.qml:262
+#: ../qml/pages/Search.qml:342 ../qml/pages/Browse.qml:262
 msgid "Replace in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:308
+#: ../qml/pages/Search.qml:346
 msgid "Add Group To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:312
+#: ../qml/pages/Search.qml:350
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:317 ../qml/pages/Browse.qml:266
+#: ../qml/pages/Search.qml:355 ../qml/pages/Browse.qml:266
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:321 ../qml/pages/Browse.qml:270
+#: ../qml/pages/Search.qml:359 ../qml/pages/Browse.qml:270
 msgid "Replace All in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:462
+#: ../qml/pages/Search.qml:500
 msgid "Genre"
 msgstr ""
 
-#: ../qml/pages/Search.qml:464
+#: ../qml/pages/Search.qml:502
 msgid "Creator"
 msgstr ""
 
-#: ../qml/pages/Search.qml:466
+#: ../qml/pages/Search.qml:504
 msgid "Publisher"
 msgstr ""
 
-#: ../qml/pages/Search.qml:468
+#: ../qml/pages/Search.qml:506
 msgid "Description"
 msgstr ""
 
-#: ../qml/pages/Search.qml:470
+#: ../qml/pages/Search.qml:508
 msgid "User Annotation"
 msgstr ""
 
-#: ../qml/pages/Search.qml:472
+#: ../qml/pages/Search.qml:510
 msgid "Long Description"
 msgstr ""
 
