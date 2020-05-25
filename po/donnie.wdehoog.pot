@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-23 21:50+0000\n"
+"POT-Creation-Date: 2020-05-25 20:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,79 +169,79 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/Search.qml:156
+#: ../qml/pages/Search.qml:154
 msgid "Search for"
 msgstr ""
 
-#: ../qml/pages/Search.qml:184
+#: ../qml/pages/Search.qml:185
 msgid "Search In"
 msgstr ""
 
-#: ../qml/pages/Search.qml:192 ../qml/pages/Search.qml:225
+#: ../qml/pages/Search.qml:193 ../qml/pages/Search.qml:226
 msgid "None"
 msgstr ""
 
-#: ../qml/pages/Search.qml:252
+#: ../qml/pages/Search.qml:253
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:279 ../qml/pages/Search.qml:498
+#: ../qml/pages/Search.qml:280 ../qml/pages/Search.qml:499
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:280 ../qml/pages/Search.qml:494
+#: ../qml/pages/Search.qml:281 ../qml/pages/Search.qml:495
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:281 ../qml/pages/Search.qml:496
+#: ../qml/pages/Search.qml:282 ../qml/pages/Search.qml:497
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:338 ../qml/pages/Browse.qml:258
+#: ../qml/pages/Search.qml:339 ../qml/pages/Browse.qml:258
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:342 ../qml/pages/Browse.qml:262
+#: ../qml/pages/Search.qml:343 ../qml/pages/Browse.qml:262
 msgid "Replace in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:346
+#: ../qml/pages/Search.qml:347
 msgid "Add Group To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:350
+#: ../qml/pages/Search.qml:351
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:355 ../qml/pages/Browse.qml:266
+#: ../qml/pages/Search.qml:356 ../qml/pages/Browse.qml:266
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:359 ../qml/pages/Browse.qml:270
+#: ../qml/pages/Search.qml:360 ../qml/pages/Browse.qml:270
 msgid "Replace All in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:500
+#: ../qml/pages/Search.qml:501
 msgid "Genre"
 msgstr ""
 
-#: ../qml/pages/Search.qml:502
+#: ../qml/pages/Search.qml:503
 msgid "Creator"
 msgstr ""
 
-#: ../qml/pages/Search.qml:504
+#: ../qml/pages/Search.qml:505
 msgid "Publisher"
 msgstr ""
 
-#: ../qml/pages/Search.qml:506
+#: ../qml/pages/Search.qml:507
 msgid "Description"
 msgstr ""
 
-#: ../qml/pages/Search.qml:508
+#: ../qml/pages/Search.qml:509
 msgid "User Annotation"
 msgstr ""
 
-#: ../qml/pages/Search.qml:510
+#: ../qml/pages/Search.qml:511
 msgid "Long Description"
 msgstr ""
 

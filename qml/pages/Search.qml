@@ -63,10 +63,8 @@ Page {
 
     function reloadSearchHistoryModel() {
         searchHistoryModel.clear()
-        console.log(app.settings.searchHistory)
         var data = JSON.parse(app.settings.searchHistory)
         for(var i=0;i<data.length;i++) {
-            console.log("adding: " + data[i])
             searchHistoryModel.append({query: data[i]})
         }
     }
@@ -161,9 +159,12 @@ Page {
                         property: "searchString"
                         value: searchField.text.toLowerCase().trim()
                     }
+
                     Component.onCompleted: {
+                        // Suru styled Textfield border misbehaves
                         background.width = width
                     }
+
                     Keys.onReturnPressed: {
                         searchCombo.editText = searchField.text
                         searchCombo.accepted()
@@ -369,7 +370,7 @@ Page {
     //    onClicked: openBrowseOn(listView.model.get(index).pid)
     //}
 
-    onSearchStringChanged: {
+    /*onSearchStringChanged: {
         typeDelay.restart()
     }
 
@@ -379,7 +380,7 @@ Page {
         running: false
         repeat: false
         onTriggered: refresh()
-    }
+    }*/
 
     onSelectedSearchCapabilitiesMaskChanged: refresh()
 
