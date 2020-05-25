@@ -52,7 +52,7 @@ Page {
                     Label {
                         anchors.horizontalCenter: parent.horizontalCenter
                         font.pixelSize: app.fontPixelSizeLarge
-                        text: "Donnie 0.2"
+                        text: "Donnie 0.3"
                     }
 
                     Label {
@@ -66,17 +66,24 @@ Page {
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeSmall
+                        font.pixelSize: app.fontPixelSizeMedium
                         text: "Copyright (C) 2020 Willem-Jan de Hoog"
                         width: parent.width
                     }
-                    /*Label {
+                    Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         font.pixelSize: app.fontPixelSizeMedium
-                        text: i18n.tr("sources: https://github.com/wdehoog/somafm-ut")
+                        text: i18n.tr("sources") + ": https://github.com/wdehoog/donnie-ut"
                         width: parent.width
-                    }*/
+                    }
+                    Label {
+                        horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        font.pixelSize: app.fontPixelSizeMedium
+                        text: BUILD_DATE_TIME
+                        width: parent.width
+                    }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter

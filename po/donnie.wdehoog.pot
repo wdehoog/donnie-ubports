@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 20:44+0000\n"
+"POT-Creation-Date: 2020-05-25 20:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,15 +153,19 @@ msgstr ""
 msgid "UPnP player for Ubuntu Touch"
 msgstr ""
 
-#: ../qml/pages/About.qml:84
+#: ../qml/pages/About.qml:77
+msgid "sources"
+msgstr ""
+
+#: ../qml/pages/About.qml:91
 msgid "License: MIT"
 msgstr ""
 
-#: ../qml/pages/About.qml:95
+#: ../qml/pages/About.qml:102
 msgid "Translations"
 msgstr ""
 
-#: ../qml/pages/About.qml:116
+#: ../qml/pages/About.qml:123
 msgid "Thanks to"
 msgstr ""
 
