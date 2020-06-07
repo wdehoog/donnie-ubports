@@ -28,7 +28,8 @@ Page {
     property string defaultImageSource : "image://theme/stock_music"
     property string imageItemSource : defaultImageSource
     property string playIconName : "media-preview-start"
-    property int currentItem: -1
+    property int currentIndex: -1
+    //property var currentItem: {}
     property bool metaShown : false
     property string trackClass
     property string durationText
@@ -38,8 +39,8 @@ Page {
     property string trackMetaText2 : ""
 
     property bool hasTracks : listView.model.count > 0
-    property bool canNext: hasTracks && (currentItem < (listView.model.count - 1))
-    property bool canPrevious: hasTracks && (currentItem > 0)
+    property bool canNext: hasTracks && (currentIndex < (listView.model.count - 1))
+    property bool canPrevious: hasTracks && (currentIndex > 0)
     property bool canPlay: hasTracks && (audio.playbackState != Audio.PlayingState)
     property bool canPause: audio.playbackState == Audio.PlayingState
     property int requestedAudioPosition : -1
@@ -67,7 +68,7 @@ Page {
         else
             newState = -1;
         transportState = newState;
-        //console.log("RTS: count:" + listView.model.count+", currentItem"+currentItem+", hasTracks: "+hasTracks+", canNext: "+canNext)
+        //console.log("RTS: count:" + listView.model.count+", currentIndex"+currentIndex+", hasTracks: "+hasTracks+", canNext: "+canNext)
         //app.notifyTransportState(transportState);
     }
 
@@ -164,8 +165,8 @@ Page {
     }
 
     function updateForTrack(index) {
-        currentItem = index
-        console.log("updateForTrack("+currentItem+")")
+        currentIndex = index
+        console.log("updateForTrack("+currentIndex+")")
         if(index < 0 || index >= trackListModel.count) {
             trackMetaText1 = ""
             trackMetaText2 = ""
@@ -212,7 +213,7 @@ Page {
         meta.Album = track.album;
         meta.Length = 0;
         meta.ArtUrl = track.albumArtURI;
-        meta.TrackNumber = currentItem;
+        meta.TrackNumber = currentIndex;
         app.updateMprisMetaData(meta);
     }
 
@@ -223,7 +224,7 @@ Page {
         meta.Album = track.album;
         meta.Length = track.duration * 1000; // ms -> us
         meta.ArtUrl = track.albumArtURI;
-        meta.TrackNumber = currentItem;
+        meta.TrackNumber = currentIndex;
         app.updateMprisMetaData(meta);
     }*/
 
@@ -358,7 +359,7 @@ Page {
 
             PlaylistItem {
                 id: stuff
-                index: currentItem
+                index: currentIndex
                 title: trackMetaText1
                 meta: trackMetaText2
                 duration: durationText
@@ -414,7 +415,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    currentItem = index
+                    currentIndex = index
                     gotoTrack(trackListModel.get(index))
                 }
             }
@@ -437,11 +438,11 @@ Page {
                 onTriggered: {
                     trackListModel.remove(listItemMenu.index)
                     audio.playlist.removeItem(listItemMenu.index)
-                    if(currentItem === listItemMenu.index) {
-                        currentItem--
+                    if(currentIndex === listItemMenu.index) {
+                        currentIndex--
                         next()
-                    } else if(currentItem > listItemMenu.index)
-                        currentItem--
+                    } else if(currentIndex > listItemMenu.index)
+                        currentIndex--
                 }
             }
         ]
@@ -506,13 +507,13 @@ Page {
 
     function openTrack(track) {
         addTracksNoStart([track])
-        currentItem = trackListModel.count - 1
-        gotoTrack(trackListModel.get(currentItem))
+        currentIndex = trackListModel.count - 1
+        gotoTrack(trackListModel.get(currentIndex))
     }
 
     function addTracks(tracks) {
         addTracksNoStart(tracks)
-        if(currentItem == -1 && trackListModel.count>0) {
+        if(currentIndex == -1 && trackListModel.count>0) {
             if(arguments.length >= 2 && arguments[1] > -1) { // is index passed?
                 audio.playlist.currentIndex = arguments[1]
                 if(arguments.length >= 3) // is position passed?
@@ -530,9 +531,9 @@ Page {
     }
 
     function getCurrentTrack() {
-        if(currentItem < 0 || currentItem >= trackListModel.count)
+        if(currentIndex < 0 || currentIndex >= trackListModel.count)
             return undefined
-        return trackListModel.get(currentItem)
+        return trackListModel.get(currentIndex)
     }
 
     // Format track duration to format like HH:mm:ss / m:ss / 0:ss

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 11:48+0000\n"
+"POT-Creation-Date: 2020-06-07 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,19 +93,19 @@ msgid ""
 "Can not Resume."
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:51
+#: ../qml/pages/PlayerPage.qml:52
 msgid "Built-In Player"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:55
+#: ../qml/pages/PlayerPage.qml:56
 msgid "Empty List"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:107
+#: ../qml/pages/PlayerPage.qml:108
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:433
+#: ../qml/pages/PlayerPage.qml:434
 msgid "Remove"
 msgstr ""
 
@@ -273,6 +273,6 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: ../qml/UPnP.js:318
+#: ../qml/UPnP.js:325
 msgid "User entered URI"
 msgstr ""

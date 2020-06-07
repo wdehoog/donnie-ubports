@@ -28,7 +28,7 @@ Column {
             id: tt
             color: app.primaryColor
             font.pixelSize: app.fontPixelSizeMedium
-            font.weight: currentItem === index ? Font.Bold: Font.Normal
+            font.weight: currentIndex === index ? Font.Bold: Font.Normal
             textFormat: Text.StyledText
             elide: Text.ElideRight
             width: parent.width - dt.width
@@ -39,7 +39,7 @@ Column {
             id: dt
             anchors.right: parent.right
             color: app.primaryColor
-            font.weight: currentItem === index ? Font.Bold: Font.Normal
+            font.weight: currentIndex === index ? Font.Bold: Font.Normal
             font.pixelSize: app.fontSizeSmall
             text: duration ? duration : ""
         }
@@ -47,7 +47,7 @@ Column {
 
     Label {
         color: app.secondaryColor
-        font.weight: currentItem === index ? Font.Bold: Font.Normal
+        font.weight: currentIndex === index ? Font.Bold: Font.Normal
         font.pixelSize: app.fontSizeSmall
         textFormat: Text.StyledText
         elide: Text.ElideRight
