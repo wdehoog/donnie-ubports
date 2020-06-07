@@ -271,7 +271,7 @@ Page {
                 if(!hasSelected && app.discoveredServers.length>0) {
                     // if no server is selected select the first one
                     app.setCurrentServer(app.discoveredServers[0])
-                    storeSelectedServer(devicesModel.get(firstIndex))
+                    storeSelectedServer(devicesModel.get(0))
                 }
             } catch(err) {
                 app.error("Exception in Discovery: "+err)
