@@ -263,9 +263,14 @@ function createListItem(item) {
     nli.id = item["id"];
     nli.pid = item["pid"];
     nli.title = item["title"];
+
     nli.artist = item.properties["dc:creator"];
+    if(!nli.artist)
+        nli.artist = item.properties["upnp:artist"];
+
     nli.album = item.properties["upnp:album"];
     nli.albumArtURI = item.properties["upnp:albumArtURI"];
+
     if(item.properties["upnp:originalTrackNumber"]) {
         nli.trackNumber = parseInt(item.properties["upnp:originalTrackNumber"], 10);
     } else {
@@ -273,6 +278,7 @@ function createListItem(item) {
         var tn = nli.title.match(/\d+/);
         nli.trackNumber = tn ? parseInt(tn, 10) : 100; // unknown so put at the end
     }
+
     nli.uri = item.resources[0]["Uri"];
     nli.didl = item["didl"];
     nli.duration = (item.resources[0] && item.resources[0].attributes["duration"])
