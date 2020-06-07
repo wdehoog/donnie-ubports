@@ -231,7 +231,7 @@ function createNewListItem(type) {
     return {
         type: type, dtype: DonnieItemType.ContentServer,
         id: "", pid: "",
-        trackNumber: "", uri: "",
+        trackNumber: -1, uri: "",
         title: "", titleText: "",
         artist: "", album: "", albumArtURI: "",
         metaText: "", duration: "", durationText: "",
@@ -257,6 +257,7 @@ function createListContainer(container) {
 }
 
 function createListItem(item) {
+    //console.log("item: " + JSON.stringify(item))
     var nli = createNewListItem("Item");
 
     nli.id = item["id"];
@@ -265,9 +266,9 @@ function createListItem(item) {
     nli.artist = item.properties["dc:creator"];
     nli.album = item.properties["upnp:album"];
     nli.albumArtURI = item.properties["upnp:albumArtURI"];
-    if(item.properties["upnp:originalTrackNumber"])
+    if(item.properties["upnp:originalTrackNumber"]) {
         nli.trackNumber = parseInt(item.properties["upnp:originalTrackNumber"], 10);
-    else {
+    } else {
         // as a fallback search in the title
         var tn = nli.title.match(/\d+/);
         nli.trackNumber = tn ? parseInt(tn, 10) : 100; // unknown so put at the end
