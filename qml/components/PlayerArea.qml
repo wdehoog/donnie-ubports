@@ -86,21 +86,28 @@ Rectangle {
                     width: parent.width
                     anchors.verticalCenter: parent.verticalCenter
 
-                    Text {
-                        id: m1
-                        x: app.gu(1)
-                        width: parent.width - app.gu(1)
+                    /*Text {
+                        x: app.paddingSmall
+                        width: parent.width - 2*x
+                        wrapMode: Text.Wrap
                         font.bold: true
                         font.pixelSize: app.fontPixelSizeMedium
                         color: app.text1color
+                        text: 
+                    }*/
+                    Text {
+                        x: app.paddingSmall
+                        width: parent.width - 2*x
                         wrapMode: Text.Wrap
+                        font.bold: true
+                        font.pixelSize: app.fontPixelSizeMedium
+                        color: app.text1color
                         text: trackMetaText1
                     }
                     Text {
-                        id: m2
-                        x: app.gu(1)
-                        width: parent.width - app.gu(1)
-                        anchors.right: parent.right
+                        x: app.paddingSmall
+                        width: parent.width - 2*x
+                        //anchors.right: parent.right
                         wrapMode: Text.Wrap
                         font.pixelSize: app.fontPixelSizeMedium
                         font.bold: true
