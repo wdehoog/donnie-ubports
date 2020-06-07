@@ -187,7 +187,7 @@ Window {
     
     function checkHasCurrentServer() {
         if(!hasCurrentServer()) {
-            showMessageDialog(i18n.tr("Error"), i18n.tr("No UPnP Server found")) 
+            showMessageDialog(i18n.tr("Error"), i18n.tr("No UPnP Server selected.")) 
             return false
         }
         return true
