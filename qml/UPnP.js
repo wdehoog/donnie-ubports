@@ -208,9 +208,9 @@ function createDisplayProperties(item) {
         metaText += item.album;
     }
 
-    var audioType = getAudioType(item);
-    if(audioType.length > 0)
-        metaText += " - " + audioType;
+    item.audioType = getAudioType(item);
+    if(item.audioType.length > 0)
+        metaText += " - " + item.audioType;
 
     return {
         titleText: titleText,
@@ -235,7 +235,7 @@ function createNewListItem(type) {
         title: "", titleText: "",
         artist: "", album: "", albumArtURI: "",
         metaText: "", duration: "", durationText: "",
-        upnpclass: "", protocolInfo: "", didl: ""
+        upnpclass: "", protocolInfo: "", didl: "", audioType: ""
     };
 }
 

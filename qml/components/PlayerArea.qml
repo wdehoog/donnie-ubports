@@ -7,8 +7,7 @@ Rectangle {
     id: playerArea
 
     property var audio
-    property string trackMetaText1
-    property string trackMetaText2
+    property var track
     property string imageSource
 
     signal playPause()
@@ -86,15 +85,6 @@ Rectangle {
                     width: parent.width
                     anchors.verticalCenter: parent.verticalCenter
 
-                    /*Text {
-                        x: app.paddingSmall
-                        width: parent.width - 2*x
-                        wrapMode: Text.Wrap
-                        font.bold: true
-                        font.pixelSize: app.fontPixelSizeMedium
-                        color: app.text1color
-                        text: 
-                    }*/
                     Text {
                         x: app.paddingSmall
                         width: parent.width - 2*x
@@ -102,7 +92,7 @@ Rectangle {
                         font.bold: true
                         font.pixelSize: app.fontPixelSizeMedium
                         color: app.text1color
-                        text: trackMetaText1
+                        text: track ? track.title : ""
                     }
                     Text {
                         x: app.paddingSmall
@@ -112,7 +102,16 @@ Rectangle {
                         font.pixelSize: app.fontPixelSizeMedium
                         font.bold: true
                         color: app.text2color
-                        text: trackMetaText2
+                        text: track ? track.artist + " - " + track.album : ""
+                    }
+                    Text {
+                        x: app.paddingSmall
+                        width: parent.width - 2*x
+                        wrapMode: Text.Wrap
+                        font.bold: true
+                        font.pixelSize: app.fontPixelSizeMedium
+                        color: app.text1color
+                        text: track ? track.durationText + " - " + track.audioType : ""
                     }
 
                 }

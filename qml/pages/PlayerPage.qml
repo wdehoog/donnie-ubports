@@ -29,7 +29,7 @@ Page {
     property string imageItemSource : defaultImageSource
     property string playIconName : "media-preview-start"
     property int currentIndex: -1
-    //property var currentItem: {}
+    property var currentItem: UPnP.createNewListItem("Item")
     property bool metaShown : false
     property string trackClass
     property string durationText
@@ -174,9 +174,11 @@ Page {
             durationText = ""
             positionText = ""
             imageItemSource = defaultImageSource
+            currentItem = UPnP.createNewListItem("Item")
         } else {
             var track = trackListModel.get(index)
             //console.log("updateForTrack: " + JSON.stringify(track,null,2))
+            currentItem = track
             updatePlayIcons()
 
             trackMetaText1 = track.titleText

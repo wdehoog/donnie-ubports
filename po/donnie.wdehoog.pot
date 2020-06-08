@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 18:50+0000\n"
+"POT-Creation-Date: 2020-06-08 19:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,57 +37,57 @@ msgstr ""
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:163
+#: ../qml/Main.qml:162
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:190 ../qml/Main.qml:634
+#: ../qml/Main.qml:189 ../qml/Main.qml:633
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:190
+#: ../qml/Main.qml:189
 msgid "No UPnP Server selected."
 msgstr ""
 
-#: ../qml/Main.qml:374
+#: ../qml/Main.qml:373
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:374
+#: ../qml/Main.qml:373
 msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:380
+#: ../qml/Main.qml:379
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:380
+#: ../qml/Main.qml:379
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:385
+#: ../qml/Main.qml:384
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:395
+#: ../qml/Main.qml:394
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:448 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:447 ../qml/pages/Browse.qml:348
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:464
+#: ../qml/Main.qml:463
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:509
+#: ../qml/Main.qml:508
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:543
+#: ../qml/Main.qml:542
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:434
+#: ../qml/pages/PlayerPage.qml:436
 msgid "Remove"
 msgstr ""
 

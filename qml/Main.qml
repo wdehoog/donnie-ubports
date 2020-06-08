@@ -125,10 +125,9 @@ Window {
         width: parent.width
         audio: audio
         visible: pageStack.currentItem.objectName != "PlayerPage"
-        trackMetaText1: getPlayerPage().trackMetaText1
-        trackMetaText2: getPlayerPage().trackMetaText2
-        imageSource: app.getPlayerPage().imageItemSource
-        onPlayPause: app.playPause()
+        track: getPlayerPage().currentItem
+        imageSource: getPlayerPage().imageItemSource
+        onPlayPause: playPause()
     }
 
     Image {
