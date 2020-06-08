@@ -48,6 +48,7 @@ Page {
         header: Rectangle {
             width: parent.width
             height: app.paddingMedium
+            color: app.bgColor
             opacity: 1.0
         }
         /*
