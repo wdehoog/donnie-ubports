@@ -83,6 +83,11 @@ Window {
     property double labelHeight: itemSizeMedium
     property double textFieldHeight: itemSizeMedium
 
+    // Ergo actions always have colors which interfere with Suru.
+    // this color value seems to indicate 'no color' so Ergo leaves
+    // the image colors to Suru
+    property color disableErgoActionColor: Qt.rgba(0.0, 0.0, 0.0, 0.0)
+
     // 0 inactive, 1 load queue data, 2 load browse stack data
     property int resumeState: 0
 

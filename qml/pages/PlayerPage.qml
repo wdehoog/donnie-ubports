@@ -55,6 +55,7 @@ Page {
                 iconName: "toolkit_input-clear"
                 text: i18n.tr("Empty List")
                 onTriggered: clearList()
+                color: app.disableErgoActionColor
             }
         ]
     }

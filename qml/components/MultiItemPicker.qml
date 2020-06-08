@@ -29,6 +29,7 @@ Page {
                     pageStack.pop()
                     accepted()
                 }
+                color: app.disableErgoActionColor
             }
         ]
     }

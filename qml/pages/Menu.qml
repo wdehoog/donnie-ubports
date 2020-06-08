@@ -35,16 +35,19 @@ Page {
                 iconName: "settings"
                 text: i18n.tr("Settings")
                 onTriggered: app.doSelectedMenuItem("settings")
+                color: app.disableErgoActionColor
             },
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
                 onTriggered: app.doSelectedMenuItem("about")
+                color: app.disableErgoActionColor
             },
             Action {
                 iconName: "help"
                 text: i18n.tr("Help")
                 onTriggered:  app.doSelectedMenuItem("help")
+                color: app.disableErgoActionColor
             }
         ]
     }
@@ -105,13 +108,12 @@ Page {
                 lightness: -0.2
             }*/
 
-            Text {
+            Label {
                 anchors.left: image.right
                 anchors.leftMargin: app.paddingLarge
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                //color: _currentIndex === index ? Theme.highlightColor : Theme.primaryColor
-                font.pixelSize: app.fontPixelSizeLarge
+                //font.bold: true
                 text: model.name
             }
 

@@ -11,6 +11,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Suru 2.2
 
 import "../components"
 
@@ -28,6 +29,7 @@ Page {
                 iconName: "reload"
                 text: i18n.tr("Reload")
                 onTriggered: discover()
+                color: app.disableErgoActionColor
             }
         ]
     }
@@ -83,11 +85,9 @@ Page {
                     right: checkbox.left
                 }
 
-                Text {
+                Label {
                     id: fName
 
-                    font.pixelSize: app.fontSizeMedium
-                    color: app.primaryColor
                     wrapMode: Text.Wrap
                     anchors {
                         left: parent.left
@@ -97,18 +97,16 @@ Page {
                     text: friendlyName
                 }
 
-                Text {
+                Label {
                     id: mName
 
-                    //anchors.top: fName.bottom
-                    font.pixelSize: app.fontSizeSmall
-                    color: app.secondaryColor
                     wrapMode: Text.Wrap
                     anchors {
                         left: parent.left
                         right: parent.right
                     }
 
+                    Suru.textLevel: Suru.Small
                     text: modelName
                 }
             }

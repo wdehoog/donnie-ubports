@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 19:37+0000\n"
+"POT-Creation-Date: 2020-06-08 21:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,65 +29,65 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../qml/components/PageHeader.qml:23
+#: ../qml/components/PageHeader.qml:24
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:91 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:96 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:162
+#: ../qml/Main.qml:167
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:189 ../qml/Main.qml:633
+#: ../qml/Main.qml:194 ../qml/Main.qml:638
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:189
+#: ../qml/Main.qml:194
 msgid "No UPnP Server selected."
 msgstr ""
 
-#: ../qml/Main.qml:373
+#: ../qml/Main.qml:378
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:373
+#: ../qml/Main.qml:378
 msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:379
+#: ../qml/Main.qml:384
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:379
+#: ../qml/Main.qml:384
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:384
+#: ../qml/Main.qml:389
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:394
+#: ../qml/Main.qml:399
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:447 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:452 ../qml/pages/Browse.qml:348
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:463
+#: ../qml/Main.qml:468
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:508
+#: ../qml/Main.qml:513
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:542
+#: ../qml/Main.qml:547
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
@@ -101,23 +101,23 @@ msgstr ""
 msgid "Empty List"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:108
+#: ../qml/pages/PlayerPage.qml:109
 msgid "Playlist"
 msgstr ""
 
-#: ../qml/pages/PlayerPage.qml:436
+#: ../qml/pages/PlayerPage.qml:437
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:25
+#: ../qml/pages/Discovery.qml:26
 msgid "UPnP Devices"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:29
+#: ../qml/pages/Discovery.qml:30
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:166
+#: ../qml/pages/Discovery.qml:164
 msgid "Device Details"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Use Album Art as app background"
 msgstr ""
 
-#: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:41
+#: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:42
 msgid "About"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Thanks to"
 msgstr ""
 
-#: ../qml/pages/Search.qml:37 ../qml/pages/Menu.qml:66
+#: ../qml/pages/Search.qml:37 ../qml/pages/Menu.qml:69
 msgid "Search"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Long Description"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:62
+#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:65
 msgid "Browse"
 msgstr ""
 
@@ -261,15 +261,15 @@ msgstr ""
 msgid "Choose A Path"
 msgstr ""
 
-#: ../qml/pages/Menu.qml:46 ../qml/pages/Help.qml:14
+#: ../qml/pages/Menu.qml:48 ../qml/pages/Help.qml:14
 msgid "Help"
 msgstr ""
 
-#: ../qml/pages/Menu.qml:58
+#: ../qml/pages/Menu.qml:61
 msgid "UPnP Discovery"
 msgstr ""
 
-#: ../qml/pages/Menu.qml:70
+#: ../qml/pages/Menu.qml:73
 msgid "Player"
 msgstr ""
 

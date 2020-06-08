@@ -57,8 +57,8 @@ Popup {
                     anchors.fill: parent
                     acceptedButtons: Qt.LeftButton
                     onClicked: {
-                        actionMenu.close();
-                        modelData.trigger();
+                        actionMenu.close()
+                        modelData.trigger()
                     }
                 }
             }

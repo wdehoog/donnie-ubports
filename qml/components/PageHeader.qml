@@ -20,6 +20,7 @@ Rectangle  {
         leadingActions: [
             Action {
                 iconName: "back"
+                color: Qt.rgba(0.0, 0.0, 0.0, 0.0)
                 text: i18n.tr("Back")
                 onTriggered: pageStack.pop()
             }
@@ -27,8 +28,7 @@ Rectangle  {
 
         Label { 
             text: title
-            font.pixelSize: app.fontPixelSizeLarge
-            font.bold: true
+            //font.bold: true
             anchors.verticalCenter: parent.verticalCenter
         }
     }

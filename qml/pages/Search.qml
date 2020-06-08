@@ -118,7 +118,7 @@ Page {
 
             }*/
 
-            Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
+            Rectangle { height: units.dp(4); width: parent.width; color: app.bgColor; opacity: 1.0 }
 
             // Suru styled ComboBox is not editable so combine with a TextField
             Item {
@@ -283,7 +283,7 @@ Page {
                     ]
                 }
             }
-            Rectangle { height: units.dp(4); width: parent.width; opacity: 1.0 }
+            Rectangle { height: units.dp(4); width: parent.width; color: app.bgColor; opacity: 1.0 }
         }
 
         section.property : groupByField
