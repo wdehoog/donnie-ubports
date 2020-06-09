@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 21:20+0000\n"
+"POT-Creation-Date: 2020-06-09 21:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,61 +33,61 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:96 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:108 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:167
+#: ../qml/Main.qml:179
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:194 ../qml/Main.qml:638
+#: ../qml/Main.qml:206 ../qml/Main.qml:650
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:194
+#: ../qml/Main.qml:206
 msgid "No UPnP Server selected."
 msgstr ""
 
-#: ../qml/Main.qml:378
+#: ../qml/Main.qml:390
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:378
+#: ../qml/Main.qml:390
 msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:384
+#: ../qml/Main.qml:396
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:384
+#: ../qml/Main.qml:396
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:389
+#: ../qml/Main.qml:401
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:399
+#: ../qml/Main.qml:411
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:452 ../qml/pages/Browse.qml:348
+#: ../qml/Main.qml:464 ../qml/pages/Browse.qml:346
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:468
+#: ../qml/Main.qml:480
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:513
+#: ../qml/Main.qml:525
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:547
+#: ../qml/Main.qml:559
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Long Description"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:65
+#: ../qml/pages/Browse.qml:37 ../qml/pages/Menu.qml:65
 msgid "Browse"
 msgstr ""
 

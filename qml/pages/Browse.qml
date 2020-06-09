@@ -11,6 +11,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtMultimedia 5.6
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Suru 2.2
 
 import "../components"
 
@@ -128,12 +129,11 @@ Page {
               width: parent.width - 2*x
 
               Rectangle { width: parent.width; height: app.paddingMedium; color: app.bgColor; opacity: 1.0; }
-              Text {
+              Label {
                   id: path
                   width: parent.width
                   horizontalAlignment: Text.AlignRight
                   verticalAlignment: Text.AlignVCenter
-                  font.pixelSize: app.fontSizeLarge
                   color: app.primaryColor
                   elide: Text.ElideLeft
                   text: pathText
@@ -156,9 +156,7 @@ Page {
                 id: stuff
                 spacing: app.paddingMedium
                 width: parent.width
-                // causes the app to freeze/hang 
-                //height: imageItem.height > labels.height ? imageItem.height : labels.height
-                height: app.itemSizeMedium 
+                height: Math.max(imageItem.height, labels.height)
 
                 Image {
                   id: imageItem
@@ -196,14 +194,15 @@ Page {
                             textFormat: Text.StyledText
                             elide: Text.ElideRight
                             width: parent.width - dt.width
-                            font.pixelSize: app.fontPixelSizeMedium
+                            //font.pixelSize: app.fontPixelSizeMedium
                             text: titleText ? titleText : ""
                         }
                         Label {
                             id: dt
                             anchors.right: parent.right
                             color: app.secondaryColor
-                            font.pixelSize: app.fontSizeSmall
+                            //font.pixelSize: app.fontSizeSmall
+                            Suru.textLevel: Suru.Small
                             text: durationText ? durationText : ""
 
                         }
@@ -211,7 +210,8 @@ Page {
 
                     Label {
                         color: app.secondaryColor
-                        font.pixelSize: app.fontSizeSmall
+                        Suru.textLevel: Suru.Small
+                        //font.pixelSize: app.fontSizeSmall
                         textFormat: Text.StyledText
                         elide: Text.ElideRight
                         width: parent.width
@@ -311,9 +311,7 @@ Page {
                         id: path
                         anchors.verticalCenter: parent.verticalCenter
                         width: parent.width
-                        font.pixelSize: app.fontSizeLarge
                         elide: Text.ElideLeft
-                        //text: model.item.title
                         text: UPnP.getPathString(app.currentBrowseStack, model.item.id)
                         color: (delegateItem.highlighted || model.item === cid)
                                ? app.primaryColor

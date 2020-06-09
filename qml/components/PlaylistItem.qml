@@ -9,6 +9,7 @@ import Ergo 0.0
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Suru 2.2
 
 Column {
     id: control
@@ -26,9 +27,9 @@ Column {
 
         Label {
             id: tt
-            color: app.primaryColor
-            font.pixelSize: app.fontPixelSizeMedium
-            font.weight: currentIndex === index ? Font.Bold: Font.Normal
+            color: currentIndex === index ? app.primaryHighlightColor : app.primaryColor
+            //font.pixelSize: app.fontPixelSizeMedium
+            //font.weight: currentIndex === index ? Font.Bold: Font.Normal
             textFormat: Text.StyledText
             elide: Text.ElideRight
             width: parent.width - dt.width
@@ -38,17 +39,19 @@ Column {
         Label {
             id: dt
             anchors.right: parent.right
-            color: app.primaryColor
-            font.weight: currentIndex === index ? Font.Bold: Font.Normal
-            font.pixelSize: app.fontSizeSmall
+            color: currentIndex === index ? app.secondaryHighlightColor : app.secondaryColor
+            //font.weight: currentIndex === index ? Font.Bold: Font.Normal
+            //font.pixelSize: app.fontSizeSmall
+            Suru.textLevel: Suru.Small
             text: duration ? duration : ""
         }
     }
 
     Label {
-        color: app.secondaryColor
-        font.weight: currentIndex === index ? Font.Bold: Font.Normal
-        font.pixelSize: app.fontSizeSmall
+        color: currentIndex === index ? app.secondaryHighlightColor : app.secondaryColor
+        //font.weight: currentIndex === index ? Font.Bold: Font.Normal
+        //font.pixelSize: app.fontSizeSmall
+        Suru.textLevel: Suru.Small
         textFormat: Text.StyledText
         elide: Text.ElideRight
         width: parent.width

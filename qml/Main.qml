@@ -24,17 +24,29 @@ Window {
     width: units.dp(480)
     height: units.dp(640)
 
+function getColorAlpha(color, alpha) {
+    return Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, alpha)
+}
     //
     // UI stuff
     //
-    readonly property color bgColor: app.Suru.backgroundColor //"#efefef"
+    readonly property color bgColor: app.Suru.backgroundColor
 
     property color text1color: "#E95420" // Ubuntu orange
-    property color text2color: "#333333" // some dark grey 
-    property color text3color: "#aea79f" // some light grey 
+    property color text2color: "#aea79f" // some light grey 
+    property color text3color: "#333333" // some dark grey 
 
-    property color primaryColor: text1color
-    property color secondaryColor: text2color
+    //property color primaryColor: text1color
+    //property color secondaryColor: text2color
+    //property color tertiaryColor: text3color
+
+    property color primaryColor: Suru.foregroundColor
+    property color secondaryColor: Suru.secondaryForegroundColor
+    property color tertiaryColor: Suru.tertiaryForegroundColor
+
+    property color primaryHighlightColor: Suru.highlightColor
+    property color secondaryHighlightColor: getColorAlpha(Suru.highlightColor, 0.8571)
+    property color tertiaryHighlightColor: getColorAlpha(Suru.highlightColor, 0.6429)
 
     property int fontPixelSizeExtraLarge: units.dp(16)
     property int fontPixelSizeLarge: units.dp(14)

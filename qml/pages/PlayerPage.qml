@@ -378,7 +378,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: 1
-                color: "black"
+                color: app.controlBorderColor
             }
 
             Rectangle {

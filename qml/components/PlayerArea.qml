@@ -91,17 +91,16 @@ Rectangle {
                         wrapMode: Text.Wrap
                         font.bold: true
                         font.pixelSize: app.fontPixelSizeMedium
-                        color: app.text1color
+                        color: app.primaryHighlightColor
                         text: track ? track.title : ""
                     }
                     Text {
                         x: app.paddingSmall
                         width: parent.width - 2*x
-                        //anchors.right: parent.right
                         wrapMode: Text.Wrap
                         font.pixelSize: app.fontPixelSizeMedium
                         font.bold: true
-                        color: app.text2color
+                        color: app.secondaryHighlightColor
                         text: track ? track.artist + " - " + track.album : ""
                     }
                     Text {
@@ -110,7 +109,7 @@ Rectangle {
                         wrapMode: Text.Wrap
                         font.bold: true
                         font.pixelSize: app.fontPixelSizeMedium
-                        color: app.text1color
+                        color: app.tertiaryHighlightColor
                         text: track ? track.durationText + " - " + track.audioType : ""
                     }
 
