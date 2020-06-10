@@ -209,8 +209,11 @@ function createDisplayProperties(item) {
     }
 
     item.audioType = getAudioType(item);
-    if(item.audioType.length > 0)
-        metaText += " - " + item.audioType;
+    if(item.audioType.length > 0) {
+        if(metaText.length > 0)
+            metaText += " - ";
+        metaText += item.audioType;
+    }
 
     return {
         titleText: titleText,

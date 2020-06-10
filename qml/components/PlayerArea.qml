@@ -90,21 +90,21 @@ Rectangle {
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
                         color: app.primaryHighlightColor
-                        text: track ? track.title : ""
+                        text: track.title ? track.title : ""
                     }
                     Label {
                         x: app.paddingSmall
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
                         color: app.secondaryHighlightColor
-                        text: track ? track.artist + " - " + track.album : ""
+                        text: getLabelText(track.artist, track.album)
                     }
                     Label {
                         x: app.paddingSmall
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
                         color: app.tertiaryHighlightColor
-                        text: track ? track.durationText + " - " + track.audioType : ""
+                        text: getLabelText(track.durationText, track.audioType)
                     }
 
                 }
@@ -173,5 +173,17 @@ Rectangle {
             }
         }
 
+    }
+
+    function getLabelText(l0, l1) {
+      var l = ""
+      if(l0)
+        l += l0
+      if(l1) {
+        if(l)
+          l += " - "
+        l += l1    
+      }
+      return l
     }
 }
