@@ -10,7 +10,6 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-import QtQuick.Controls.Suru 2.2
 
 import "../components"
 
@@ -32,6 +31,7 @@ Page {
     property int selectedSearchCapabilitiesMask: app.settings.selected_search_capabilities
     property var scMap: []
     property string groupByField: app.settings.groupby_search_results
+    property int currentIndex: -1 // for PlaylistItem
 
     header: PageHeader {
         title: i18n.tr("Search")

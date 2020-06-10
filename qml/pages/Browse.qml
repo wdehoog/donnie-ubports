@@ -11,7 +11,6 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtMultimedia 5.6
 import QtGraphicalEffects 1.0
-import QtQuick.Controls.Suru 2.2
 
 import "../components"
 
@@ -201,8 +200,7 @@ Page {
                             id: dt
                             anchors.right: parent.right
                             color: app.secondaryColor
-                            //font.pixelSize: app.fontSizeSmall
-                            Suru.textLevel: Suru.Small
+                            font.pixelSize: app.fontSizeSmall
                             text: durationText ? durationText : ""
 
                         }
@@ -210,8 +208,7 @@ Page {
 
                     Label {
                         color: app.secondaryColor
-                        Suru.textLevel: Suru.Small
-                        //font.pixelSize: app.fontSizeSmall
+                        font.pixelSize: app.fontSizeSmall
                         textFormat: Text.StyledText
                         elide: Text.ElideRight
                         width: parent.width

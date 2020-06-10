@@ -11,7 +11,6 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-import QtQuick.Controls.Suru 2.2
 
 import "../components"
 
@@ -106,7 +105,7 @@ Page {
                         right: parent.right
                     }
 
-                    Suru.textLevel: Suru.Small
+                    font.pixelSize: app.fontSizeSmall
                     text: modelName
                 }
             }

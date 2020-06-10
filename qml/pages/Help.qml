@@ -18,7 +18,7 @@ Page {
         id: flick
         anchors.fill: parent
 
-        Text {
+        Label {
             width: aboutPage.width - 2*x
             x: app.paddingMedium
             y: app.paddingMedium

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 21:49+0000\n"
+"POT-Creation-Date: 2020-06-10 19:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:464 ../qml/pages/Browse.qml:346
+#: ../qml/Main.qml:464 ../qml/pages/Browse.qml:343
 msgid "[Top]"
 msgstr ""
 
@@ -109,15 +109,15 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:26
+#: ../qml/pages/Discovery.qml:25
 msgid "UPnP Devices"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:30
+#: ../qml/pages/Discovery.qml:29
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/Discovery.qml:164
+#: ../qml/pages/Discovery.qml:163
 msgid "Device Details"
 msgstr ""
 
@@ -205,11 +205,11 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:339 ../qml/pages/Browse.qml:258
+#: ../qml/pages/Search.qml:339 ../qml/pages/Browse.qml:255
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:343 ../qml/pages/Browse.qml:262
+#: ../qml/pages/Search.qml:343 ../qml/pages/Browse.qml:259
 msgid "Replace in Player"
 msgstr ""
 
@@ -221,11 +221,11 @@ msgstr ""
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:356 ../qml/pages/Browse.qml:266
+#: ../qml/pages/Search.qml:356 ../qml/pages/Browse.qml:263
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:360 ../qml/pages/Browse.qml:270
+#: ../qml/pages/Search.qml:360 ../qml/pages/Browse.qml:267
 msgid "Replace All in Player"
 msgstr ""
 
@@ -253,11 +253,11 @@ msgstr ""
 msgid "Long Description"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:37 ../qml/pages/Menu.qml:65
+#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:65
 msgid "Browse"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:301
+#: ../qml/pages/Browse.qml:298
 msgid "Choose A Path"
 msgstr ""
 

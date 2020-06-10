@@ -57,7 +57,7 @@ function getColorAlpha(color, alpha) {
     property int fontSizeExtraLarge: fontPixelSizeExtraLarge
     property int fontSizeLarge: fontPixelSizeLarge
     property int fontSizeMedium: fontPixelSizeMedium 
-    property int fontSizeSmall: fontPixelSizeSmall
+    property int fontSizeSmall: app.Suru.units.fontSmall.pixelSize
     property int fontSizeExtraSmall: fontPixelSizeExtraSmall
 
     property double paddingExtraSmall: units.dp(2)
