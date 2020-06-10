@@ -32,9 +32,9 @@ function getColorAlpha(color, alpha) {
     //
     readonly property color bgColor: app.Suru.backgroundColor
 
-    property color text1color: "#E95420" // Ubuntu orange
-    property color text2color: "#aea79f" // some light grey 
-    property color text3color: "#333333" // some dark grey 
+    //property color text1color: "#E95420" // Ubuntu orange
+    //property color text2color: "#aea79f" // some light grey 
+    //property color text3color: "#333333" // some dark grey 
 
     //property color primaryColor: text1color
     //property color secondaryColor: text2color
@@ -48,17 +48,11 @@ function getColorAlpha(color, alpha) {
     property color secondaryHighlightColor: getColorAlpha(Suru.highlightColor, 0.8571)
     property color tertiaryHighlightColor: getColorAlpha(Suru.highlightColor, 0.6429)
 
-    property int fontPixelSizeExtraLarge: units.dp(16)
-    property int fontPixelSizeLarge: units.dp(14)
-    property int fontPixelSizeMedium: units.dp(12)
-    property int fontPixelSizeSmall: units.dp(10)
-    property int fontPixelSizeExtraSmall: units.dp(8)
-
-    property int fontSizeExtraLarge: fontPixelSizeExtraLarge
-    property int fontSizeLarge: fontPixelSizeLarge
-    property int fontSizeMedium: fontPixelSizeMedium 
+    //property int fontSizeExtraLarge: units.dp(16)
+    //property int fontSizeLarge: units.dp(14)
+    //property int fontSizeMedium:  units.dp(12)
     property int fontSizeSmall: app.Suru.units.fontSmall.pixelSize
-    property int fontSizeExtraSmall: fontPixelSizeExtraSmall
+    //property int fontSizeExtraSmall: units.dp(8)
 
     property double paddingExtraSmall: units.dp(2)
     property double paddingSmall: units.dp(4)

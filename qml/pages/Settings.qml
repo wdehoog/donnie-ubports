@@ -40,7 +40,6 @@ Page {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     width: parent.width * 2 / 3
-                    font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Label.WordWrap
                     text: i18n.tr("Load saved queue at startup and resume playing")
                 }
@@ -51,7 +50,6 @@ Page {
                     anchors.right: parent.right
                     width: parent.width - resumeModeLabel.width - app.paddingMedium
                     height: app.comboBoxHeight
-                    //fontPixelSize: app.fontPixelSizeLarge
 
                     Component.onCompleted: currentIndex = app.settings.resume_saved_info
 
@@ -71,7 +69,6 @@ Page {
                 Label {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: app.fontPixelSizeLarge
                     text: i18n.tr("Show containers in search results")
                 }
                 CheckBox {
@@ -90,7 +87,6 @@ Page {
                 Label {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: app.fontPixelSizeLarge
                     text: i18n.tr("Use Album Art as app background")
                 }
                 CheckBox {

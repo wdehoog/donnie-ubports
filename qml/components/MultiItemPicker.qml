@@ -75,7 +75,6 @@ Page {
                     height: app.labelHeight
                     verticalAlignment: Text.AlignVCenter
                     wrapMode: Text.Wrap
-                    font.pixelSize: app.fontSizeLarge
                     text: name
                     /*background: Rectangle {
                         anchors.fill: parent

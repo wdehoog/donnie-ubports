@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donnie.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 19:31+0000\n"
+"POT-Creation-Date: 2020-06-10 19:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Ok"
 msgstr ""
 
-#: ../qml/components/MessageDialog.qml:88
+#: ../qml/components/MessageDialog.qml:85
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/components/MessageDialog.qml:98
+#: ../qml/components/MessageDialog.qml:94
 msgid "OK"
 msgstr ""
 
@@ -33,61 +33,61 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/Main.qml:108 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+#: ../qml/Main.qml:102 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
 msgid "Donnie"
 msgstr ""
 
-#: ../qml/Main.qml:179
+#: ../qml/Main.qml:173
 msgid "Audio Player:"
 msgstr ""
 
-#: ../qml/Main.qml:206 ../qml/Main.qml:650
+#: ../qml/Main.qml:200 ../qml/Main.qml:644
 msgid "Error"
 msgstr ""
 
-#: ../qml/Main.qml:206
+#: ../qml/Main.qml:200
 msgid "No UPnP Server selected."
 msgstr ""
 
-#: ../qml/Main.qml:390
+#: ../qml/Main.qml:384
 msgid "Load previously saved queue?"
 msgstr ""
 
-#: ../qml/Main.qml:390
+#: ../qml/Main.qml:384
 msgid "Restore Queue"
 msgstr ""
 
-#: ../qml/Main.qml:396
+#: ../qml/Main.qml:390
 msgid "Warning"
 msgstr ""
 
-#: ../qml/Main.qml:396
+#: ../qml/Main.qml:390
 msgid "No UPnP Server found"
 msgstr ""
 
-#: ../qml/Main.qml:401
+#: ../qml/Main.qml:395
 msgid "UPnP Error"
 msgstr ""
 
-#: ../qml/Main.qml:411
+#: ../qml/Main.qml:405
 msgid "Failed to retrieve all metadata for previously saved Ids."
 msgstr ""
 
-#: ../qml/Main.qml:464 ../qml/pages/Browse.qml:343
+#: ../qml/Main.qml:458 ../qml/pages/Browse.qml:342
 msgid "[Top]"
 msgstr ""
 
-#: ../qml/Main.qml:480
+#: ../qml/Main.qml:474
 msgid ""
 "Failed to parse previously saved Ids.\n"
 "Can not Resume."
 msgstr ""
 
-#: ../qml/Main.qml:525
+#: ../qml/Main.qml:519
 msgid "Failed to load previously saved Browse Stack Ids."
 msgstr ""
 
-#: ../qml/Main.qml:559
+#: ../qml/Main.qml:553
 msgid ""
 "Failed to load previously saved Queue Ids.\n"
 "Can not Resume."
@@ -125,27 +125,27 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:45
+#: ../qml/pages/Settings.qml:44
 msgid "Load saved queue at startup and resume playing"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:61
+#: ../qml/pages/Settings.qml:59
 msgid "Never"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:62
+#: ../qml/pages/Settings.qml:60
 msgid "Ask"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:63
+#: ../qml/pages/Settings.qml:61
 msgid "Always"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:75
+#: ../qml/pages/Settings.qml:72
 msgid "Show containers in search results"
 msgstr ""
 
-#: ../qml/pages/Settings.qml:94
+#: ../qml/pages/Settings.qml:90
 msgid "Use Album Art as app background"
 msgstr ""
 
@@ -153,23 +153,23 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../qml/pages/About.qml:61
+#: ../qml/pages/About.qml:59
 msgid "UPnP player for Ubuntu Touch"
 msgstr ""
 
-#: ../qml/pages/About.qml:77
+#: ../qml/pages/About.qml:73
 msgid "sources"
 msgstr ""
 
-#: ../qml/pages/About.qml:91
+#: ../qml/pages/About.qml:85
 msgid "License: MIT"
 msgstr ""
 
-#: ../qml/pages/About.qml:102
+#: ../qml/pages/About.qml:96
 msgid "Translations"
 msgstr ""
 
-#: ../qml/pages/About.qml:123
+#: ../qml/pages/About.qml:115
 msgid "Thanks to"
 msgstr ""
 
@@ -177,79 +177,79 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/Search.qml:154
+#: ../qml/pages/Search.qml:152
 msgid "Search for"
 msgstr ""
 
-#: ../qml/pages/Search.qml:185
+#: ../qml/pages/Search.qml:182
 msgid "Search In"
 msgstr ""
 
-#: ../qml/pages/Search.qml:193 ../qml/pages/Search.qml:226
+#: ../qml/pages/Search.qml:190 ../qml/pages/Search.qml:223
 msgid "None"
 msgstr ""
 
-#: ../qml/pages/Search.qml:253
+#: ../qml/pages/Search.qml:249
 msgid "Group By"
 msgstr ""
 
-#: ../qml/pages/Search.qml:280 ../qml/pages/Search.qml:499
+#: ../qml/pages/Search.qml:275 ../qml/pages/Search.qml:493
 msgid "Album"
 msgstr ""
 
-#: ../qml/pages/Search.qml:281 ../qml/pages/Search.qml:495
+#: ../qml/pages/Search.qml:276 ../qml/pages/Search.qml:489
 msgid "Artist"
 msgstr ""
 
-#: ../qml/pages/Search.qml:282 ../qml/pages/Search.qml:497
+#: ../qml/pages/Search.qml:277 ../qml/pages/Search.qml:491
 msgid "Title"
 msgstr ""
 
-#: ../qml/pages/Search.qml:339 ../qml/pages/Browse.qml:255
+#: ../qml/pages/Search.qml:333 ../qml/pages/Browse.qml:254
 msgid "Add To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:343 ../qml/pages/Browse.qml:259
+#: ../qml/pages/Search.qml:337 ../qml/pages/Browse.qml:258
 msgid "Replace in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:347
+#: ../qml/pages/Search.qml:341
 msgid "Add Group To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:351
+#: ../qml/pages/Search.qml:345
 msgid "Replace Group in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:356 ../qml/pages/Browse.qml:263
+#: ../qml/pages/Search.qml:350 ../qml/pages/Browse.qml:262
 msgid "Add All To Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:360 ../qml/pages/Browse.qml:267
+#: ../qml/pages/Search.qml:354 ../qml/pages/Browse.qml:266
 msgid "Replace All in Player"
 msgstr ""
 
-#: ../qml/pages/Search.qml:501
+#: ../qml/pages/Search.qml:495
 msgid "Genre"
 msgstr ""
 
-#: ../qml/pages/Search.qml:503
+#: ../qml/pages/Search.qml:497
 msgid "Creator"
 msgstr ""
 
-#: ../qml/pages/Search.qml:505
+#: ../qml/pages/Search.qml:499
 msgid "Publisher"
 msgstr ""
 
-#: ../qml/pages/Search.qml:507
+#: ../qml/pages/Search.qml:501
 msgid "Description"
 msgstr ""
 
-#: ../qml/pages/Search.qml:509
+#: ../qml/pages/Search.qml:503
 msgid "User Annotation"
 msgstr ""
 
-#: ../qml/pages/Search.qml:511
+#: ../qml/pages/Search.qml:505
 msgid "Long Description"
 msgstr ""
 
@@ -257,7 +257,7 @@ msgstr ""
 msgid "Browse"
 msgstr ""
 
-#: ../qml/pages/Browse.qml:298
+#: ../qml/pages/Browse.qml:297
 msgid "Choose A Path"
 msgstr ""
 

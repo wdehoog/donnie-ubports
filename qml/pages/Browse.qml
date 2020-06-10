@@ -193,7 +193,6 @@ Page {
                             textFormat: Text.StyledText
                             elide: Text.ElideRight
                             width: parent.width - dt.width
-                            //font.pixelSize: app.fontPixelSizeMedium
                             text: titleText ? titleText : ""
                         }
                         Label {

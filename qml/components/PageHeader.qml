@@ -28,7 +28,6 @@ Rectangle  {
 
         Label { 
             text: title
-            //font.bold: true
             anchors.verticalCenter: parent.verticalCenter
         }
     }

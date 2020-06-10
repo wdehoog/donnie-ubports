@@ -85,30 +85,24 @@ Rectangle {
                     width: parent.width
                     anchors.verticalCenter: parent.verticalCenter
 
-                    Text {
+                    Label {
                         x: app.paddingSmall
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
-                        font.bold: true
-                        font.pixelSize: app.fontPixelSizeMedium
                         color: app.primaryHighlightColor
                         text: track ? track.title : ""
                     }
-                    Text {
+                    Label {
                         x: app.paddingSmall
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
-                        font.pixelSize: app.fontPixelSizeMedium
-                        font.bold: true
                         color: app.secondaryHighlightColor
                         text: track ? track.artist + " - " + track.album : ""
                     }
-                    Text {
+                    Label {
                         x: app.paddingSmall
                         width: parent.width - 2*x
                         wrapMode: Text.Wrap
-                        font.bold: true
-                        font.pixelSize: app.fontPixelSizeMedium
                         color: app.tertiaryHighlightColor
                         text: track ? track.durationText + " - " + track.audioType : ""
                     }

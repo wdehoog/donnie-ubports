@@ -51,13 +51,11 @@ Page {
 
                     Label {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeLarge
                         text: "Donnie 0.3"
                     }
 
                     Label {
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: app.fontPixelSizeLarge
                         text: i18n.tr("UPnP player for Ubuntu Touch")
                         width: parent.width
                         wrapMode: Text.WordWrap
@@ -66,28 +64,24 @@ Page {
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeMedium
                         text: "Copyright (C) 2020 Willem-Jan de Hoog"
                         width: parent.width
                     }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeMedium
                         text: i18n.tr("sources") + ": https://github.com/wdehoog/donnie-ut"
                         width: parent.width
                     }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeMedium
                         text: BUILD_DATE_TIME
                         width: parent.width
                     }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: app.fontPixelSizeMedium
                         text: i18n.tr("License: MIT")
                         width: parent.width
                     }
@@ -100,7 +94,6 @@ Page {
 
                 Label {
                     text: i18n.tr("Translations")
-                    font.pixelSize: app.fontPixelSizeLarge
                 }
 
                 Label {
@@ -110,7 +103,6 @@ Page {
                         right: parent.right
                         rightMargin: app.gu(2)
                     }
-                    font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Text.WordWrap
                     text: "fr: Anne017"
                     }
@@ -121,7 +113,6 @@ Page {
 
                 Label {
                     text: i18n.tr("Thanks to")
-                    font.pixelSize: app.fontPixelSizeLarge
                 }
 
                 Label {
@@ -131,7 +122,6 @@ Page {
                         right: parent.right
                         rightMargin: app.gu(2)
                     }
-                    font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Text.WordWrap
                     text:
 "

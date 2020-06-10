@@ -49,7 +49,6 @@ Popup {
                 Label {
                     topPadding: app.paddingMedium
                     bottomPadding: topPadding
-                    font.pixelSize: app.fontSizeLarge
                     text: modelData.text
                     //color: "#efefef"
                 }

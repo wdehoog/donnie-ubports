@@ -23,7 +23,6 @@ Page {
             x: app.paddingMedium
             y: app.paddingMedium
             wrapMode: Text.WordWrap
-            font.pixelSize: app.fontPixelSizeLarge
             textFormat: Text.RichText
 
             text: "

@@ -113,7 +113,6 @@ Page {
                 anchors.leftMargin: app.paddingLarge
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                //font.bold: true
                 text: model.name
             }
 

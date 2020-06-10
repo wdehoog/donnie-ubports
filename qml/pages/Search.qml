@@ -127,7 +127,6 @@ Page {
                 ComboBox {
                     id: searchCombo
                     width: parent.width
-                    //font.pixelSize: app.fontPixelSizeLarge
                     model: searchHistoryModel
                     onAccepted: {
                         searchString = editText.toLowerCase().trim()
@@ -150,7 +149,6 @@ Page {
                     width: parent.width - searchCombo.indicator.width - searchCombo.leftPadding - searchCombo.rightPadding
                     height: searchCombo.height
                     anchors.verticalCenter: parent.verticalCenter
-                    //font.pixelSize: app.fontPixelSizeLarge
                     placeholderText: i18n.tr("Search for")
                     inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
 
@@ -180,7 +178,6 @@ Page {
 
                 width: parent.width
                 height: app.buttonHeight
-                //font.pixelSize: app.fontPixelSizeMedium
 
                 text: i18n.tr("Search In") + ": " + value
 
@@ -248,7 +245,6 @@ Page {
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     width: parent.width * 2 / 3
-                    //font.pixelSize: app.fontPixelSizeMedium
                     wrapMode: Label.WordWrap
                     text: i18n.tr("Group By")
                 }
@@ -259,7 +255,6 @@ Page {
                     anchors.right: parent.right
                     width: parent.width - groupByLabel.width - app.paddingMedium
                     height: app.comboBoxHeight
-                    //fontPixelSize: app.fontPixelSizeMedium
 
                     Component.onCompleted: {
                         console.log("onCompleted: " + app.settings.groupby_search_results)
@@ -298,7 +293,6 @@ Page {
                     anchors.right: parent.right
                     text: section
                     font.weight: Font.Bold
-                    //font.pixelSize: app.fontSizeMedium
                     color: app.primaryColor
                 }
             }

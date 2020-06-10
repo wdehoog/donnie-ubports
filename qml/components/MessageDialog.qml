@@ -57,19 +57,17 @@ Rectangle {
             width: parent.width
             spacing: units.dp(12)
 
-            Text {
+            Label {
                 Layout.fillWidth: true
                 text: msgTitle
                 color: "#efefef"
-                font.pixelSize: app.fontPixelSizeLarge
                 wrapMode: Text.WordWrap
             }
 
-            Text {
+            Label {
                 Layout.fillWidth: true
                 text: msgText
                 color: "#efefef"
-                font.pixelSize: app.fontPixelSizeLarge
                 wrapMode: Text.WordWrap
             }
 
@@ -84,7 +82,6 @@ Rectangle {
 
                 Button {
                     Layout.fillWidth: true
-                    font.pixelSize: units.dp(16)
                     text: i18n.tr("Cancel")
                     visible: showCancel
                     onClicked: {
@@ -94,7 +91,6 @@ Rectangle {
                 }
                 Button {
                     Layout.fillWidth: showCancel
-                    font.pixelSize: units.dp(16)
                     text: i18n.tr("OK")
                     onClicked: {
                         accepted()

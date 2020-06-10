@@ -323,7 +323,7 @@ Page {
                 width: parent.width
                 /*Text {
                     id: progressLabel
-                    //font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: app.fontSizeSmall
                     anchors.verticalCenter: parent.verticalCenter
                     text: Util.getDurationString(app.controller.playbackState.progress_ms)
                 }*/
