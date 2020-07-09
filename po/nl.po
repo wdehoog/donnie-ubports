@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the donnie.wdehoog package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: donnie.wdehoog\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-10 20:23+0000\n"
+"PO-Revision-Date: 2020-07-09 21:18+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: ../qml/components/MultiItemPicker.qml:27
+msgid "Ok"
+msgstr "Oké"
+
+#: ../qml/components/MessageDialog.qml:85
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../qml/components/MessageDialog.qml:94
+msgid "OK"
+msgstr "Oké"
+
+#: ../qml/components/PageHeader.qml:24
+msgid "Back"
+msgstr "Vorige"
+
+#: ../qml/Main.qml:102 ../qml/pages/Menu.qml:28 donnie.desktop.in.h:1
+msgid "Donnie"
+msgstr "Donnie"
+
+#: ../qml/Main.qml:173
+msgid "Audio Player:"
+msgstr "Audiospeler:"
+
+#: ../qml/Main.qml:200 ../qml/Main.qml:644
+msgid "Error"
+msgstr "Fout"
+
+#: ../qml/Main.qml:200
+msgid "No UPnP Server selected."
+msgstr "Geen UPnP-server gekozen."
+
+#: ../qml/Main.qml:384
+msgid "Load previously saved queue?"
+msgstr "Wil je de eerder opgeslagen wachtrij herstellen?"
+
+#: ../qml/Main.qml:384
+msgid "Restore Queue"
+msgstr "Wachtrij herstellen"
+
+#: ../qml/Main.qml:390
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: ../qml/Main.qml:390
+msgid "No UPnP Server found"
+msgstr "Geen UPnP-server aangetroffen"
+
+#: ../qml/Main.qml:395
+msgid "UPnP Error"
+msgstr "UPnP-fout"
+
+#: ../qml/Main.qml:405
+msgid "Failed to retrieve all metadata for previously saved Ids."
+msgstr "Het ophalen van de metagegevens van eerder opgeslagen id's is mislukt."
+
+#: ../qml/Main.qml:458 ../qml/pages/Browse.qml:342
+msgid "[Top]"
+msgstr "[Top]"
+
+#: ../qml/Main.qml:474
+msgid ""
+"Failed to parse previously saved Ids.\n"
+"Can not Resume."
+msgstr ""
+"Kan eerder opgeslagen id's niet verwerken.\n"
+"Hervatten is onmogelijk."
+
+#: ../qml/Main.qml:519
+msgid "Failed to load previously saved Browse Stack Ids."
+msgstr "Kan eerder opgeslagen stack-id's niet verwerken."
+
+#: ../qml/Main.qml:553
+msgid ""
+"Failed to load previously saved Queue Ids.\n"
+"Can not Resume."
+msgstr ""
+"Kan eerder opgeslagen wachtrij-id's niet laden.\n"
+"Hervatten is onmogelijk."
+
+#: ../qml/pages/PlayerPage.qml:52
+msgid "Built-In Player"
+msgstr "Ingebouwde speler"
+
+#: ../qml/pages/PlayerPage.qml:56
+msgid "Empty List"
+msgstr "De lijst is leeg"
+
+#: ../qml/pages/PlayerPage.qml:109
+msgid "Playlist"
+msgstr "Afspeellijst"
+
+#: ../qml/pages/PlayerPage.qml:437
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: ../qml/pages/Discovery.qml:25
+msgid "UPnP Devices"
+msgstr "UPnP-apparaten"
+
+#: ../qml/pages/Discovery.qml:29
+msgid "Reload"
+msgstr "Herladen"
+
+#: ../qml/pages/Discovery.qml:163
+msgid "Device Details"
+msgstr "Apparaatinformatie"
+
+#: ../qml/pages/Settings.qml:21 ../qml/pages/Menu.qml:36
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../qml/pages/Settings.qml:44
+msgid "Load saved queue at startup and resume playing"
+msgstr "Opgeslagen wachtrij automatisch laden en hervatten"
+
+#: ../qml/pages/Settings.qml:59
+msgid "Never"
+msgstr "Nooit"
+
+#: ../qml/pages/Settings.qml:60
+msgid "Ask"
+msgstr "Vragen"
+
+#: ../qml/pages/Settings.qml:61
+msgid "Always"
+msgstr "Altijd"
+
+#: ../qml/pages/Settings.qml:72
+msgid "Show containers in search results"
+msgstr "Containers tonen in zoekresultaten"
+
+#: ../qml/pages/Settings.qml:90
+msgid "Use Album Art as app background"
+msgstr "Albumhoezen gebruiken als achtergrond"
+
+#: ../qml/pages/About.qml:14 ../qml/pages/Menu.qml:42
+msgid "About"
+msgstr "Over"
+
+#: ../qml/pages/About.qml:59
+msgid "UPnP player for Ubuntu Touch"
+msgstr "UPnP-speler voor Ubuntu Touch"
+
+#: ../qml/pages/About.qml:73
+msgid "sources"
+msgstr "bronnen"
+
+#: ../qml/pages/About.qml:85
+msgid "License: MIT"
+msgstr "Licentie: MIT"
+
+#: ../qml/pages/About.qml:96
+msgid "Translations"
+msgstr "Vertalingen"
+
+#: ../qml/pages/About.qml:115
+msgid "Thanks to"
+msgstr "Met dank aan"
+
+#: ../qml/pages/Search.qml:37 ../qml/pages/Menu.qml:69
+msgid "Search"
+msgstr "Zoeken"
+
+#: ../qml/pages/Search.qml:152
+msgid "Search for"
+msgstr "Zoeken naar"
+
+#: ../qml/pages/Search.qml:182
+msgid "Search In"
+msgstr "Zoeken in"
+
+#: ../qml/pages/Search.qml:190 ../qml/pages/Search.qml:223
+msgid "None"
+msgstr "Niet"
+
+#: ../qml/pages/Search.qml:249
+msgid "Group By"
+msgstr "Groeperen op"
+
+#: ../qml/pages/Search.qml:275 ../qml/pages/Search.qml:493
+msgid "Album"
+msgstr "Album"
+
+#: ../qml/pages/Search.qml:276 ../qml/pages/Search.qml:489
+msgid "Artist"
+msgstr "Artiest"
+
+#: ../qml/pages/Search.qml:277 ../qml/pages/Search.qml:491
+msgid "Title"
+msgstr "Titel"
+
+#: ../qml/pages/Search.qml:333 ../qml/pages/Browse.qml:254
+msgid "Add To Player"
+msgstr "Toevoegen aan speler"
+
+#: ../qml/pages/Search.qml:337 ../qml/pages/Browse.qml:258
+msgid "Replace in Player"
+msgstr "Vervangen in speler"
+
+#: ../qml/pages/Search.qml:341
+msgid "Add Group To Player"
+msgstr "Groep toevoegen aan speler"
+
+#: ../qml/pages/Search.qml:345
+msgid "Replace Group in Player"
+msgstr "Groep vervangen in speler"
+
+#: ../qml/pages/Search.qml:350 ../qml/pages/Browse.qml:262
+msgid "Add All To Player"
+msgstr "Alles toevoegen aan speler"
+
+#: ../qml/pages/Search.qml:354 ../qml/pages/Browse.qml:266
+msgid "Replace All in Player"
+msgstr "Alles vervangen in speler"
+
+#: ../qml/pages/Search.qml:495
+msgid "Genre"
+msgstr "Genre"
+
+#: ../qml/pages/Search.qml:497
+msgid "Creator"
+msgstr "Maker"
+
+#: ../qml/pages/Search.qml:499
+msgid "Publisher"
+msgstr "Uitgever"
+
+#: ../qml/pages/Search.qml:501
+msgid "Description"
+msgstr "Omschrijving"
+
+#: ../qml/pages/Search.qml:503
+msgid "User Annotation"
+msgstr "Eigen aantekening"
+
+#: ../qml/pages/Search.qml:505
+msgid "Long Description"
+msgstr "Lange omschrijving"
+
+#: ../qml/pages/Browse.qml:36 ../qml/pages/Menu.qml:65
+msgid "Browse"
+msgstr "Bladeren"
+
+#: ../qml/pages/Browse.qml:297
+msgid "Choose A Path"
+msgstr "Kies een pad"
+
+#: ../qml/pages/Menu.qml:48 ../qml/pages/Help.qml:14
+msgid "Help"
+msgstr "Hulp"
+
+#: ../qml/pages/Menu.qml:61
+msgid "UPnP Discovery"
+msgstr "UPnP-ontdekking"
+
+#: ../qml/pages/Menu.qml:73
+msgid "Player"
+msgstr "Speler"
+
+#: ../qml/UPnP.js:328
+msgid "User entered URI"
+msgstr "Eigen opgegeven uri"
